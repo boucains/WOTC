@@ -27,7 +27,7 @@ $(document).ready(function() {
     var percent = 0.010;
     var yearlyWOTCWage = 0;
 
-    yearlyWOTCWage = (Math.floor((wotcAmount) / (wotcPercentOfWage * percent)));
+    yearlyWOTCWage = Math.floor(wotcAmount / (wotcPercentOfWage * percent));
 
     return function() {
       return yearlyWOTCWage;
@@ -41,8 +41,38 @@ $(document).ready(function() {
     var workmansCompTaxPercent = 1.650;
     var unemploymentTaxPercent = 2.60;
     var socialSecurityTaxPercent = 6.20;
+    var weeklyMedicareTax = 0;
+    var weeklyWorkmansCompTax = 0;
+    var weeklyUnemploymentTax = 0;
+    var weeklySocialSecurityTax = 0;
+    var yearlyMedicareTax = 0;
+    var yearlyWorkmansCompTax = 0;
+    var yearlyUnemploymentTax = 0;
+    var yearlySocialSecurityTax = 0;
+    var week = 52;
+    var percent = 0.010;
 
-    alert(calcWOTCWage());
+    yearlyMedicareTax = Math.floor(calcWOTCWage() * (medicareTaxPercent * percent));  // should return 348
+    yearlyWorkmansCompTax = Math.floor(calcWOTCWage() * (workmansCompTaxPercent * percent)); // should return 396
+    yearlyUnemploymentTax = Math.floor(calcWOTCWage() * (unemploymentTaxPercent * percent)); // should return 624
+    yearlySocialSecurityTax = Math.floor(calcWOTCWage() * (socialSecurityTaxPercent * percent)); //should return 1488
+
+    weeklyMedicareTax = Math.floor((calcWOTCWage() * (medicareTaxPercent * percent)) / week);
+    weeklyWorkmansCompTax = Math.floor((calcWOTCWage() * (workmansCompTaxPercent * percent)) / week);
+    weeklyUnemploymentTax = Math.floor((calcWOTCWage() * (unemploymentTaxPercent * percent)) / week);
+    weeklySocialSecurityTax = Math.floor((calcWOTCWage() * (socialSecurityTaxPercent * percent)) / week);
+
+    alert(yearlyMedicareTax);
+    alert(yearlyWorkmansCompTax);
+    alert(yearlyUnemploymentTax);
+    alert(yearlySocialSecurityTax);
+
+    alert(weeklyMedicareTax);
+    alert(weeklyWorkmansCompTax);
+    alert(weeklyUnemploymentTax);
+    alert(weeklySocialSecurityTax);
   };
+
+  payrollTaxes();
 
 });
