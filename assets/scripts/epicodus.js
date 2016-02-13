@@ -57,7 +57,7 @@ $(document).ready(function() {
     annUnempTax = Math.floor(calcWOTCWage() * (unempTaxPct * percent)); // should return 624
     annSocSecTax = Math.floor(calcWOTCWage() * (socSecTaxPct * percent)); //should return 1488
 
-    wkMcareTax = (Math.floor((calcWOTCWage() * (mcareTaxPct * percent)) / week);
+    wkMcareTax = Math.floor((calcWOTCWage() * (mcareTaxPct * percent)) / week);
     wkWorkCompTax = Math.floor((calcWOTCWage() * (workCompTaxPct * percent)) / week);
     wkUnempTax = Math.floor((calcWOTCWage() * (unempTaxPct * percent)) / week);
     wkSocSecTax = Math.floor((calcWOTCWage() * (socSecTaxPct * percent)) / week);
