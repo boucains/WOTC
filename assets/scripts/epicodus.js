@@ -33,7 +33,6 @@ $(document).ready(function() {
       return yearlyWOTCWage;
     };
   }();
-
   calcWOTCWage();
 
   var payrollTaxes = function() {
@@ -44,35 +43,62 @@ $(document).ready(function() {
     var week = 52;
     var percent = 0.010;
     var wkMcareTax = 0;
+    var wkMcareTaxRnd = 0;
+    var wkMcareTaxMoney = '';
     var wkWorkCompTax = 0;
+    var wkWorkCompTaxRnd = 0;
+    var wkWorkCompTaxMoney = '';
     var wkUnempTax = 0;
+    var wkUnempTaxRnd = 0;
+    var wkUnempTaxMoney = '';
     var wkSocSecTax = 0;
-    var annMcareTax = 0;
-    var annWorkCompTax = 0;
-    var annUnempTax = 0;
-    var annSocSecTax = 0;
+    var wkSocSecTaxRnd = 0;
+    var wkSocSecTaxMoney = '';
+    var yrMcareTax = 0;
+    var yrMcareTaxRnd = 0;
+    var yrMcareTaxMoney = '';
+    var yrWorkCompTax = 0;
+    var yrWorkCompTaxRnd = 0;
+    var yrWorkCompTaxMoney = '';
+    var yrUnempTax = 0;
+    var yrUnempTaxRnd = 0;
+    var yrUnempTaxMoney = '';
+    var yrSocSecTax = 0;
+    var yrSocSecTaxRnd = 0;
+    var yrSocSecTaxMoney = '';
 
-    annMcareTax = Math.floor(calcWOTCWage() * (mcareTaxPct * percent));  // should return 348
-    annWorkCompTax = Math.floor(calcWOTCWage() * (workCompTaxPct * percent)); // should return 396
-    annUnempTax = Math.floor(calcWOTCWage() * (unempTaxPct * percent)); // should return 624
-    annSocSecTax = Math.floor(calcWOTCWage() * (socSecTaxPct * percent)); //should return 1488
+    yrMcareTax = calcWOTCWage() * (mcareTaxPct * percent);  // should return 348
+    yrMcareTaxRnd = yrMcareTax.toFixed(2);
+    yrMcareTaxMoney = '$' + yrMcareTaxRnd.toString();
+    yrWorkCompTax = calcWOTCWage() * (workCompTaxPct * percent); // should return 396
+    yrUnempTax = calcWOTCWage() * (unempTaxPct * percent); // should return 624
+    yrSocSecTax = calcWOTCWage() * (socSecTaxPct * percent); //should return 1488
 
-    wkMcareTax = Math.floor((calcWOTCWage() * (mcareTaxPct * percent)) / week);
+    wkMcareTax = (((calcWOTCWage() * (mcareTaxPct * percent))) / week); //  (x / y) + ((x / y) % z)
+    var wkMcareTaxRemainder =
     wkWorkCompTax = Math.floor((calcWOTCWage() * (workCompTaxPct * percent)) / week);
     wkUnempTax = Math.floor((calcWOTCWage() * (unempTaxPct * percent)) / week);
     wkSocSecTax = Math.floor((calcWOTCWage() * (socSecTaxPct * percent)) / week);
 
-    alert(annMcareTax);
-    alert(annWorkCompTax);
-    alert(annUnempTax);
-    alert(annSocSecTax);
-
+    alert(yrMcareTaxRnd);
+    alert(yrMcareTaxMoney);
     alert(wkMcareTax);
     alert(wkWorkCompTax);
     alert(wkUnempTax);
     alert(wkSocSecTax);
-  };
 
+    return function() {
+      return yrMcareTaxRnd;
+      return yrMcareTaxMoney;
+      return yrWorkCompTaxRnd;
+      return yrWorkCompTaxMoney;
+      return yrUnempTaxRnd;
+      return yrUnempTaxMoney;
+      return yrSocSecTaxRnd;
+      return yrSocSecTaxMoney;
+    };
+
+  }();
   payrollTaxes();
 
 });
