@@ -21,25 +21,28 @@ $(document).ready(function() {
   var trainingCost = 5000;
   var trainingPayback = 5000;
 
-  function minWOTCWage() {
-    var wotcMaxDollarValue = 9600;
+  var calcWOTCWage = function() {
+    var wotcAmount = 9600;
     var wotcPercentOfWage = 40;
     var percent = 0.010;
-    var yearlyWageMain = 0;
+    var yearlyWOTCWage = 0;
 
-    yearlyWageMain = (Math.floor((wotcMaxDollarValue) / (wotcPercentOfWage * percent)));
+    yearlyWOTCWage = (Math.floor((wotcAmount) / (wotcPercentOfWage * percent)));
 
-    return yearlyWageMain; //should be 24000
-  }
+    return function() {
+      return yearlyWOTCWage;
+    };
+  }();
 
-  minWOTCWage();
-  alert(minWOTCWage.yearlyWageMain);
+  calcWOTCWage();
 
-  function taxes() {
+  var payrollTaxes = function() {
     var medicareTaxPercent = 1.450;
     var workmansCompTaxPercent = 1.650;
     var unemploymentTaxPercent = 2.60;
     var socialSecurityTaxPercent = 6.20;
-  }
+
+    alert(calcWOTCWage());
+  };
 
 });
