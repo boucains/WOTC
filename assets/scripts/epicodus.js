@@ -67,36 +67,56 @@ $(document).ready(function() {
     var yrSocSecTaxRnd = 0;
     var yrSocSecTaxMoney = '';
 
-    yrMcareTax = calcWOTCWage() * (mcareTaxPct * percent);  // should return 348
-    yrMcareTaxRnd = yrMcareTax.toFixed(2);
+    yrMcareTax = calcWOTCWage() * (mcareTaxPct * percent);
+    yrMcareTaxRnd = yrMcareTax.toFixed(2);  // should return 348.00
     yrMcareTaxMoney = '$' + yrMcareTaxRnd.toString();
-    yrWorkCompTax = calcWOTCWage() * (workCompTaxPct * percent); // should return 396
-    yrUnempTax = calcWOTCWage() * (unempTaxPct * percent); // should return 624
-    yrSocSecTax = calcWOTCWage() * (socSecTaxPct * percent); //should return 1488
 
-    wkMcareTax = (((calcWOTCWage() * (mcareTaxPct * percent))) / week); //  (x / y) + ((x / y) % z)
-    var wkMcareTaxRemainder =
-    wkWorkCompTax = Math.floor((calcWOTCWage() * (workCompTaxPct * percent)) / week);
-    wkUnempTax = Math.floor((calcWOTCWage() * (unempTaxPct * percent)) / week);
-    wkSocSecTax = Math.floor((calcWOTCWage() * (socSecTaxPct * percent)) / week);
+    yrWorkCompTax = calcWOTCWage() * (workCompTaxPct * percent);
+    yrWorkCompTaxRnd = yrWorkCompTax.toFixed(2); // should return 396.00
+    yrWorkCompTaxMoney = '$' + yrWorkCompTaxRnd.toString();
 
-    alert(yrMcareTaxRnd);
-    alert(yrMcareTaxMoney);
-    alert(wkMcareTax);
-    alert(wkWorkCompTax);
-    alert(wkUnempTax);
-    alert(wkSocSecTax);
+    yrUnempTax = calcWOTCWage() * (unempTaxPct * percent);
+    yrUnempTaxRnd = yrUnempTax.toFixed(2); // should return 624.00
+    yrUnempTaxMoney = '$' + yrUnempTaxRnd.toString();
 
-    return function() {
-      return yrMcareTaxRnd;
-      return yrMcareTaxMoney;
-      return yrWorkCompTaxRnd;
-      return yrWorkCompTaxMoney;
-      return yrUnempTaxRnd;
-      return yrUnempTaxMoney;
-      return yrSocSecTaxRnd;
-      return yrSocSecTaxMoney;
-    };
+    yrSocSecTax = calcWOTCWage() * (socSecTaxPct * percent);
+    yrSocSecTaxRnd = yrSocSecTax.toFixed(2); //should return 1488.00
+    yrSocSecTaxMoney = '$' + yrSocSecTaxRnd.toString();
+
+    wkMcareTax = (((calcWOTCWage() * (mcareTaxPct * percent))) / week);
+    wkMcareTaxRnd = wkMcareTax.toFixed(2);  // should be 6.69
+    wkMcareTaxMoney = '$' + wkMcareTaxRnd.toString();
+
+    wkWorkCompTax = (((calcWOTCWage() * (workCompTaxPct * percent))) / week);
+    wkWorkCompTaxRnd = wkWorkCompTax.toFixed(2);  //should be 7.62
+    wkWorkCompTaxMoney = '$' + wkWorkCompTaxRnd.toString();
+
+    wkUnempTax = (((calcWOTCWage() * (unempTaxPct * percent))) / week);
+    wkUnempTaxRnd = wkUnempTax.toFixed(2);  //should be 12.00
+    wkUnempTaxMoney = '$' + wkUnempTaxRnd.toString();
+
+    wkSocSecTax = (((calcWOTCWage() * (socSecTaxPct * percent))) / week);
+    wkSocSecTaxRnd = wkSocSecTax.toFixed(2);  //should be 28.62
+    wkSocSecTaxMoney = '$' + wkSocSecTaxRnd.toString();
+
+    return {
+        wkMcareTaxRnd: wkMcareTaxRnd,
+        wkMcareTaxMoney: wkMcareTaxMoney,
+        wkWorkCompTaxRnd: wkWorkCompTaxRnd,
+        wkWorkCompTaxMoney: wkWorkCompTaxMoney,
+        wkUnempTaxRnd: wkUnempTaxRnd,
+        wkUnempTaxMoney: wkUnempTaxMoney,
+        wkSocSecTaxRnd: wkSocSecTaxRnd,
+        wkSocSecTaxMoney: wkSocSecTaxMoney,
+        yrMcareTaxRnd: yrMcareTaxRnd,
+        yrMcareTaxMoney: yrMcareTaxMoney,
+        yrWorkCompTaxRnd: yrWorkCompTaxRnd,
+        yrWorkCompTaxMoney: yrWorkCompTaxMoney,
+        yrUnempTaxRnd: yrUnempTaxRnd,
+        yrUnempTaxMoney: yrUnempTaxMoney,
+        yrSocSecTaxRnd: yrSocSecTaxRnd,
+        yrSocSecTaxMoney: yrSocSecTaxMoney
+      };
 
   }();
   payrollTaxes();
