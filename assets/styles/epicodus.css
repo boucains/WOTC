@@ -1,0 +1,54 @@
+/* styles for Waterfall Chart */
+.bar.total rect {
+    fill: rgba(44, 105, 138, 1.0);
+}
+
+.bar.positive rect {
+    fill: rgba(217, 146, 61, 1.0);
+}
+.bar.negative rect {
+    fill: rgba(43, 154, 94, 1.0);
+}
+
+.bar line.connector {
+    stroke: grey;
+    stroke-dasharray: 3;
+}
+
+.bar text {
+    fill: white;
+    font: 12px sans-serif;
+    text-anchor: middle;
+}
+
+.axis text {
+    font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+/* styles for Bar Chart with Negative Values */
+
+.bar.positive {
+    fill: steelblue;
+}
+
+.bar.negative {
+    fill: brown;
+}
+
+.axis text {
+    font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
