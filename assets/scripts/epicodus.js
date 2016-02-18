@@ -13,6 +13,7 @@ var percent = 0.010;
 var trainingWeeks = 27;
 var hoursPerWeekNormal = 40;
 var orMinWage = 9.25;
+var weeksInYear = 52;
 
 function numberWithCommas(x) {  //stolen from Elias Zamaria
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -54,17 +55,19 @@ function wotcMinWagesPaid() {
 
   maxWOTCWeeks = minWOTCWages / (orMinWage * hoursPerWeekNormal);
 
-  document.getElementById('maxWOTCCredit').innerHTML = maxWOTCCreditString;
+  maxWOTCYears = maxWOTCWeeks / weeksInYear;
+
+  document.getElementById('maxWOTCCredit').innerHTML = '$' + maxWOTCCreditString;
   document.getElementById('wotcWagePct').innerHTML = wotcWagePct;
-  document.getElementById('minWagePaid').innerHTML = minWagePaidString;
+  document.getElementById('minWagePaid').innerHTML = '$' + minWagePaidString;
   document.getElementById('minWOTCWeeks').innerHTML = minWOTCWeeks;
   document.getElementById('orMinWage').innerHTML = orMinWage;
   document.getElementById('maxWOTCWeeks').innerHTML = maxWOTCWeeks.toFixed(0);
+  document.getElementById('maxWOTCYears').innerHTML = maxWOTCYears.toFixed(2);
 
   return {
     maxWOTCCredit: maxWOTCCredit,
     wotcWagePct: wotcWagePct,
-    minWagePaid: minWagePaid
   };
 }
 wotcMinWagesPaid();
@@ -89,6 +92,14 @@ $(document).ready(function() {
   var lostStudentCash = 5000;
   var trainingCost = 5000;
   var trainingPayback = 5000;
+
+  function zeroValues() {
+
+    document.getElementById('effHrWage').innerHTML = 0;
+    document.getElementById('minHours').innerHTML = 0;
+    document.getElementById('minWeeks').innerHTML = 0;
+  }
+  zeroValues();
 
   function calcWOTCWage() {
     var yearlyWOTCWage = 0;
