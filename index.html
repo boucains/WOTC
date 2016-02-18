@@ -422,8 +422,29 @@
 
             <h1>Exploring Options</h1>
 
-            <p>The maximum WOTC credit available for me is $<span id="maxWOTCCredit"></span>. This is earned at a rate of <span id="wotcWagePct"></span> of the wage paid. This means that in order to get the maximum credit, you must pay out $<span id="minWagePaid"></span> in wages. The minimum time frame required by law is <span id="minWOTCWeeks"></span> forty-hour equivalent weeks. The maximum time frame, limited by the current minimum wage of $<span id="orMinWage"></span>, is <span id="maxWOTCWeeks"></span> forty-hour equivalent weeks.
-            </p>
+            <h2>Numbers to Know Redux</h2>
+
+            <ul>
+
+                <li><strong><span id="maxWOTCCredit"></span></strong> - the maximum WOTC credit available for me
+                </li>
+
+                <li><strong><span id="wotcWagePct"></span></strong> - the percentage of wages used to fund WOTC credits
+                </li>
+
+                <li><strong><span id="minWagePaid"></span></strong> - the total amount of wages paid required to generate the maximum credit
+                </li>
+
+                <li><strong><span id="minWOTCWeeks"></span> forty-hour equivalent weeks</strong> - the minimum time frame required by law
+                </li>
+
+                <li><strong><span id="maxWOTCWeeks"></span> forty-hour equivalent weeks</strong> (or <span id="maxWOTCYears"></span> years) - the maximum time frame, limited by the current minimum wage of <strong>$<span id="orMinWage"></span></strong>
+
+
+                </li>
+
+
+            </ul>
 
             <p>In this proposal, you may find that the effective hourly wage is too high for the proposed position, or that the assumed hours worked while training value is not to your liking. The following section shows the effect of various changes.</p>
 
@@ -435,12 +456,12 @@
             <p>What is the minimum acceptable number of total weeks worked under this proposal?</p><input type="text" name="minWeeks" id="minWeeks">
             </p>
 
-            <p>What is the minimum acceptable number of work hours during training weeks?</p><input type="text" name="minHours" id="minHours" >
+            <p>What is the minimum acceptable number of work hours during training weeks?</p><input type="text" name="minHours" id="minHours">
             </p>
 
             <button onclick="calcWOTCValues()">Change the Effective Wage</button>
 
-            <p>The effective hourly wage will be $<span id="effHrWage"></span>.</p>
+            <p id="effHrWageResult">The effective hourly wage will be $<span id="effHrWage"></span>.</p>
 
 
 
