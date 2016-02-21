@@ -1,30 +1,32 @@
 /**
- * Created by John on 02/15/2016.
+ * Created by Ben Keen https://github.com/benkeen/d3pie
+ * Modified by John on 02/15/2016.
  */
 // Weekly Tax Pie Chart Code
 var pie = new d3pie('pieChart', {// jscs:ignore requireCapitalizedConstructors
   'header': {
     'title': {
       'text': 'Weekly Payroll Cost Breakdown',
+      'color': '#2C698A',
       'fontSize': 22,
-      'font': 'open sans'
+      'font': 'open sans',
     },
     'subtitle': {
-      'color': '#999999',
+      'color': '#2C698A',
       'fontSize': 10,
       'font': 'open sans'
     },
     'titleSubtitlePadding': 12
   },
   'footer': {
-    'color': '#999999',
+    'color': '#2C698A',
     'fontSize': 11,
     'font': 'open sans',
     'location': 'bottom-center'
   },
   'size': {
     'canvasHeight': 400,
-    'canvasWidth': 590,
+    'canvasWidth': 640,
     'pieInnerRadius': '3%',
     'pieOuterRadius': '85%'
   },
@@ -33,32 +35,32 @@ var pie = new d3pie('pieChart', {// jscs:ignore requireCapitalizedConstructors
       {
         'label': 'Medicare',
         'value': 6.69,
-        'color': '#7e3838'
+        'color': '#FFEDD7'
       },
       {
         'label': 'Workman\'s Comp',
         'value': 7.62,
-        'color': '#7e6538'
+        'color': '#FFDAAF'
       },
       {
         'label': 'Unemployment Insurance',
-        'value': 12,
-        'color': '#7c7e38'
+        'value': 12.00,
+        'color': '#FFC989'
       },
       {
         'label': 'Social Security',
         'value': 28.62,
-        'color': '#587e38'
+        'color': '#FAB665'
       },
       {
         'label': 'Hourly Wage',
-        'value': 461.6,
-        'color': '#387e45'
+        'value': 461.60,
+        'color': '#D9923D'
       },
       {
         'label': 'Total',
         'value': 516.53,
-        'color': '#387e6a'
+        'color': '#D9603D'
       }
     ]
   },
@@ -72,19 +74,19 @@ var pie = new d3pie('pieChart', {// jscs:ignore requireCapitalizedConstructors
       'format': 'none'
     },
     'mainLabel': {
-      'color': '#2b698a',
+      'color': '#2C698A',
       'font': 'open sans',
-      'fontSize': 12
+      'fontSize': 14
     },
     'percentage': {
-      'color': '#e1e1e1',
+      'color': '#FA8665',
       'font': 'open sans',
       'decimalPlaces': 0
     },
     'value': {
-      'color': '#d9913c',
+      'color': '#D9603D',
       'font': 'open sans',
-      'fontSize': 12
+      'fontSize': 14
     },
     'lines': {
       'enabled': true
@@ -103,8 +105,9 @@ var pie = new d3pie('pieChart', {// jscs:ignore requireCapitalizedConstructors
   'misc': {
     'gradient': {
       'enabled': true,
-      'percentage': 77,
+      'percentage': 90,
       'color': ''
     }
-  }
+  },
+
 });
