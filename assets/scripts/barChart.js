@@ -4,8 +4,8 @@
 // Bar Chart with Negative Values Code
 
 var margin = {top: 30, right: 10, bottom: 10, left: 10},// jscs:ignore disallowMultipleVarDecl
-  width = 960 - margin.left - margin.right,
-  height = 500 - margin.top - margin.bottom;
+  width = 640 - margin.left - margin.right,
+  height = 400 - margin.top - margin.bottom;
 
 var x = d3.scale.linear()
   .range([0, width]);
@@ -16,6 +16,10 @@ var y = d3.scale.ordinal()
 var xAxis = d3.svg.axis()
   .scale(x)
   .orient('top');
+
+var yAxis = d3.svg.axis()
+  .scale(y)
+  .orient('right');
 
 var svg = d3.select('body').append('svg')
   .attr('width', width + margin.left + margin.right)
@@ -42,10 +46,15 @@ d3.tsv('./assets/data/data.tsv', type, function(error, data) {
 
   svg.append('g')
     .attr('class', 'y axis')
+    .call(yAxis);
+
+  svg.append('g')    //puts a vertical line at the zero mark
+    .attr('class', 'y axis')
     .append('line')
     .attr('x1', x(0))
     .attr('x2', x(0))
     .attr('y2', height);
+
 });
 
 function type(d) {
