@@ -1,4 +1,8 @@
 
+#coverLetter {
+    padding: 60px 0;
+}
+
 #effHrWageResult {
     padding: 20px 0;
 }
@@ -56,11 +60,11 @@
 
 /* styles for Bar Chart with Negative Values */
 
-.bar.positive {
+.bar--positive {
     fill: rgba(43, 154, 94, 1.0);
 }
 
-.bar.negative {
+.bar--negative {
     fill: rgba(217, 146, 61, 1.0);
 }
 
@@ -75,3 +79,4 @@
     stroke: rgba(44, 105, 138, 1.0);
     shape-rendering: crispEdges;
 }
+
