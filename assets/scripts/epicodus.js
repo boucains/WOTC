@@ -34,7 +34,6 @@ function calcWOTCValues() {
   effHrWage =  (maxWOTCCredit / wotcPct) / ((trainingWeeks * minWorkHoursTraining) + ((minWorkWeeks - trainingWeeks) * hoursPerWeekNormal));
 
   document.getElementById('effHrWage').innerHTML = effHrWage.toFixed(2);
-
 }
 calcWOTCValues();
 
