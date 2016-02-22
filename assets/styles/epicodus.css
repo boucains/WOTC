@@ -1,10 +1,40 @@
+body {
+
+}
+
+section {
+
+}
 
 #coverLetter {
     padding: 60px 0;
 }
 
+#coverLetter li {
+    list-style-type: none;
+}
+
+#coverLetter p {
+    padding: 0 40px;
+
+}
+
+#effHrWage {
+
+}
+
 #effHrWageResult {
     padding: 20px 0;
+}
+
+#eSig {
+    padding: 0 0 0 41px;
+    width: 150px;
+}
+
+#eSig img {
+    height: 99%;
+    width: 99%;
 }
 
 #execSummary {
@@ -17,9 +47,105 @@
     width: 100%
 }
 
+#mainProposal {
+
+}
+
+#maxWOTCCredit {
+
+}
+
+#maxWOTCWeeks {
+
+}
+
+#maxWOTCYears {
+
+}
+
+#minWagePaid {
+
+}
+
+#minWOTCWeeks {
+
+}
+
+#options {
+
+}
+
+#orMinWage {
+
+}
+
+#pieChart {
+
+}
+
+#verticalSpacing {
+
+}
+
+#wotcWagePct {
+
+}
+
 #wrapper {
     color: rgba(44, 105, 138, 1.0);
     max-width: 960px;
+}
+
+.active {
+
+}
+
+.chart {
+
+}
+
+.container-fluid {
+
+}
+
+
+.dropdown-menu {
+    background-color: rgba(206, 229, 242, 1.0);
+}
+
+.dropdown-menu .divider {
+    background-color: rgba(154, 196, 219, 1.0);
+}
+
+.dropdown-menu > li > a {
+    color: rgba(44, 105, 138, 1.0);
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:active  {
+    background-color: rgba(44, 105, 138, 1.0);
+    color: rgba(206, 229, 242, 1.0);
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+    background-color: rgba(206, 229, 242, 1.0);
+    color: rgba(44, 105, 138, 1.0);
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
+    background-color: rgba(154, 196, 219, 1.0);
+    color: rgba(44, 105, 138, 1.0);
+}
+
+.navbar {
+    background-color: rgba(206, 229, 242, 1.0);
+ }
+
+.navbar-default .navbar-nav > li > a {
+    color: rgba(44, 105, 138, 1.0);
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    color: rgba(44, 105, 138, 1.0);
 }
 
 
