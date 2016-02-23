@@ -14,6 +14,21 @@ var trainingWeeks = 27;
 var hoursPerWeekNormal = 40;
 var orMinWage = 9.25;
 var weeksInYear = 52;
+var baseEmployWeeks = 52;
+var jack = 'Jack Cain';
+var buffGuy = '';
+var oldGuy = '';
+var intern = '';
+var wotc = '';
+var employmentLengthYears = 1;
+var workWeeks = 25;
+var hoursWorkWeek = 40;
+var hoursTrainingWeek = 10;
+var internLengthWeeks = 4;
+
+var lostStudentCash = 5000;
+var trainingCost = 5000;
+var trainingPayback = 5000;
 
 function numberWithCommas(x) {  //stolen from Elias Zamaria
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -65,8 +80,9 @@ function wotcMinWagesPaid() {
   document.getElementById('maxWOTCYears').innerHTML = maxWOTCYears.toFixed(2);
 
   return {
+    minWOTCWages: minWOTCWages,
     maxWOTCCredit: maxWOTCCredit,
-    wotcWagePct: wotcWagePct,
+    wotcWagePct: wotcWagePct
   };
 }
 wotcMinWagesPaid();
@@ -74,23 +90,6 @@ wotcMinWagesPaid();
 //**********document.ready**********
 
 $(document).ready(function() {
-
-  var jack = 'Jack Cain';
-  var buffGuy = '';
-  var oldGuy = '';
-  var intern = '';
-  var wotc = '';
-  var employmentLengthYears = 1;
-  var weeks = 52;
-  var trainingWeeks = 27;
-  var workWeeks = 25;
-  var hoursWorkWeek = 40;
-  var hoursTrainingWeek = 10;
-  var internLengthWeeks = 4;
-
-  var lostStudentCash = 5000;
-  var trainingCost = 5000;
-  var trainingPayback = 5000;
 
   function zeroValues() {
 
@@ -100,10 +99,64 @@ $(document).ready(function() {
   }
   zeroValues();
 
+  function calcBaseValues() {
+
+    var minWOTCWages = 0;
+    var maxWOTCWeeks = 0;
+
+    wotcWagePct = (wotcPct * 100) + '%';
+
+    minWOTCWages = (maxWOTCCredit / wotcPct);
+
+    maxWOTCCreditString = numberWithCommas(maxWOTCCredit);
+
+    minWagePaidString = numberWithCommas(minWOTCWages);
+
+    minWOTCWeeks = minWOTCHours / hoursPerWeekNormal;
+
+    maxWOTCWeeks = minWOTCWages / (orMinWage * hoursPerWeekNormal);
+
+    maxWOTCYears = maxWOTCWeeks / weeksInYear;
+
+    lostStudentCashString = numberWithCommas(lostStudentCash);
+
+    trainingCostString = numberWithCommas(trainingCost);
+
+    trainingPaybackString = numberWithCommas(trainingPayback);
+
+    minEffWage = minWOTCWages / ((trainingWeeks * hoursTrainingWeek) + ((maxWOTCWeeks - trainingWeeks) * hoursWorkWeek) + (internLengthWeeks * hoursWorkWeek));
+
+    maxEffWage = minWOTCWages / ((trainingWeeks * hoursTrainingWeek) + ((baseEmployWeeks - trainingWeeks) * hoursWorkWeek) + (internLengthWeeks * hoursWorkWeek));
+
+    document.getElementById('maxWOTCCreditOne').innerHTML = '$' + maxWOTCCreditString;
+    document.getElementById('maxWOTCCreditTwo').innerHTML = '$' + maxWOTCCreditString;
+    document.getElementById('wotcWagePctOne').innerHTML = wotcWagePct;
+    document.getElementById('minWagePaidOne').innerHTML = '$' + minWagePaidString;
+    document.getElementById('minWOTCWeeksOne').innerHTML = minWOTCWeeks;
+    document.getElementById('orMinWageOne').innerHTML = orMinWage;
+    document.getElementById('maxWOTCWeeksOne').innerHTML = maxWOTCWeeks.toFixed(0);
+    document.getElementById('maxWOTCYearsOne').innerHTML = maxWOTCYears.toFixed(2);
+    document.getElementById('lostStudentCashStringValue').innerHTML = '$' + lostStudentCashString;
+    document.getElementById('trainingCostStringValue').innerHTML = '$' + trainingCostString;
+    document.getElementById('trainingPaybackValue').innerHTML = '$' + trainingPaybackString;
+    document.getElementById('minEffWageValue').innerHTML = '$' + minEffWage.toFixed(2);
+    document.getElementById('maxEffWageValue').innerHTML = '$' + maxEffWage.toFixed(2);
+
+    return {
+      maxWOTCCreditString: maxWOTCCreditString,
+      minWagePaidString: minWagePaidString
+    };
+  }
+  calcBaseValues();
+
   function calcWOTCWage() {
     var yearlyWOTCWage = 0;
 
-    yearlyWOTCWage = Math.floor(maxWOTCCredit / (wotcPct * percent));
+    yearlyWOTCWage = (maxWOTCCredit / wotcPct);
+
+    yearlyWOTCWageString = numberWithCommas(yearlyWOTCWage);
+
+    document.getElementById('yearlyWOTCWageValue').innerHTML = '$' + yearlyWOTCWageString;
 
     return yearlyWOTCWage;
   }
@@ -130,6 +183,8 @@ $(document).ready(function() {
     var yrUnempTaxRnd;
     var yrSocSecTax;
     var yrSocSecTaxRnd;
+    var netYearWage = 0;
+    var netYearWageString = '';
 
     yrMcareTax = calcWOTCWage() * (mcareTaxPct * percent);
     yrMcareTaxRnd = yrMcareTax.toFixed(2);  // should return 348.00
@@ -143,17 +198,35 @@ $(document).ready(function() {
     yrSocSecTax = calcWOTCWage() * (socSecTaxPct * percent);
     yrSocSecTaxRnd = yrSocSecTax.toFixed(2); //should return 1488.00
 
-    wkMcareTax = (((calcWOTCWage() * (mcareTaxPct * percent))) / weeks);
+    wkMcareTax = (((calcWOTCWage() * (mcareTaxPct * percent))) / weeksInYear);
     wkMcareTaxRnd = wkMcareTax.toFixed(2);  // should be 6.69
 
-    wkWorkCompTax = (((calcWOTCWage() * (workCompTaxPct * percent))) / weeks);
+    wkWorkCompTax = (((calcWOTCWage() * (workCompTaxPct * percent))) / weeksInYear);
     wkWorkCompTaxRnd = wkWorkCompTax.toFixed(2);  //should be 7.62
 
-    wkUnempTax = (((calcWOTCWage() * (unempTaxPct * percent))) / weeks);
+    wkUnempTax = (((calcWOTCWage() * (unempTaxPct * percent))) / weeksInYear);
     wkUnempTaxRnd = wkUnempTax.toFixed(2);  //should be 12.00
 
-    wkSocSecTax = (((calcWOTCWage() * (socSecTaxPct * percent))) / weeks);
+    wkSocSecTax = (((calcWOTCWage() * (socSecTaxPct * percent))) / weeksInYear);
     wkSocSecTaxRnd = wkSocSecTax.toFixed(2);  //should be 28.62
+
+    netYearWage = (yrMcareTax + yrWorkCompTax + yrUnempTax + yrSocSecTax + wotcMinWagesPaid().minWOTCWages + lostStudentCash + trainingCost) - (trainingPayback + maxWOTCCredit);
+
+    netYearWageString = numberWithCommas(netYearWage);
+
+    document.getElementById('mcareTaxPctValue').innerHTML = mcareTaxPct.toFixed(2) + '%';
+    document.getElementById('workCompTaxPctValue').innerHTML = workCompTaxPct.toFixed(2) + '%';
+    document.getElementById('unempTaxPctValue').innerHTML = unempTaxPct.toFixed(2) + '%';
+    document.getElementById('socSecTaxPctValue').innerHTML = socSecTaxPct.toFixed(2) + '%';
+    document.getElementById('yrMcareTaxRnd').innerHTML = '$' + yrMcareTaxRnd;
+    document.getElementById('yrWorkCompTaxRnd').innerHTML = '$' + yrWorkCompTaxRnd;
+    document.getElementById('yrUnempTaxRnd').innerHTML = '$' + yrUnempTaxRnd;
+    document.getElementById('yrSocSecTaxRnd').innerHTML = '$' + yrSocSecTaxRnd;
+    /*    document.getElementById('wkMcareTaxRnd').innerHTML = '$' + wkMcareTaxRnd;
+    document.getElementById('wkWorkCompTaxRnd').innerHTML = '$' + wkWorkCompTaxRnd;
+    document.getElementById('wkUnempTaxRnd').innerHTML = '$' + wkUnempTaxRnd;
+    document.getElementById('wkSocSecTaxRnd').innerHTML = '$' + wkSocSecTaxRnd;*/
+    document.getElementById('netYearWages').innerHTML = '$' + netYearWageString;
 
     return {
       wkMcareTaxRnd: wkMcareTaxRnd,
@@ -163,7 +236,9 @@ $(document).ready(function() {
       yrMcareTaxRnd: yrMcareTaxRnd,
       yrWorkCompTaxRnd: yrWorkCompTaxRnd,
       yrUnempTaxRnd: yrUnempTaxRnd,
-      yrSocSecTaxRnd: yrSocSecTaxRnd
+      yrSocSecTaxRnd: yrSocSecTaxRnd,
+      netYearWage: netYearWage,
+      netYearWageString: netYearWageString
     };
 
   }
