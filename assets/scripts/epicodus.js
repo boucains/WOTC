@@ -343,27 +343,33 @@ $(document).ready(function() {
 
 function calcEffWages() {
 
+  var effHrZero = 0;
+
+  function dontRefresh() {
+    $('#effWageCalcBtn').on('click', function(e) {
+      e.preventDefault() ;
+    });
+  }
+
   var weeksWorkedInput = document.getElementById('minWeeks');
   var minWorkWeeks = weeksWorkedInput.value;
-
-  if (minWorkWeeks < 27 || minWorkWeeks > 65) {
-    $('#minWeeksControl').addClass('has-error');
-  }else {
-
-  }
 
   var workHoursTrainingInput = document.getElementById('minHours');
   var minWorkHoursTraining = workHoursTrainingInput.value;
 
-  if (minWorkHoursTraining < 0 || minWorkHoursTraining > 10) {
-    $('#minHoursControl').addClass('has-error');
-  }
-
   var effHrWage =  (maxWOTCCredit / wotcPct) / ((trainingWeeks * minWorkHoursTraining) + ((minWorkWeeks - trainingWeeks) * hoursWorkWeek) + (internLengthHours));
 
-  $('#effWageCalcBtn').on('click', function(e) {
-    e.preventDefault() ;
-  });
-
-  document.getElementById('effHrWageNew').innerHTML = effHrWage.toFixed(2);
+  if ((minWorkWeeks >= 27 && minWorkWeeks <= 65) && (minWorkHoursTraining >= 0 && minWorkHoursTraining <= 10)) {
+    $('#minWeeksControl').removeClass('has-error');
+    $('#minHoursControl').removeClass('has-error');
+    document.getElementById('effHrWageNew').innerHTML = effHrWage.toFixed(2);
+  }else if (minWorkWeeks < 27 || minWorkWeeks > 65) {
+    $('#minWeeksControl').addClass('has-error');
+    document.getElementById('effHrWageNew').innerHTML = effHrZero.toFixed(0);
+  }else if (minWorkHoursTraining < 0 || minWorkHoursTraining > 10) {
+    $('#minHoursControl').addClass('has-error');
+    document.getElementById('effHrWageNew').innerHTML = effHrZero.toFixed(0);
+  }
+  dontRefresh();
 }
+
