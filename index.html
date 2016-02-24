@@ -375,7 +375,7 @@
         <p>I am a disabled veteran who is requesting a hand up, not a hand out. After an injury and layoff in 2009, I am out of personal resources and options. This proposal allows me to attend Epicodus while providing a clear financial mechanism for you to recoup those costs and more.
         </p>
 
-        <p>There are several possible scenarios. Most likely, I would begin by performing an approximately four-week internship at no cost to you, sponsored by the <a href="http://www.rebootnw.org/" target="_blank">Federal “Reboot” program</a>. Upon successful completion, I would become an employee of Epicodus for between 52 and 65 weeks in order for you to receive a <a href="https://www.doleta.gov/business/incentives/opptax/" target="_blank">Work Opportunity Tax Credit</a> (WOTC). My hourly rate would be between $9.25 and $11.54 per hour. At some point during this time I would attend a full course of Epicodus training. No health insurance, vacation, or other benefits are expected.
+        <p>There are several possible scenarios. Most likely, I would begin by performing an approximately four-week internship at no cost to you, sponsored by the <a href="http://www.rebootnw.org/" target="_blank">Federal “Reboot” program</a>. Upon successful completion, I would become an employee of Epicodus for between 52 and 65 weeks in order for you to receive a <a href="https://www.doleta.gov/business/incentives/opptax/" target="_blank">Work Opportunity Tax Credit</a> (WOTC). My hourly rate would be between $9.25 and $11.54 per hour, but the effective rate would be somewhat higher as explained below. At some point during this time I would attend a full course of Epicodus training. No health insurance, vacation, or other benefits are expected.
         </p>
 
         <p>I have a <a href="https://www.linkedin.com/in/johnpatrickcain" target="_blank">wide range of technical and administrative skills</a> that are of use supporting your busy staff, as well as a lifelong drive to help others.
@@ -385,21 +385,21 @@
 
         <dl class="dl-horizontal execNumKnow">
 
-            <dt><strong><span id="maxWOTCCreditOne"></span></strong></dt>
+            <dt><strong><span id="maxWOTCCredit"></span></strong></dt>
             <dd>the maximum WOTC amount available for me</dd>
 
-            <dt><strong><span id="wotcWagePctOne"></span></strong></dt>
+            <dt><strong><span id="wotcWagePct"></span></strong></dt>
             <dd>the percentage of wages used to fund WOTC amounts</dd>
 
-            <dt><strong><span id="minWagePaidOne"></span></strong></dt>
+            <dt><strong><span id="minWagePaid"></span></strong></dt>
             <dd>the total amount of wages paid required to generate the maximum credit</dd>
 
-            <dt><strong><span id="minWOTCWeeksOne"></span></strong></dt>
+            <dt><strong><span id="minWOTCWeeks"></span></strong></dt>
             <dd>the minimum forty-hour equivalent weeks required by law</dd>
 
-            <dt><strong><span id="maxWOTCWeeksOne"></span> Weeks</strong> (<span id="maxWOTCYearsOne"></span> years)</dt>
+            <dt><strong><span id="maxWOTCWeeks"></span> Weeks</strong> (<span id="maxWOTCYears"></span> years)</dt>
             <dd>the maximum number of forty-hour equivalent weeks to reach maximum WOTC</dd>
-            <dd>- limited by the current minimum wage of $<span id="orMinWageOne"></span></dd>
+            <dd>- limited by the current minimum wage of $<span id="orMinWage"></span></dd>
             <dd>- please note that the new Oregon minimum wage will change in 2017, which will decrease the maximum number of weeks required to obtain the maximum WOTC</dd>
 
             <dt><strong><span id="netYearWages"></span></strong></dt>
@@ -435,15 +435,29 @@
         <p>Wages during training are essential. Working full time during training is unrealistic. The minimum hours worked while training is suggested to be 10 hours per week. You may feel that the effective wage shown is too high (or too low). If you feel that either of the default values is unacceptable, changing them will change the effective wage.
         </p>
 
-        <p>What is the minimum acceptable number of total weeks worked under this proposal? <input type="text" name="minWeeks" id="minWeeksValue">
+        <form id='effHrWageForm'>
+            <div id="minWeeksControl" class='form-group'>
+                <label class="control-label" for='minWeeks'>Enter the minimum acceptable number of total weeks, with a minimum of 27 and a maximum of 65, that you wish worked under this proposal</label>
+                <input type="number" class="form-control" id="minWeeks" min="27" max="65" required>
+            </div>
+            <div id="minHoursControl" class="form-group">
+                <label for="minHours">Enter the minimum acceptable number of work hours, with a maximum of 10, you wish worked during training weeks</label>
+                <input type="number" class="form-control" id="minHours" min='0' max='10' required>
+            </div>
+            <button type="submit" id="effWageCalcBtn" onclick="calcEffWages()" class="btn btn-default">Change the Effective Wage</button>
+        </form>
+<!--        <form>
+        <p>Enter the minimum acceptable number of total weeks, with a minimum of 10 and a maximum of 65, that you wish worked under this proposal? <input type="number" name="minWeeks" id="minWeeks" min="10" max="100">
         </p>
 
-        <p>What is the minimum acceptable number of work hours during training weeks? <input type="text" name="minHours" id="minHoursValue">
+        <p>Enter the minimum acceptable number of work hours, with a maximum of 10, you wish worked during training weeks? <input type="number" name="minHours" id="minHours" min="0" max="10">
         </p>
 
-        <button onclick="calcEffWages()">Change the Effective Wage</button>
+        <button id="effWageCalcBtn" onclick="calcEffWages()">Change the Effective Wage</button>
 
-        <p id="effHrWageResult">The new effective hourly wage is $<span id="effHrWageValue"></span>.</p>
+            </form>-->
+
+        <p id="effHrWageResult">The new effective hourly wage is $<span id="effHrWageNew"></span>.</p>
 
     </div> <!--end execSummary div -->
 
@@ -641,38 +655,8 @@
 
         <hr>
 
-        <div id="options">
-
-            <h1>Exploring Options</h1>
-
-            <h2>Numbers to Know</h2>
-
-            <dl class="dl-horizontal">
-
-                <dt><strong><span id="maxWOTCCredit"></span></strong></dt>
-                <dd>- the maximum WOTC credit available for me</dd>
-
-                <dt><strong><span id="wotcWagePct"></span></strong></dt>
-                <dd>- the percentage of wages used to fund WOTC credits</dd>
-
-                <dt><strong><span id="minWagePaid"></span></strong></dt>
-                <dd>- the total amount of wages paid required to generate the maximum credit</dd>
-
-                <dt><strong><span id="minWOTCWeeks"></span> forty-hour equivalent weeks</strong></dt>
-                <dd> - the minimum time frame required by law</dd>
-
-                <dt><strong><span id="maxWOTCWeeks"></span> forty-hour equivalent weeks</strong> (or <span id="maxWOTCYears"></span> years)</dt>
-                <dd> - the maximum time frame, limited by the current minimum wage of <strong>$<span id="orMinWage"></span></strong></dd>
-
-            </dl>
 
             <hr>
-
-
-
-        </div><!-- end options div -->
-
-
 
     </div><!--end mainProposal div -->
 
