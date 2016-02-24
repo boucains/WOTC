@@ -331,17 +331,17 @@
 
     <div id="coverLetter">
 
-        <ul class="unstyled">
+        <address>
 
-            <li>Mr. Michael Kaiser-Nyman</li>
-            <li>400 SW 6th Ave, Suite 800</li>
-            <li>Portland OR 97204</li>
-            <li>&nbsp;</li>
-            <li>February 18, 2016</li>
-            <li>&nbsp;</li>
-            <li>RE: Work for Training Proposal</li>
+            Mr. Michael Kaiser-Nyman<br>
+            400 SW 6th Ave, Suite 800<br>
+            Portland OR 97204<br>
+            &nbsp;<br>
+            February 18, 2016<br>
+            &nbsp;<br>
+            RE: Work for Training Proposal<br>
 
-        </ul>
+        </address>
 
         <p>Dear Mr. Kaiser-Nyman, </p>
 
@@ -351,7 +351,7 @@
         <p>I am a service-connected disabled vet who would like to attend Epicodus, but funding is an issue. I have employment incentives from two Federal sources totaling approximately $12,100. Most of this money is only available if I am your employee. The proposal below details many costs and benefits from trading approximately one year’s employment plus these incentives for your training. The overview explains my skills and the circumstances that brought me to this request.
         </p>
 
-        <p>Please allow me some time with you or your representative in person to provide further details. I hope that the creative thinking behind this proposal provides some evidence of my ability to find unique solutions to problems, a talent that saved Seagate Technology over a million dollars across eight years.   I truly believe that I can provide services to Epicodus that will make this a clear benefit to your company, your staff, and your students.
+        <p>Please allow me some time with you or your representative in person to provide further details. I hope that the creative thinking behind this proposal provides some evidence of my ability to find unique solutions to problems, a talent that saved Seagate Technology over a million dollars across eight years. I truly believe that I can provide services to Epicodus that will make this a clear benefit to your company, your staff, and your students.
         </p>
 
         <p>Sincerely,</p>
@@ -375,7 +375,7 @@
         <p>I am a disabled veteran who is requesting a hand up, not a hand out. After an injury and layoff in 2009, I am out of personal resources and options. This proposal allows me to attend Epicodus while providing a clear financial mechanism for you to recoup those costs and more.
         </p>
 
-        <p>There are several possible scenarios. Most likely, I would begin by performing a four-week internship at no cost to you, sponsored by the <a href="http://www.rebootnw.org/" target="_blank">Federal “Reboot” program</a>. Upon successful completion, I would become an employee of Epicodus for between 52 and 65 weeks in order for you to receive a <a href="https://www.doleta.gov/business/incentives/opptax/" target="_blank">Work Opportunity Tax Credit</a> (WOTC). My hourly rate would be between $9.25 and $11.54 per hour. At some point during this time I would attend a full course of Epicodus training. No health insurance, vacation, or other benefits are expected.
+        <p>There are several possible scenarios. Most likely, I would begin by performing an approximately four-week internship at no cost to you, sponsored by the <a href="http://www.rebootnw.org/" target="_blank">Federal “Reboot” program</a>. Upon successful completion, I would become an employee of Epicodus for between 52 and 65 weeks in order for you to receive a <a href="https://www.doleta.gov/business/incentives/opptax/" target="_blank">Work Opportunity Tax Credit</a> (WOTC). My hourly rate would be between $9.25 and $11.54 per hour. At some point during this time I would attend a full course of Epicodus training. No health insurance, vacation, or other benefits are expected.
         </p>
 
         <p>I have a <a href="https://www.linkedin.com/in/johnpatrickcain" target="_blank">wide range of technical and administrative skills</a> that are of use supporting your busy staff, as well as a lifelong drive to help others.
@@ -383,91 +383,67 @@
 
         <h2>Numbers to Know</h2>
 
-        <dl class="dl-horizontal execNumbersToKnow">
+        <dl class="dl-horizontal execNumKnow">
 
             <dt><strong><span id="maxWOTCCreditOne"></span></strong></dt>
-            <dd>- the maximum WOTC amount available for me</dd>
+            <dd>the maximum WOTC amount available for me</dd>
 
             <dt><strong><span id="wotcWagePctOne"></span></strong></dt>
-            <dd>- the percentage of wages used to fund WOTC amounts</dd>
+            <dd>the percentage of wages used to fund WOTC amounts</dd>
 
             <dt><strong><span id="minWagePaidOne"></span></strong></dt>
-            <dd>- the total amount of wages paid required to generate the maximum credit</dd>
+            <dd>the total amount of wages paid required to generate the maximum credit</dd>
 
             <dt><strong><span id="minWOTCWeeksOne"></span></strong></dt>
-            <dd>- the minimum forty-hour equivalent weeks required by law</dd>
+            <dd>the minimum forty-hour equivalent weeks required by law</dd>
 
             <dt><strong><span id="maxWOTCWeeksOne"></span> Weeks</strong> (<span id="maxWOTCYearsOne"></span> years)</dt>
-            <dd>- the maximum number of forty-hour equivalent weeks, limited by the current minimum wage of <strong>$<span id="orMinWageOne"></span></strong></dd>
+            <dd>the maximum number of forty-hour equivalent weeks to reach maximum WOTC</dd>
+            <dd>- limited by the current minimum wage of $<span id="orMinWageOne"></span></dd>
             <dd>- please note that the new Oregon minimum wage will change in 2017, which will decrease the maximum number of weeks required to obtain the maximum WOTC</dd>
 
             <dt><strong><span id="netYearWages"></span></strong></dt>
-            <dd>- net wages paid, (<a href="#pieChart">charts</a>) including:</dd>
-            <dd>Medicare tax of <strong><span id="mcareTaxPctValue"></span></strong> totalling <strong><span id="yrMcareTaxRnd"></span></strong></dd>
-            <dd>Workman's Comp tax of <strong><span id="workCompTaxPctValue"></span></strong> totalling <strong><span id="yrWorkCompTaxRnd"></span></strong></dd>
-            <dd>Unemployment tax of <strong><span id="unempTaxPctValue"></span></strong> totalling <strong><span id="yrUnempTaxRnd"></span></strong></dd>
-            <dd>Social Security tax of <strong><span id="socSecTaxPctValue"></span></strong> totalling <strong><span id="yrSocSecTaxRnd"></span></strong></dd>
-            <dd>Wages paid of <strong><span id="yearlyWOTCWageValue"></span></strong></dd>
-            <dd>Lost outside student training revenue of <strong><span id="lostStudentCashStringValue"></span></strong></dd>
-            <dd>Tuition cost for my training slot <strong><span id="trainingCostStringValue"></span></strong></dd>
-            <dd>Tuition revenue from my training slot, paid from wages, <strong><span id="trainingPaybackValue" class="red"></span></strong></dd>
-            <dd>WOTC amount of <strong><span id="maxWOTCCreditTwo" class="red"></span></strong></dd>
+            <dd>net wages paid, (<a href="#pieChart">charts</a>), for up to 65 weeks of work, including:</dd>
+            <dd><strong>Taxes:</strong></dd>
+            <dd>- Medicare tax of <span id="mcareTaxPctValue"></span> totalling <strong><span id="yrMcareTaxRnd"></span></strong></dd>
+            <dd>- Workman's Comp tax of <span id="workCompTaxPctValue"></span> totalling <strong><span id="yrWorkCompTaxRnd"></span></strong></dd>
+            <dd>- Unemployment tax of <span id="unempTaxPctValue"></span> totalling <strong><span id="yrUnempTaxRnd"></span></strong></dd>
+            <dd>- Social Security tax of <span id="socSecTaxPctValue"></span> totalling <strong><span id="yrSocSecTaxRnd"></span></strong></dd>
+            <dd><strong>Wages:</strong></dd>
+            <dd>- Wages paid of <strong><span id="yearlyWOTCWageValue"></span></strong></dd>
+            <dd><strong>Revenue Loss:</strong></dd>
+            <dd>- Lost outside student training revenue of <strong><span id="lostStudentCashStringValue"></span></strong></dd>
+            <dd>- Tuition cost for my training slot <strong><span id="trainingCostStringValue"></span></strong></dd>
+            <dd><strong>Revenue Gain:</strong></dd>
+            <dd>- Tuition revenue from my training slot, paid from wages, <strong><span id="trainingPaybackValue" class="red"></span></strong></dd>
+            <dd>- WOTC amount of <strong><span id="maxWOTCCreditTwo" class="red"></span></strong></dd>
 
             <dt><strong><span id="minEffWageValue"></span></strong></dt>
-            <dd>- the minimum effective hourly wage for a 65-week employment period</dd>
+            <dd>the minimum effective hourly wage for a 65-week employment period</dd>
             <dd>- based on a 40-hour work week with 10 work hours per training week</dd>
-            <dd>- includes 160 hour free (to you) internship period</dd>
+            <dd>- includes ~160 hour free (to you) internship period</dd>
 
             <dt><strong><span id="maxEffWageValue"></span></strong></dt>
-            <dd>- the maximum effective hourly wage for a 52-week employment period</dd>
+            <dd>the maximum effective hourly wage for a 52-week employment period</dd>
             <dd>- based on a 40-hour work week with 10 work hours per training week</dd>
-            <dd>- includes 160 hour free (to you) internship period</dd>
+            <dd>- includes ~160 hour free (to you) internship period</dd>
 
         </dl>
 
-        <div>
+        <h2>Effective Hourly Wage Adjustments</h2>
 
-            <div>
-
-                <dl class="dl-horizontal">
-
-                    <dt>Benefits to Epicodus</dt>
-
-                    <dd>No Cost Four-Week Internship</dd>
-
-                    <dd>Estimated Non-Training Work Hours = 1,270 - 1,790</dd>
-
-                    <dd>WOTC Credit = $9,600 </dd>
-
-                    <dd>Training Repaid from Wages = $5,000</dd>
-
-                </dl>
-
-                <dl class="dl-horizontal">
-
-                    <dt>Costs to Epicodus</dt>
-
-                    <dd>Wages Social Security Tax</dd>
-
-                    <dd>Employer Share Medicare Tax</dd>
-
-                    <dd>Employer Share Unemployment Insurance Tax</dd>
-
-                    <dd>Workman’s Compensation</dd>
-
-                    <dd>Lost External Cash from Training = $5,000</dd>
-
-                </dl>
-
-            </div> <!-- end row-fluid div -->
-
-        </div> <!-- end col-12 div -->
-
-        <h2>Options</h2>
-
-        <p>Length of Employment / Hourly Wage: The minimum employment period required to get the WOTC credit is 400 paid hours. The credit is calculated at 40% of wages. By varying the length of employment / hourly wage ratio, adjustments can be made to the proposal, i.e. extending the employment period because the net wage is too high to justify hiring while training.
-            OJT / Internship: The Reboot grant has options, but is limited by conditions. Instead of a four-week internship, this money could be paid directly to Epicodus to compensate for OJT. This decreases the total time and the net hourly wage, but would most likely require a waiver from the Reboot program.
+        <p>Wages during training are essential. Working full time during training is unrealistic. The minimum hours worked while training is suggested to be 10 hours per week. You may feel that the effective wage shown is too high (or too low). If you feel that either of the default values is unacceptable, changing them will change the effective wage.
         </p>
+
+        <p>What is the minimum acceptable number of total weeks worked under this proposal? <input type="text" name="minWeeks" id="minWeeksValue">
+        </p>
+
+        <p>What is the minimum acceptable number of work hours during training weeks? <input type="text" name="minHours" id="minHoursValue">
+        </p>
+
+        <button onclick="calcEffWages()">Change the Effective Wage</button>
+
+        <p id="effHrWageResult">The new effective hourly wage is $<span id="effHrWageValue"></span>.</p>
 
     </div> <!--end execSummary div -->
 
@@ -692,22 +668,7 @@
 
             <hr>
 
-            <p>In this proposal, you may find that the effective hourly wage is too high for the proposed position, or that the assumed hours worked while training value is not to your liking. The following section shows the effect of various changes.</p>
 
-            <h2>Effective Hourly Wage Adjustments</h2>
-
-            <p>Wages during training are essential. Working full time during training is unrealistic. The minimum hours worked while training is suggested to be 10 hours per week. You may feel that the effective wage shown is too high (or too low). If you feel that either of the default values is unacceptable, changing them will change the effective wage.
-            </p>
-
-            <p>What is the minimum acceptable number of total weeks worked under this proposal? <input type="text" name="minWeeks" id="minWeeks">
-            </p>
-
-            <p>What is the minimum acceptable number of work hours during training weeks? <input type="text" name="minHours" id="minHours">
-            </p>
-
-            <button onclick="calcWOTCValues()">Change the Effective Wage</button>
-
-            <p id="effHrWageResult">The effective hourly wage will be $<span id="effHrWage"></span>.</p>
 
         </div><!-- end options div -->
 
