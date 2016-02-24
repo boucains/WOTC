@@ -437,11 +437,11 @@
 
         <form id='effHrWageForm'>
             <div id="minWeeksControl" class='form-group'>
-                <label class="control-label" for='minWeeks'>Enter the minimum acceptable number of total weeks, with a minimum of 27 and a maximum of 65, that you wish worked under this proposal</label>
+                <label class="control-label" for='minWeeks'>Enter the minimum acceptable number of total weeks, with a minimum of 27 and a maximum of 65, that you wish worked under this proposal. The most likely values will be between 52 and 65.</label>
                 <input type="number" class="form-control" id="minWeeks" min="27" max="65" required>
             </div>
             <div id="minHoursControl" class="form-group">
-                <label for="minHours">Enter the minimum acceptable number of work hours, with a maximum of 10, you wish worked during training weeks</label>
+                <label for="minHours">Enter the minimum acceptable number of work hours, with a maximum of 10, you wish worked during training weeks.</label>
                 <input type="number" class="form-control" id="minHours" min='0' max='10' required>
             </div>
             <button type="submit" id="effWageCalcBtn" onclick="calcEffWages()" class="btn btn-default">Change the Effective Wage</button>
