@@ -25,16 +25,7 @@ section {
 
 #coverLetter {
     background-color: rgba(255, 255, 255, 1.0);
-    padding: 60px 0;
-}
-
-#coverLetter li {
-    list-style-type: none;
-}
-
-#coverLetter p {
-    padding: 0 40px;
-
+    padding: 60px 40px;
 }
 
 #effHrWage {
@@ -46,8 +37,7 @@ section {
 }
 
 #eSig {
-    padding: 0 0 0 41px;
-    width: 150px;
+    width: 100px;
 }
 
 #eSig img {
@@ -57,6 +47,10 @@ section {
 
 #execSummary {
     padding: 0 40px;
+}
+
+#execSummary h2 {
+    font-size: 200%;
 }
 
 #intro {
@@ -144,7 +138,7 @@ section {
     color: rgba(206, 229, 242, 1.0);
 }
 
-.execNumbersToKnow dd {
+.execNumKnow dd {
     padding: 0 0 10px 0;
 }
 
