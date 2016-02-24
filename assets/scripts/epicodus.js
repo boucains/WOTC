@@ -30,65 +30,19 @@ function numberWithCommas(x) {  //stolen from Elias Zamaria
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 } // see http://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript
 
-function calcEffWages() {
-
-  var workHoursTrainingInput = document.getElementById('minHoursValue');
-  var minWorkHoursTraining = workHoursTrainingInput.value;
-
-  var weeksWorkedInput = document.getElementById('minWeeksValue');
-  var minWorkWeeks = weeksWorkedInput.value;
-
-  var effHrWage =  (maxWOTCCredit / wotcPct) / ((trainingWeeks * minWorkHoursTraining) + ((minWorkWeeks - trainingWeeks) * hoursWorkWeek) + (internLengthHours));
-
-  document.getElementById('effHrWageValue').innerHTML = effHrWage.toFixed(2);
-}
-calcEffWages();
-
-function calcWOTCValues() {
-
-  var wotcWagePct = (wotcPct * 100) + '%';
-
-  var minWOTCWages = (maxWOTCCredit / wotcPct);
-
-  var maxWOTCCreditString = numberWithCommas(maxWOTCCredit);
-
-  var minWagePaidString = numberWithCommas(minWOTCWages);
-
-  var minWOTCWeeks = minWOTCHours / hoursWorkWeek;
-
-  var maxWOTCWeeks = minWOTCWages / (orMinWage * hoursWorkWeek);
-
-  var maxWOTCYears = maxWOTCWeeks / weeksInYear;
-
-  document.getElementById('maxWOTCCredit').innerHTML = '$' + maxWOTCCreditString;
-  document.getElementById('wotcWagePct').innerHTML = wotcWagePct;
-  document.getElementById('minWagePaid').innerHTML = '$' + minWagePaidString;
-  document.getElementById('minWOTCWeeks').innerHTML = minWOTCWeeks.toFixed(0);
-  document.getElementById('orMinWage').innerHTML = orMinWage.toFixed(2);
-  document.getElementById('maxWOTCWeeks').innerHTML = maxWOTCWeeks.toFixed(0);
-  document.getElementById('maxWOTCYears').innerHTML = maxWOTCYears.toFixed(2);
-
-  return {
-    minWOTCWages: minWOTCWages,
-    maxWOTCCredit: maxWOTCCredit,
-    wotcWagePct: wotcWagePct
-  };
-}
-calcWOTCValues();
-
 //**********document.ready**********
 
 $(document).ready(function() {
 
   function zeroValues() {
 
-    var effHrWage = 0;
+    var effHrWageNew = 0;
     var minHours = 0;
     var minWeeks = 0;
 
-    document.getElementById('effHrWageValue').innerHTML = effHrWage.toFixed(0);
-    document.getElementById('minHoursValue').innerHTML = minHours.toFixed(0);
-    document.getElementById('minWeeksValue').innerHTML = minWeeks.toFixed(0);
+    document.getElementById('effHrWageNew').innerHTML = effHrWageNew.toString();
+    document.getElementById('minHours').innerHTML = minHours.toString();;
+    document.getElementById('minWeeks').innerHTML = minWeeks.toString();
   }
   zeroValues();
 
@@ -119,14 +73,14 @@ $(document).ready(function() {
 
     var maxEffWage = minWOTCWages / ((trainingWeeks * hoursTrainingWeek) + ((baseEmployWeeks - trainingWeeks) * hoursWorkWeek) + (internLengthHours));
 
-    document.getElementById('maxWOTCCreditOne').innerHTML = '$' + maxWOTCCreditString;
+    document.getElementById('maxWOTCCredit').innerHTML = '$' + maxWOTCCreditString;
     document.getElementById('maxWOTCCreditTwo').innerHTML = '$' + maxWOTCCreditString;
-    document.getElementById('wotcWagePctOne').innerHTML = wotcWagePct;
-    document.getElementById('minWagePaidOne').innerHTML = '$' + minWagePaidString;
-    document.getElementById('minWOTCWeeksOne').innerHTML = minWOTCWeeks.toFixed(0);
-    document.getElementById('orMinWageOne').innerHTML = orMinWage.toFixed(2);
-    document.getElementById('maxWOTCWeeksOne').innerHTML = maxWOTCWeeks.toFixed(0);
-    document.getElementById('maxWOTCYearsOne').innerHTML = maxWOTCYears.toFixed(2);
+    document.getElementById('wotcWagePct').innerHTML = wotcWagePct;
+    document.getElementById('minWagePaid').innerHTML = '$' + minWagePaidString;
+    document.getElementById('minWOTCWeeks').innerHTML = minWOTCWeeks.toFixed(0);
+    document.getElementById('orMinWage').innerHTML = orMinWage.toFixed(2);
+    document.getElementById('maxWOTCWeeks').innerHTML = maxWOTCWeeks.toFixed(0);
+    document.getElementById('maxWOTCYears').innerHTML = maxWOTCYears.toFixed(2);
     document.getElementById('lostStudentCashStringValue').innerHTML = '$' + lostStudentCashString;
     document.getElementById('trainingCostStringValue').innerHTML = '$' + trainingCostString;
     document.getElementById('trainingPaybackValue').innerHTML = '$' + trainingPaybackString;
@@ -139,6 +93,38 @@ $(document).ready(function() {
     };
   }
   calcBaseValues();
+
+  function calcWOTCValues() {
+
+    var wotcWagePct = (wotcPct * 100) + '%';
+
+    var minWOTCWages = (maxWOTCCredit / wotcPct);
+
+    var maxWOTCCreditString = numberWithCommas(maxWOTCCredit);
+
+    var minWagePaidString = numberWithCommas(minWOTCWages);
+
+    var minWOTCWeeks = minWOTCHours / hoursWorkWeek;
+
+    var maxWOTCWeeks = minWOTCWages / (orMinWage * hoursWorkWeek);
+
+    var maxWOTCYears = maxWOTCWeeks / weeksInYear;
+
+    document.getElementById('maxWOTCCredit').innerHTML = '$' + maxWOTCCreditString;
+    document.getElementById('wotcWagePct').innerHTML = wotcWagePct;
+    document.getElementById('minWagePaid').innerHTML = '$' + minWagePaidString;
+    document.getElementById('minWOTCWeeks').innerHTML = minWOTCWeeks.toFixed(0);
+    document.getElementById('orMinWage').innerHTML = orMinWage.toFixed(2);
+    document.getElementById('maxWOTCWeeks').innerHTML = maxWOTCWeeks.toFixed(0);
+    document.getElementById('maxWOTCYears').innerHTML = maxWOTCYears.toFixed(2);
+
+    return {
+      minWOTCWages: minWOTCWages,
+      maxWOTCCredit: maxWOTCCredit,
+      wotcWagePct: wotcWagePct
+    };
+  }
+  calcWOTCValues();
 
   function calcWOTCWage() {
 
@@ -354,3 +340,30 @@ $(document).ready(function() {
   }
 
 });
+
+function calcEffWages() {
+
+  var weeksWorkedInput = document.getElementById('minWeeks');
+  var minWorkWeeks = weeksWorkedInput.value;
+
+  if (minWorkWeeks < 27 || minWorkWeeks > 65) {
+    $('#minWeeksControl').addClass('has-error');
+  }else {
+
+  }
+
+  var workHoursTrainingInput = document.getElementById('minHours');
+  var minWorkHoursTraining = workHoursTrainingInput.value;
+
+  if (minWorkHoursTraining < 0 || minWorkHoursTraining > 10) {
+    $('#minHoursControl').addClass('has-error');
+  }
+
+  var effHrWage =  (maxWOTCCredit / wotcPct) / ((trainingWeeks * minWorkHoursTraining) + ((minWorkWeeks - trainingWeeks) * hoursWorkWeek) + (internLengthHours));
+
+  $('#effWageCalcBtn').on('click', function(e) {
+    e.preventDefault() ;
+  });
+
+  document.getElementById('effHrWageNew').innerHTML = effHrWage.toFixed(2);
+}
