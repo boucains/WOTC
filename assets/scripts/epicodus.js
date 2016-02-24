@@ -6,76 +6,65 @@
 
 //code that runs outside of document.ready
 
-var maxWOTCCredit = 9600;
-var wotcPct = 0.40;
-var minWOTCHours = 400;
-var percent = 0.010;
-var trainingWeeks = 27;
-var hoursPerWeekNormal = 40;
-var orMinWage = 9.25;
-var weeksInYear = 52;
 var baseEmployWeeks = 52;
-var jack = 'Jack Cain';
 var buffGuy = '';
-var oldGuy = '';
-var intern = '';
-var wotc = '';
-var employmentLengthYears = 1;
-var workWeeks = 25;
 var hoursWorkWeek = 40;
 var hoursTrainingWeek = 10;
-var internLengthWeeks = 4;
-
+var intern = '';
+var internLengthHours = 160;
+var jack = 'Jack Cain';
 var lostStudentCash = 5000;
+var maxWOTCCredit = 9600;
+var minWOTCHours = 400;
+var oldGuy = '';
+var orMinWage = 9.25;
+var percent = 0.010;
 var trainingCost = 5000;
 var trainingPayback = 5000;
+var trainingWeeks = 27;
+var weeksInYear = 52;
+var wotc = '';
+var wotcPct = 0.40;
 
 function numberWithCommas(x) {  //stolen from Elias Zamaria
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 } // see http://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript
 
-function calcWOTCValues() {
-  var yearlyWOTCWage = 0;
-  var proposedWage = 0;
-  var weeksTraining = 27;
-  var effHrWage = 0;
+function calcEffWages() {
 
-  var workHoursTrainingInput = document.getElementById('minHours');
-  minWorkHoursTraining = workHoursTrainingInput.value;
+  var workHoursTrainingInput = document.getElementById('minHoursValue');
+  var minWorkHoursTraining = workHoursTrainingInput.value;
 
-  weeksWorkedInput = document.getElementById('minWeeks');
-  minWorkWeeks = weeksWorkedInput.value;
+  var weeksWorkedInput = document.getElementById('minWeeksValue');
+  var minWorkWeeks = weeksWorkedInput.value;
 
-  effHrWage =  (maxWOTCCredit / wotcPct) / ((trainingWeeks * minWorkHoursTraining) + ((minWorkWeeks - trainingWeeks) * hoursPerWeekNormal));
+  var effHrWage =  (maxWOTCCredit / wotcPct) / ((trainingWeeks * minWorkHoursTraining) + ((minWorkWeeks - trainingWeeks) * hoursWorkWeek) + (internLengthHours));
 
-  document.getElementById('effHrWage').innerHTML = effHrWage.toFixed(2);
+  document.getElementById('effHrWageValue').innerHTML = effHrWage.toFixed(2);
 }
-calcWOTCValues();
+calcEffWages();
 
-function wotcMinWagesPaid() {
+function calcWOTCValues() {
 
-  var minWOTCWages = 0;
-  var maxWOTCWeeks = 0;
+  var wotcWagePct = (wotcPct * 100) + '%';
 
-  wotcWagePct = (wotcPct * 100) + '%';
+  var minWOTCWages = (maxWOTCCredit / wotcPct);
 
-  minWOTCWages = (maxWOTCCredit / wotcPct);
+  var maxWOTCCreditString = numberWithCommas(maxWOTCCredit);
 
-  maxWOTCCreditString = numberWithCommas(maxWOTCCredit);
+  var minWagePaidString = numberWithCommas(minWOTCWages);
 
-  minWagePaidString = numberWithCommas(minWOTCWages);
+  var minWOTCWeeks = minWOTCHours / hoursWorkWeek;
 
-  minWOTCWeeks = minWOTCHours / hoursPerWeekNormal;
+  var maxWOTCWeeks = minWOTCWages / (orMinWage * hoursWorkWeek);
 
-  maxWOTCWeeks = minWOTCWages / (orMinWage * hoursPerWeekNormal);
-
-  maxWOTCYears = maxWOTCWeeks / weeksInYear;
+  var maxWOTCYears = maxWOTCWeeks / weeksInYear;
 
   document.getElementById('maxWOTCCredit').innerHTML = '$' + maxWOTCCreditString;
   document.getElementById('wotcWagePct').innerHTML = wotcWagePct;
   document.getElementById('minWagePaid').innerHTML = '$' + minWagePaidString;
-  document.getElementById('minWOTCWeeks').innerHTML = minWOTCWeeks;
-  document.getElementById('orMinWage').innerHTML = orMinWage;
+  document.getElementById('minWOTCWeeks').innerHTML = minWOTCWeeks.toFixed(0);
+  document.getElementById('orMinWage').innerHTML = orMinWage.toFixed(2);
   document.getElementById('maxWOTCWeeks').innerHTML = maxWOTCWeeks.toFixed(0);
   document.getElementById('maxWOTCYears').innerHTML = maxWOTCYears.toFixed(2);
 
@@ -85,7 +74,7 @@ function wotcMinWagesPaid() {
     wotcWagePct: wotcWagePct
   };
 }
-wotcMinWagesPaid();
+calcWOTCValues();
 
 //**********document.ready**********
 
@@ -93,47 +82,49 @@ $(document).ready(function() {
 
   function zeroValues() {
 
-    document.getElementById('effHrWage').innerHTML = 0;
-    document.getElementById('minHours').innerHTML = 0;
-    document.getElementById('minWeeks').innerHTML = 0;
+    var effHrWage = 0;
+    var minHours = 0;
+    var minWeeks = 0;
+
+    document.getElementById('effHrWageValue').innerHTML = effHrWage.toFixed(0);
+    document.getElementById('minHoursValue').innerHTML = minHours.toFixed(0);
+    document.getElementById('minWeeksValue').innerHTML = minWeeks.toFixed(0);
   }
   zeroValues();
 
   function calcBaseValues() {
 
-    var minWOTCWages = 0;
-    var maxWOTCWeeks = 0;
+    var wotcWagePct = (wotcPct * 100) + '%';
 
-    wotcWagePct = (wotcPct * 100) + '%';
+    var minWOTCWages = (maxWOTCCredit / wotcPct);
 
-    minWOTCWages = (maxWOTCCredit / wotcPct);
+    var maxWOTCCreditString = numberWithCommas(maxWOTCCredit);
 
-    maxWOTCCreditString = numberWithCommas(maxWOTCCredit);
+    var minWagePaidString = numberWithCommas(minWOTCWages);
 
-    minWagePaidString = numberWithCommas(minWOTCWages);
+    var minWOTCWeeks = minWOTCHours / hoursWorkWeek;
 
-    minWOTCWeeks = minWOTCHours / hoursPerWeekNormal;
+    var maxWOTCWeeks = minWOTCWages / (orMinWage * hoursWorkWeek);
+    var maxWOTCWeeksValue = maxWOTCWeeks.toFixed(0);
 
-    maxWOTCWeeks = minWOTCWages / (orMinWage * hoursPerWeekNormal);
+    var maxWOTCYears = maxWOTCWeeks / weeksInYear;
 
-    maxWOTCYears = maxWOTCWeeks / weeksInYear;
+    var lostStudentCashString = numberWithCommas(lostStudentCash);
 
-    lostStudentCashString = numberWithCommas(lostStudentCash);
+    var trainingCostString = numberWithCommas(trainingCost);
 
-    trainingCostString = numberWithCommas(trainingCost);
+    var trainingPaybackString = numberWithCommas(trainingPayback);
 
-    trainingPaybackString = numberWithCommas(trainingPayback);
+    var minEffWage = (maxWOTCCredit / wotcPct) / ((trainingWeeks * hoursTrainingWeek) + ((maxWOTCWeeksValue - trainingWeeks) * hoursWorkWeek) + (internLengthHours));
 
-    minEffWage = minWOTCWages / ((trainingWeeks * hoursTrainingWeek) + ((maxWOTCWeeks - trainingWeeks) * hoursWorkWeek) + (internLengthWeeks * hoursWorkWeek));
-
-    maxEffWage = minWOTCWages / ((trainingWeeks * hoursTrainingWeek) + ((baseEmployWeeks - trainingWeeks) * hoursWorkWeek) + (internLengthWeeks * hoursWorkWeek));
+    var maxEffWage = minWOTCWages / ((trainingWeeks * hoursTrainingWeek) + ((baseEmployWeeks - trainingWeeks) * hoursWorkWeek) + (internLengthHours));
 
     document.getElementById('maxWOTCCreditOne').innerHTML = '$' + maxWOTCCreditString;
     document.getElementById('maxWOTCCreditTwo').innerHTML = '$' + maxWOTCCreditString;
     document.getElementById('wotcWagePctOne').innerHTML = wotcWagePct;
     document.getElementById('minWagePaidOne').innerHTML = '$' + minWagePaidString;
-    document.getElementById('minWOTCWeeksOne').innerHTML = minWOTCWeeks;
-    document.getElementById('orMinWageOne').innerHTML = orMinWage;
+    document.getElementById('minWOTCWeeksOne').innerHTML = minWOTCWeeks.toFixed(0);
+    document.getElementById('orMinWageOne').innerHTML = orMinWage.toFixed(2);
     document.getElementById('maxWOTCWeeksOne').innerHTML = maxWOTCWeeks.toFixed(0);
     document.getElementById('maxWOTCYearsOne').innerHTML = maxWOTCYears.toFixed(2);
     document.getElementById('lostStudentCashStringValue').innerHTML = '$' + lostStudentCashString;
@@ -150,11 +141,10 @@ $(document).ready(function() {
   calcBaseValues();
 
   function calcWOTCWage() {
-    var yearlyWOTCWage = 0;
 
-    yearlyWOTCWage = (maxWOTCCredit / wotcPct);
+    var yearlyWOTCWage = (maxWOTCCredit / wotcPct);
 
-    yearlyWOTCWageString = numberWithCommas(yearlyWOTCWage);
+    var yearlyWOTCWageString = numberWithCommas(yearlyWOTCWage);
 
     document.getElementById('yearlyWOTCWageValue').innerHTML = '$' + yearlyWOTCWageString;
 
@@ -167,65 +157,58 @@ $(document).ready(function() {
     var workCompTaxPct = 1.650;
     var unempTaxPct = 2.60;
     var socSecTaxPct = 6.20;
-    var wkMcareTax;
-    var wkMcareTaxRnd;
-    var wkWorkCompTax;
-    var wkWorkCompTaxRnd;
-    var wkUnempTax;
-    var wkUnempTaxRnd;
-    var wkSocSecTax;
-    var wkSocSecTaxRnd;
-    var yrMcareTax;
-    var yrMcareTaxRnd;
-    var yrWorkCompTax;
-    var yrWorkCompTaxRnd;
-    var yrUnempTax;
-    var yrUnempTaxRnd;
-    var yrSocSecTax;
-    var yrSocSecTaxRnd;
-    var netYearWage = 0;
-    var netYearWageString = '';
 
-    yrMcareTax = calcWOTCWage() * (mcareTaxPct * percent);
-    yrMcareTaxRnd = yrMcareTax.toFixed(2);  // should return 348.00
+    var yrMcareTax = calcWOTCWage() * (mcareTaxPct * percent);
+    var yrMcareTaxRnd = yrMcareTax.toFixed(2);
 
-    yrWorkCompTax = calcWOTCWage() * (workCompTaxPct * percent);
-    yrWorkCompTaxRnd = yrWorkCompTax.toFixed(2); // should return 396.00
+    var yrWorkCompTax = calcWOTCWage() * (workCompTaxPct * percent);
+    var yrWorkCompTaxRnd = yrWorkCompTax.toFixed(2);
 
-    yrUnempTax = calcWOTCWage() * (unempTaxPct * percent);
-    yrUnempTaxRnd = yrUnempTax.toFixed(2); // should return 624.00
+    var yrUnempTax = calcWOTCWage() * (unempTaxPct * percent);
+    var yrUnempTaxRnd = yrUnempTax.toFixed(2);
 
-    yrSocSecTax = calcWOTCWage() * (socSecTaxPct * percent);
-    yrSocSecTaxRnd = yrSocSecTax.toFixed(2); //should return 1488.00
+    var yrSocSecTax = calcWOTCWage() * (socSecTaxPct * percent);
+    var yrSocSecTaxRnd = yrSocSecTax.toFixed(2);
 
-    wkMcareTax = (((calcWOTCWage() * (mcareTaxPct * percent))) / weeksInYear);
-    wkMcareTaxRnd = wkMcareTax.toFixed(2);  // should be 6.69
+    var wkMcareTax = (((calcWOTCWage() * (mcareTaxPct * percent))) / weeksInYear);
+    var wkMcareTaxRnd = wkMcareTax.toFixed(2);
 
-    wkWorkCompTax = (((calcWOTCWage() * (workCompTaxPct * percent))) / weeksInYear);
-    wkWorkCompTaxRnd = wkWorkCompTax.toFixed(2);  //should be 7.62
+    var wkWorkCompTax = (((calcWOTCWage() * (workCompTaxPct * percent))) / weeksInYear);
+    var wkWorkCompTaxRnd = wkWorkCompTax.toFixed(2);
 
-    wkUnempTax = (((calcWOTCWage() * (unempTaxPct * percent))) / weeksInYear);
-    wkUnempTaxRnd = wkUnempTax.toFixed(2);  //should be 12.00
+    var wkUnempTax = (((calcWOTCWage() * (unempTaxPct * percent))) / weeksInYear);
+    var wkUnempTaxRnd = wkUnempTax.toFixed(2);
 
-    wkSocSecTax = (((calcWOTCWage() * (socSecTaxPct * percent))) / weeksInYear);
-    wkSocSecTaxRnd = wkSocSecTax.toFixed(2);  //should be 28.62
+    var wkSocSecTax = (((calcWOTCWage() * (socSecTaxPct * percent))) / weeksInYear);
+    var wkSocSecTaxRnd = wkSocSecTax.toFixed(2);
 
-    netYearWage = (yrMcareTax + yrWorkCompTax + yrUnempTax + yrSocSecTax + wotcMinWagesPaid().minWOTCWages + lostStudentCash + trainingCost) - (trainingPayback + maxWOTCCredit);
+    var netYearWage = (yrMcareTax +
+                       yrWorkCompTax +
+                       yrUnempTax +
+                       yrSocSecTax +
+                       calcWOTCValues().minWOTCWages +
+                       lostStudentCash +
+                       trainingCost) -
+                      (trainingPayback +
+                       maxWOTCCredit);
 
-    netYearWageString = numberWithCommas(netYearWage);
+    var netYearWageString = numberWithCommas(netYearWage);
 
     document.getElementById('mcareTaxPctValue').innerHTML = mcareTaxPct.toFixed(2) + '%';
     document.getElementById('workCompTaxPctValue').innerHTML = workCompTaxPct.toFixed(2) + '%';
     document.getElementById('unempTaxPctValue').innerHTML = unempTaxPct.toFixed(2) + '%';
     document.getElementById('socSecTaxPctValue').innerHTML = socSecTaxPct.toFixed(2) + '%';
+
     document.getElementById('yrMcareTaxRnd').innerHTML = '$' + yrMcareTaxRnd;
     document.getElementById('yrWorkCompTaxRnd').innerHTML = '$' + yrWorkCompTaxRnd;
     document.getElementById('yrUnempTaxRnd').innerHTML = '$' + yrUnempTaxRnd;
     document.getElementById('yrSocSecTaxRnd').innerHTML = '$' + yrSocSecTaxRnd;
+
     /*    document.getElementById('wkMcareTaxRnd').innerHTML = '$' + wkMcareTaxRnd;
     document.getElementById('wkWorkCompTaxRnd').innerHTML = '$' + wkWorkCompTaxRnd;
     document.getElementById('wkUnempTaxRnd').innerHTML = '$' + wkUnempTaxRnd;
     document.getElementById('wkSocSecTaxRnd').innerHTML = '$' + wkSocSecTaxRnd;*/
+
     document.getElementById('netYearWages').innerHTML = '$' + netYearWageString;
 
     return {
@@ -243,13 +226,6 @@ $(document).ready(function() {
 
   }
   payrollTaxes();
-
-  // Calculate the length of time required to satisfy the WOTC minimums
-  // based on user input
-
-  // var taxes = payrollTaxes();
-  // alert(taxes.wkMcareTaxMoney);
-  // example money display: yrMcareTaxMoney = '$' + yrMcareTaxRnd.toString();
 
   //Waterfall Chart Code
 
