@@ -419,12 +419,12 @@
             <dd>- WOTC amount of <strong><span id="maxWOTCCreditTwo" class="red"></span></strong></dd>
 
             <dt><strong><span id="minEffWageValue"></span></strong></dt>
-            <dd>the minimum effective hourly wage for a 65-week employment period</dd>
+            <dd>the effective hourly wage for a 65-week employment period</dd>
             <dd>- based on a 40-hour work week with 10 work hours per training week</dd>
             <dd>- includes ~160 hour free (to you) internship period</dd>
 
             <dt><strong><span id="maxEffWageValue"></span></strong></dt>
-            <dd>the maximum effective hourly wage for a 52-week employment period</dd>
+            <dd>the effective hourly wage for a 52-week employment period</dd>
             <dd>- based on a 40-hour work week with 10 work hours per training week</dd>
             <dd>- includes ~160 hour free (to you) internship period</dd>
 
@@ -444,7 +444,7 @@
                 <label for="minHours">Enter the minimum acceptable number of work hours, with a maximum of 10, you wish worked during training weeks.</label>
                 <input type="number" class="form-control" id="minHours" min='0' max='10' required>
             </div>
-            <button type="submit" id="effWageCalcBtn" onclick="calcEffWages()" class="btn btn-default">Change the Effective Wage</button>
+            <button type="button" id="effWageCalcBtn" onclick="calcEffWages()" class="btn">Change the Effective Wage</button>
         </form>
 <!--        <form>
         <p>Enter the minimum acceptable number of total weeks, with a minimum of 10 and a maximum of 65, that you wish worked under this proposal? <input type="number" name="minWeeks" id="minWeeks" min="10" max="100">
@@ -457,7 +457,7 @@
 
             </form>-->
 
-        <p id="effHrWageResult">The new effective hourly wage is $<span id="effHrWageNew"></span>.</p>
+        <p id="effHrWageResult">The new effective hourly wage is $<span id="effHrWageNew"></span></p>
 
     </div> <!--end execSummary div -->
 
@@ -471,16 +471,16 @@
 
                 <h1>Overview</h1>
 
-                <p>I am asking for your help. Seven years ago, I was laid off two weeks after having major surgery. While I have recovered, I still have some physical limitations that prevent me from getting the most common types of subsistence employment.  Last year, my wife had several unexpected medical issues and may never be able to work again. We are teetering on the edge of homelessness. I need a hand up to get back on my feet. Please consider whether your company can afford to be part of this process.
+                <p><strong>I am asking for your help.</strong> Seven years ago, I was laid off two weeks after having major surgery. While I have recovered, I still have some physical limitations. Even though I obtained a Web Development & Design AAS from PCC, I have been unable to obtain a job since graduation. My family is teetering on the edge of homelessness. I need a hand up to get back on my feet. Please consider whether your company can afford to be part of this process.
                 </p>
 
-                <p>For eight years, I worked for Seagate Technology, finishing as a Systems Senior Engineer in their Global Client Server Engineering team. By 2008, a military service connected injury was limiting me to a 20-hour work week. On December 31, 2008, I had surgery to correct this injury. Two weeks later, Seagate had the first of several large layoffs. Even though I had been awarded a 10% Key Performer bonus for 2009 in addition to my $82K salary, I was part of the first RIF.
+                <p>My last position was at Seagate Technology, where I worked for eight years, finishing as a Systems Senior Engineer in their Global Client Server Engineering team. By 2008, a military service-connected injury limited me to a 20-hour work week. On December 31, 2008, I had surgery to correct this injury. Two weeks later, Seagate had the first of several large layoffs. Even though I had been awarded a 10% Key Performer bonus for 2009 in addition to my $82K salary, I was part of the first RIF.
                 </p>
 
-                <p>While recovering from surgery, I volunteered for the American
-                       Legion at the local and state level. I also went to school and obtained a Web Development and Design AAS from PCC. In my second year at PCC, my family had a series of personal tragedies, resulting in my wife’s inability to work. This put a significant amount of pressure on me to quickly develop an income. With a seven-year work gap, and even though I attended PCC to pivot into web technology, after seven months I am finding it impossible to obtain employment. Now, we have exhausted all of our resources.
+                <p>While recovering from surgery, I volunteered for the American Legion at the local and state level. I also went to school and obtained a Web Development and Design AAS from PCC. In my second year at PCC, my family had a series of personal tragedies, resulting in my wife’s inability to work. This put a significant amount of pressure on me to quickly develop an income. With a seven-year work gap, even though I attended PCC to pivot into web technology, after seven months I am finding it impossible to obtain employment. Now, we have exhausted all of our resources.
                 </p>
 
+                that prevent me from getting the most common types of subsistence employment.
             </section>
 
             <section id="capabilities">
