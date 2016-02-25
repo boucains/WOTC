@@ -345,12 +345,6 @@ function calcEffWages() {
 
   var effHrZero = 0;
 
-  function dontRefresh() {
-    $('#effWageCalcBtn').on('click', function(e) {
-      e.preventDefault() ;
-    });
-  }
-
   var weeksWorkedInput = document.getElementById('minWeeks');
   var minWorkWeeks = weeksWorkedInput.value;
 
@@ -370,6 +364,6 @@ function calcEffWages() {
     $('#minHoursControl').addClass('has-error');
     document.getElementById('effHrWageNew').innerHTML = effHrZero.toFixed(0);
   }
-  dontRefresh();
+
 }
 
