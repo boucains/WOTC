@@ -18,21 +18,33 @@ body {
     background-color: rgba(206, 229, 242, 0.25);
 }
 
+
 section {
-    padding: 60px 0;
+    padding: 0;
 
 }
 
 #coverLetter {
     background-color: rgba(255, 255, 255, 1.0);
-    padding: 60px 40px;
+    padding: 75px 40px 25px 40px;
 }
+
 
 #effHrWage {
 
 }
 
+#effWageCalcBtn {
+    background-color: rgba(154, 196, 219, 1.0);
+    font-weight: bold;
+}
+
+#effHrWageNew {
+    color: rgba(43, 154, 94, 1.0);
+}
+
 #effHrWageResult {
+    font-weight: bold;
     padding: 20px 0;
 }
 
@@ -46,7 +58,8 @@ section {
 }
 
 #execSummary {
-    padding: 0 40px;
+    background-color: rgba(255, 255, 255, 1.0);
+    padding: 25px 40px 0 40px;
 }
 
 #execSummary h2 {
@@ -54,13 +67,12 @@ section {
 }
 
 #intro {
-    background: url("../images/helpingHand.svg") no-repeat fixed;
-    height: 1024px;
+    background: url("../images/helpingHand.svg") no-repeat center fixed;
     width: 100%
 }
 
 #mainProposal {
-
+    /*background-color: rgba(206, 245, 224, 0.1);*/
 }
 
 #maxWOTCCredit {
@@ -95,9 +107,6 @@ section {
 
 }
 
-#verticalSpacing {
-
-}
 
 #wotcWagePct {
 
@@ -105,7 +114,7 @@ section {
 
 #wrapper {
     color: rgba(44, 105, 138, 1.0);
-    max-width: 960px;
+    margin: 0 20px 20px 20px;
 }
 
 .active {
