@@ -66,6 +66,29 @@ section {
     font-size: 200%;
 }
 
+#helpList {
+    background-color: rgba(206, 245, 224, 0.5);
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    border: 2px solid rgba(43, 153, 94, 1.0);
+    color: rgba(43, 154, 94, 1.0);
+    margin: 0 0 0 25px;
+    padding: 15px;
+}
+
+#helpList dt {
+    padding: 5px 0;
+}
+
+#ideaHead {
+    width: 25%;
+}
+
+#intern {
+    width: 19%;
+}
+
 #intro {
     background: url("../images/helpingHand.svg") no-repeat center fixed;
     width: 100%
@@ -100,6 +123,10 @@ section {
 }
 
 #orMinWage {
+
+}
+
+#outerContainer{
 
 }
 
