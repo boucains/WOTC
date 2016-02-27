@@ -16,6 +16,8 @@ a:hover, a:active {
 
 body {
     background-color: rgba(206, 229, 242, 0.25);
+    margin: 0 auto;
+    max-width: 960px;
 }
 
 
@@ -66,36 +68,34 @@ section {
     font-size: 200%;
 }
 
-#helpList {
+#helpOutList {
     background-color: rgba(206, 245, 224, 0.5);
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     border-radius: 15px;
     border: 2px solid rgba(43, 153, 94, 1.0);
     color: rgba(43, 154, 94, 1.0);
-    margin: 0 0 0 25px;
-    padding: 15px;
+    padding: 10px 15px;
 }
 
-#helpList dt {
+#helpOutList dt {
     padding: 5px 0;
 }
 
 #ideaHead {
-    width: 25%;
+    width: 100%;
 }
 
 #intern {
-    width: 19%;
+    width: 100%;
 }
 
 #intro {
     background: url("../images/helpingHand.svg") no-repeat center fixed;
-    width: 100%
 }
 
 #mainProposal {
-    /*background-color: rgba(206, 245, 224, 0.1);*/
+
 }
 
 #maxWOTCCredit {
@@ -126,14 +126,24 @@ section {
 
 }
 
-#outerContainer{
-
-}
 
 #pieChart {
 
 }
 
+#serviceList {
+    background-color: rgba(206, 245, 224, 0.5);
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    border: 2px solid rgba(43, 153, 94, 1.0);
+    color: rgba(43, 154, 94, 1.0);
+    padding: 10px 15px;
+}
+
+#serviceList dt {
+    padding: 5px 0;
+}
 
 #wotcWagePct {
 
@@ -141,7 +151,7 @@ section {
 
 #wrapper {
     color: rgba(44, 105, 138, 1.0);
-    margin: 0 20px 20px 20px;
+    padding: 0 20px 20px 20px;
 }
 
 .active {
@@ -178,6 +188,14 @@ section {
     padding: 0 0 10px 0;
 }
 
+.imageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* or center */
+    align-self: stretch;     /* make sure that the column is stretched */
+    justify-content: space-around;
+}
+
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
     background-color: rgba(206, 229, 242, 1.0);
     color: rgba(44, 105, 138, 1.0);
@@ -206,6 +224,18 @@ section {
 
 .red {
     color: red;
+}
+
+.rowFlexCenter {
+    align-items: center;
+    display: flex;
+}
+
+.vertical-center {
+    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh; /* These two lines are counted as one :-)       */
+    display: flex;
+    align-items: center;
 }
 
 
@@ -266,3 +296,12 @@ section {
     shape-rendering: crispEdges;
 }
 
+
+@media (min-width: 768px){
+    .navbar-nav{
+        float:none;
+        margin: 0 auto;
+        display: table;
+        table-layout: fixed;
+    }
+}
