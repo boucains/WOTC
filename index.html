@@ -59,11 +59,11 @@
 </noscript>
 <!-- end insert code to remove hidden attribute on wrapper css selector if JS is enabled -->
 
-<div id="wrapper" class="container-fluid">
+<div id="wrapper" class=" container-fluid center-block">
 
     <header>
 
-        <nav class="navbar navbar-default navbar-fixed-top">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 
             <div class="container-fluid">
 
@@ -73,7 +73,7 @@
 
                     <button type="button" class="navbar-toggle collapsed"
                             data-toggle="collapse"
-                            data-target="#bs-example-navbar-collapse-1"
+                            data-target="#navbar-collapse-1"
                             aria-expanded="false">
 
                         <span class="sr-only">Toggle navigation</span>
@@ -90,7 +90,7 @@
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
 
-                <div class="collapse navbar-collapse">
+                <div class="collapse navbar-collapse navbar-collapse-1">
 
                     <ul class="nav navbar-nav">
 
@@ -461,8 +461,6 @@
 
     </div> <!--end execSummary div -->
 
-    <div class="verticalSpacing"></div>
-
     <div id="mainProposal">
 
         <div id="intro">
@@ -482,11 +480,15 @@
 
                 <div class="container-fluid">
 
-                    <div class="outerContainer row">
+                    <div class="rowFlexCenter row">
 
-                        <img class="col-xs-3 col-md-6" id="ideaHead"  src="./assets/images/baldHeadWords.png">
+                        <div class="imageContainer col-xs-3 col-md-3">
 
-                        <dl id="helpList" class="col-xs-9 col-md-6">
+                            <img id="ideaHead" class="img-responsive" src="./assets/images/baldHeadWords.svg" alt="silhouette of a man's head with a word cloud where the brain would be"/>
+
+                        </div>
+
+                        <dl id="serviceList" class="col-xs-9 col-md-9">
 
                             <dt>Military service – submarine nuclear reactor operator</dt>
 
@@ -516,9 +518,9 @@
 
                 <div class="container-fluid">
 
-                    <div class="outerContainer row">
+                    <div class="rowFlexCenter row">
 
-                        <dl id="helpOutList" class="col-xs-9 col-md-6">
+                        <dl id="helpOutList" class="col-xs-9 col-md-9">
 
                             <dt>Handling the monthly info session for potential students</dt>
 
@@ -536,7 +538,11 @@
 
                         </dl>
 
-                        <img class="col-xs-3 col-md-6" id="intern" src="./assets/images/hard_working_engineer.png">
+                        <div class="imageContainer col-xs-3 col-md-3">
+
+                            <img id="intern" class="img-responsive" src="./assets/images/hard_working_engineer.svg">
+
+                        </div>
 
                     </div>
 
@@ -545,7 +551,6 @@
                 <p>While recovering from surgery, I volunteered for the American Legion at the local and state level. I also went to school and obtained a Web Development and Design AAS from PCC. In my second year at PCC, my family had a series of personal tragedies, resulting in my wife’s inability to work. This put a significant amount of pressure on me to quickly develop an income. With a seven-year work gap, even though I attended PCC to pivot into web technology, after seven months I am finding it impossible to obtain employment. Now, we have exhausted all of our resources.
                 </p>
 
-                that prevent me from getting the most common types of subsistence employment.
             </section>
 
             <section id="capabilities">
