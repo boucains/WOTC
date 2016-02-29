@@ -68,6 +68,10 @@ section {
     font-size: 200%;
 }
 
+#goldMuscle {
+    width: 180%;
+}
+
 #helpOutList {
     background-color: rgba(206, 245, 224, 0.5);
     -webkit-border-radius: 15px;
@@ -75,11 +79,17 @@ section {
     border-radius: 15px;
     border: 2px solid rgba(43, 153, 94, 1.0);
     color: rgba(43, 154, 94, 1.0);
+    margin-bottom: 0;
     padding: 10px 15px;
 }
 
 #helpOutList dt {
+    margin-bottom: 0px;
     padding: 5px 0;
+}
+
+#helpOutList {
+
 }
 
 #ideaHead {
@@ -87,11 +97,19 @@ section {
 }
 
 #intern {
-    width: 100%;
+    width: 120%;
 }
 
 #intro {
     background: url("../images/helpingHand.svg") no-repeat center fixed;
+}
+
+#lessThanLeft {
+    width: 100%;
+}
+
+#lessThanRight {
+    width: 100%;
 }
 
 #mainProposal {
@@ -110,12 +128,20 @@ section {
 
 }
 
+#me {
+    width: 120%;
+}
+
 #minWagePaid {
 
 }
 
 #minWOTCWeeks {
 
+}
+
+#oldMan {
+    width: 80%;
 }
 
 #options {
@@ -138,6 +164,7 @@ section {
     border-radius: 15px;
     border: 2px solid rgba(43, 153, 94, 1.0);
     color: rgba(43, 154, 94, 1.0);
+    margin-bottom: 0;
     padding: 10px 15px;
 }
 
