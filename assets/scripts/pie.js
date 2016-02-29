@@ -33,32 +33,32 @@ var pie = new d3pie('pieChart', {// jscs:ignore requireCapitalizedConstructors
   'data': {
     'content': [
       {
-        'label': 'Medicare',
+        'label': 'Medicare $6.69',
         'value': 6.69,
         'color': '#FFEDD7'
       },
       {
-        'label': 'Workman\'s Comp',
+        'label': 'Workman\'s Comp $7.62',
         'value': 7.62,
         'color': '#FFDAAF'
       },
       {
-        'label': 'Unemployment Insurance',
+        'label': 'Unemployment Ins. $12.00',
         'value': 12.00,
         'color': '#FFC989'
       },
       {
-        'label': 'Social Security',
+        'label': 'Social Security $28.62',
         'value': 28.62,
         'color': '#FAB665'
       },
       {
-        'label': 'Hourly Wage',
+        'label': 'Hourly Wage $461.60',
         'value': 461.60,
         'color': '#D9923D'
       },
       {
-        'label': 'Total',
+        'label': 'Total $516.53',
         'value': 516.53,
         'color': '#D9603D'
       }

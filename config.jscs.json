@@ -16,7 +16,7 @@
 
     "maxErrors": -1,
     "maximumLineLength": {
-        "value": 120,
+        "value": 180,
         "allExcept": ["comments", "regex"]
     },
     "validateIndentation": 2,
