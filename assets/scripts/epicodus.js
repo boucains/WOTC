@@ -7,23 +7,18 @@
 //code that runs outside of document.ready
 
 var baseEmployWeeks = 52;
-var buffGuy = '';
 var hoursWorkWeek = 40;
 var hoursTrainingWeek = 10;
-var intern = '';
 var internLengthHours = 160;
-var jack = 'Jack Cain';
 var lostStudentCash = 5000;
 var maxWOTCCredit = 9600;
 var minWOTCHours = 400;
-var oldGuy = '';
 var orMinWage = 9.25;
 var percent = 0.010;
 var trainingCost = 5000;
 var trainingPayback = 5000;
 var trainingWeeks = 27;
 var weeksInYear = 52;
-var wotc = '';
 var wotcPct = 0.40;
 
 function numberWithCommas(x) {  //stolen from Elias Zamaria
@@ -41,7 +36,7 @@ $(document).ready(function() {
     var minWeeks = 0;
 
     document.getElementById('effHrWageNew').innerHTML = effHrWageNew.toString();
-    document.getElementById('minHours').innerHTML = minHours.toString();;
+    document.getElementById('minHours').innerHTML = minHours.toString();
     document.getElementById('minWeeks').innerHTML = minWeeks.toString();
   }
   zeroValues();
@@ -61,8 +56,6 @@ $(document).ready(function() {
     var maxWOTCWeeks = minWOTCWages / (orMinWage * hoursWorkWeek);
     var maxWOTCWeeksValue = maxWOTCWeeks.toFixed(0);
 
-    var maxWOTCYears = maxWOTCWeeks / weeksInYear;
-
     var lostStudentCashString = numberWithCommas(lostStudentCash);
 
     var trainingCostString = numberWithCommas(trainingCost);
@@ -80,7 +73,6 @@ $(document).ready(function() {
     document.getElementById('minWOTCWeeks').innerHTML = minWOTCWeeks.toFixed(0);
     document.getElementById('orMinWage').innerHTML = orMinWage.toFixed(2);
     document.getElementById('maxWOTCWeeks').innerHTML = maxWOTCWeeks.toFixed(0);
-    document.getElementById('maxWOTCYears').innerHTML = maxWOTCYears.toFixed(2);
     document.getElementById('lostStudentCashStringValue').innerHTML = '$' + lostStudentCashString;
     document.getElementById('trainingCostStringValue').innerHTML = '$' + trainingCostString;
     document.getElementById('trainingPaybackValue').innerHTML = '$' + trainingPaybackString;
@@ -108,15 +100,12 @@ $(document).ready(function() {
 
     var maxWOTCWeeks = minWOTCWages / (orMinWage * hoursWorkWeek);
 
-    var maxWOTCYears = maxWOTCWeeks / weeksInYear;
-
     document.getElementById('maxWOTCCredit').innerHTML = '$' + maxWOTCCreditString;
     document.getElementById('wotcWagePct').innerHTML = wotcWagePct;
     document.getElementById('minWagePaid').innerHTML = '$' + minWagePaidString;
     document.getElementById('minWOTCWeeks').innerHTML = minWOTCWeeks.toFixed(0);
     document.getElementById('orMinWage').innerHTML = orMinWage.toFixed(2);
     document.getElementById('maxWOTCWeeks').innerHTML = maxWOTCWeeks.toFixed(0);
-    document.getElementById('maxWOTCYears').innerHTML = maxWOTCYears.toFixed(2);
 
     return {
       minWOTCWages: minWOTCWages,
