@@ -22,6 +22,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <!-- Google CDN for jQuery 1.11.3 - cannot use jQuery 2.x on IE>9 -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.15/d3.js"></script>
+    <script src="./assets/scripts/d4.min.js"></script>
     <script src="./assets/scripts/d3pie.min.js"></script>
     <!-- script to generate pie charts -->
     <!-- end javascript -->
@@ -43,6 +44,7 @@
     <!-- <link rel="stylesheet" href="./assets/styles/html5_reset.css"> <!- - CSS reset to make all browsers use basic CSS essentially alike, http://www.cssreset.com/ -->
     <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">"<!- -  Font Awesome  -->
     <!-- <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+    <link rel="stylesheet" href="./assets/styles/d4.css">
     <link rel="stylesheet" href="./assets/styles/epicodus.css">
     <!-- Contains site-specific color, font and standard formatting tags -->
     <!-- End Style Sheets, Shims, Resets -->
@@ -145,7 +147,7 @@
 
                             <ul class="dropdown-menu" role="menu">
 
-                                <li>
+                                <li onclick="scrollOnNav()">
 
                                     <a href="#mainProposal"
                                        target="_self">Overview
@@ -257,9 +259,6 @@
                                     <a href="#hrWage">Effective Hourly Wage</a>
 
                                 </li>
-
-                                <li role="separator" class="divider"></li>
-                                <!-- provides extra padding and a hr separating the entry from the one above -->
 
                             </ul>
 
@@ -402,6 +401,9 @@
             <dd>- determined by the current minimum wage of <strong>$<span id="orMinWage"></span></strong></dd>
             <dd>- please note that the new Oregon minimum wage will change in 2017, which will decrease the maximum number of weeks required to obtain the maximum WOTC</dd>
 
+            <dt><strong><span id="totYearWages"></span></strong></dt>
+            <dd>total wages paid including employer share of payroll taxes</dd>
+
             <dt><strong><span id="netYearWages"></span></strong></dt>
             <dd>net wages paid, (<a href="#pieChart">charts</a>), for up to 65 weeks of work, including:</dd>
             <dd><strong>Taxes:</strong></dd>
@@ -421,46 +423,46 @@
             <dt><strong><span id="minEffWageValue"></span></strong></dt>
             <dd>the effective hourly wage for a 65-week employment period</dd>
             <dd>- based on a 40-hour work week with 10 work hours per training week</dd>
+            <dd>- includes employer share of payroll taxes</dd>
             <dd>- includes ~160 hour free (to you) internship period</dd>
 
             <dt><strong><span id="maxEffWageValue"></span></strong></dt>
             <dd>the effective hourly wage for a 52-week employment period</dd>
             <dd>- based on a 40-hour work week with 10 work hours per training week</dd>
+            <dd>- includes employer share of payroll taxes</dd>
             <dd>- includes ~160 hour free (to you) internship period</dd>
 
 
         </dl>
 
-    </section>  <!-- end execSummary section -->
+         <div id="effHrWageCalc" class="paper">
+
+            <h2>Effective Hourly Wage Adjustments</h2>
+
+            <p>Wages during training are essential. Working full time during training is unrealistic. The minimum hours worked while training is suggested to be 10 hours per week. You may feel that the effective wage shown is too high (or too low). If you feel that either of the default values is unacceptable, changing them will change the effective wage.
+            </p>
+
+            <form id='effHrWageForm'>
+                <div id="minWeeksControl" class='form-group'>
+                    <label class="control-label" for='minWeeks'>Enter the minimum acceptable number of total weeks, with a minimum of 27 and a maximum of 65, that you wish worked under this proposal. The most likely values will be between 52 and 65.</label>
+                    <input type="number" class="form-control" id="minWeeks" min="27" max="65" required>
+                </div>
+                <div id="minHoursControl" class="form-group">
+                    <label for="minHours">Enter the minimum acceptable number of work hours, with a maximum of 10, you wish worked during training weeks.</label>
+                    <input type="number" class="form-control" id="minHours" min='0' max='10' required>
+                </div>
+                <button type="button" id="effWageCalcBtn" onclick="calcEffWages()" class="btn">Change the Effective Wage</button>
+            </form>
+
+            <p id="effHrWageResult">The new effective hourly wage is $<span id="effHrWageNew"></span></p>
+
+        </div>
+
+    </section> <!--end execSummary section -->
 
     <hr>
 
-     <section id="effHrWageCalc" class="paper">
-
-        <h2>Effective Hourly Wage Adjustments</h2>
-
-        <p>Wages during training are essential. Working full time during training is unrealistic. The minimum hours worked while training is suggested to be 10 hours per week. You may feel that the effective wage shown is too high (or too low). If you feel that either of the default values is unacceptable, changing them will change the effective wage.
-        </p>
-
-        <form id='effHrWageForm'>
-            <div id="minWeeksControl" class='form-group'>
-                <label class="control-label" for='minWeeks'>Enter the minimum acceptable number of total weeks, with a minimum of 27 and a maximum of 65, that you wish worked under this proposal. The most likely values will be between 52 and 65.</label>
-                <input type="number" class="form-control" id="minWeeks" min="27" max="65" required>
-            </div>
-            <div id="minHoursControl" class="form-group">
-                <label for="minHours">Enter the minimum acceptable number of work hours, with a maximum of 10, you wish worked during training weeks.</label>
-                <input type="number" class="form-control" id="minHours" min='0' max='10' required>
-            </div>
-            <button type="button" id="effWageCalcBtn" onclick="calcEffWages()" class="btn">Change the Effective Wage</button>
-        </form>
-
-        <p id="effHrWageResult">The new effective hourly wage is $<span id="effHrWageNew"></span></p>
-
-    </section> <!--end effHrWageCalc section -->
-
-    <hr>
-
-    <div id="mainProposal" class="navPaddingTop">
+    <div id="mainProposal">
 
         <div id="intro">
 
@@ -480,7 +482,7 @@
                 <h2 id="tldr"><strong>Tl;dr Warning.</strong><br> This section is a reference for details best discussed in person.
                 </h2>
 
-            <section id="capabilities" class="navPaddingTop">
+            <section id="capabilities">
 
                 <h2>What I Can Bring to the Table</h2>
 
@@ -615,7 +617,7 @@
 
         <hr>
 
-        <section id="costBenefits" class="navPaddingTop navPaddingBottom">
+        <section id="costBenefits">
 
             <h2>Costs and Benefits to Epicodus</h2>
 
@@ -624,11 +626,15 @@
             <p><a href="#execSummary" target="_self">Please see the Executive Summary</a>
             </p>
 
+            <h2>Resulting Gain</h2>
+
+            <div id="barChart"></div>
+
         </section>
 
         <hr>
 
-        <section id="swot" class="navPaddingTop">
+        <section id="swot">
 
         <h3>SWOT</h3>
 
@@ -649,7 +655,7 @@
             </ul>
 
 
-        <h4 id="weaknesses" class="navPaddingSWOT">Weaknesses</h4>
+        <h4 id="weaknesses">Weaknesses</h4>
 
             <ul>
 
@@ -661,7 +667,7 @@
 
             </ul>
 
-        <h4 id="opportunities" class="navPaddingSWOT">Opportunities</h4>
+        <h4 id="opportunities">Opportunities</h4>
 
             <ul>
 
@@ -677,7 +683,7 @@
 
             </ul>
 
-        <h4 id="threats" class="navPaddingSWOT">Threats</h4>
+        <h4 id="threats">Threats</h4>
 
             <ul>
 
@@ -697,7 +703,7 @@
 
         <hr>
 
-        <section id="costRecovery" class="navPaddingTop">
+        <section id="costRecovery">
 
             <h1>Cost Recovery</h1>
 
@@ -735,9 +741,9 @@
 
         <section id="effPayroll">
 
-        <h2>Effective Payroll <span id="effPayrollChart"><a href="#waterfallChart" target="_self">(chart)</a></span></h2>
+        <h2>Effective Payroll</h2>
 
-            <p>It takes $24,000 in wages to generate the maximum WOTC. That total does not change, only the amount of time involved. This means that the hourly wage on paper can vary from about $11.54/hr for a years’ time to the minimum wage of $9.25/hr for 1.25 years’ time. The employer’s share of taxes adds another $2,856 to the cost of payroll, for a total of $26, 856.
+            <p>It takes $24,000 in wages to generate the maximum WOTC. That total does not change, only the amount of time involved. This means that the wage on paper can vary from about $11.54/hr for a years’ time to the minimum wage of $9.25/hr for 1.25 years’ time. The employer’s share of taxes adds another $2,856 to the cost of payroll, for a total of $26, 856.
             </p>
 
             <p>Next, that cost is increased by the loss of external tuition revenue and the cost of my tuition. The new total of $36,856 is then reduced by the tuition paid back through my wages (-$5,000) and the WOTC (-$9,600). That brings the effective payroll outlay down to $22,256.
@@ -746,34 +752,63 @@
             <p class="navPaddingBottom">Finally, there is a four-week internship involved at no cost to you. For a pay rate of $9.25, this reduces the effective payroll $1,480 to $20,778. For a pay rate of $11.54, the effective payroll is reduced by $1,846 to $20,409.
             </p>
 
+            <div id="waterfall">
+
+                <div id="waterfallChart"></div>
+            </div>
+
         </section>
 
             <hr>
 
-        <section id="hrWage" class="navPaddingTop">
+        <section id="hrWage">
 
             <h1>Hourly Wage Discussion</h1>
 
             <h2>Overview</h2>
 
-            <p>Mixing training with payroll is complicated. Actual amounts paid vary depending on the value of the Reboot OJT payment and the exact hourly rate. This is an attempt to provide one alternative and show the effective hourly rate you would be paying.
+            <p>This proposal is predicated on my employment during training. Up front this may sound unreasonable, but the amount of the WOTC and the free four-week internship make the value proposition work. My wages are required to pay for the training as well as keep my family housed and fed. The numbers to know section has sample effective hourly rates listed as well as an effective wage calculator.
             </p>
 
             <h2>Actual Hours Worked</h2>
 
-            <p>Attempting to work for you full time while attending class would be unrealistic. I estimate that while in class I could work an additional 10 hours per week. This plan depends on being paid throughout the year at the same rate, however. While this sounds unreasonable, the amount of credits involved make this amount much closer to a fair value. A 40-hour workweek while not in training would be normal.
+            <p>Attempting to work full time while attending your classes is unrealistic. I estimate that while in class I could work an additional 10 hours per week. A 40-hour workweek while not in training would be normal.
             </p>
 
             <h2>Effective Hourly Wage (including Employer Tax Portions)</h2>
 
-            <p>While the actual minimum hourly rate that satisfies the Work Opportunity Tax Credit is $11.54 for a year, that rate is based on a 40-hour week. Because I would only be working a 10-hour week while in training, my effective pay rate would be higher. The effect total payroll is obtaining by the following:
-                (52 weeks * 40 hours) – ((40 hours paid – 10 hours worked) * 27 weeks of class) = 1270 hours worked
-                $21,259.58 the effective year’s payroll cost / 1270 hours worked = $16.74 per hour worked, which includes the employer’s portions of the payroll taxes.
+            <p>The effective pay rate is dependent on the number of hours worked over a given period of time. For the samples, I used 52-week and 65-week time periods. It’s important to note that the total amount paid does not change, just the period of time. Also, the pay rate listed is not what I would earn, but what you would pay including the employer portion of payroll taxes.
             </p>
+
+            <p>The effective total payroll is obtained by the following:</p>
+
+            <p>(yearly net wages including employer share of payroll tax) / ((total weeks * 40hrs) - ((40hrs paid - 10hrs worked) * 27 wks class) + 160hrs internship) = effective pay rate
+            </p>
+
+            <div id="effHrWageEq" class="container-fluid">
+
+                <div class="rowFlexCenter row">
+
+                    <dl id="effHrWages" class="dl-horizontal col-xs-12 col-md-12">
+
+                        <dt>$22,256</dt>
+                        <dd>the value of "yearly net wages including employer share"</dd>
+
+                        <dt>$15.56</dt>
+                        <dd>substituting 52 weeks for total weeks, including the employer payroll tax share</dd>
+
+                        <dt>$11.41</dt>
+                        <dd>substituting 65 weeks for total weeks, including the employer payroll tax share</dd>
+
+                    </dl>
+
+                </div>
+
+            </div> <!-- end helping div -->
 
             <h2>Effective Hourly Wage (not including Employer Tax Portion)</h2>
 
-            <p>For normal comparisons, hourly rates are based on the employee’s portion, which is not the full amount paid by the employer, but is used for reference. For the purpose of roughing out the job responsibilities, the effective hourly wage excluding the employer share is $14.49. Given that my last paid position paid me $82K plus a 10% key performer bonus, I’m hoping that appropriate tasks are available that align with the tasks normally paid for a position paying $14.49 per hour.
+            <p>For normal comparisons, hourly rates are based on the employee’s portion, which is not the full amount paid by the employer, but is used for reference. For the purpose of roughing out the job responsibilities, the effective hourly wage excluding the employer share is $13.57 for 52 weeks and $9.95 for 65 weeks.
             </p>
 
         </section>
@@ -787,7 +822,7 @@
 
             <h2>Tax Rates Used</h2>
 
-            <dl class="dl-horizontal">
+            <dl id="taxRates" class="dl-horizontal">
 
                 <dt>Tax Rates Used</dt>
 
@@ -803,6 +838,8 @@
 
             </dl>
 
+            <div id="pieChart"></div>
+
             <hr>
 
         </section>
@@ -810,35 +847,45 @@
 
         <section>
 
-            <h1>Further Reading</h1>
+            <h1>References</h1>
+
+            <p>These links supplement the information contained in this page</p>
 
             <ul>
 
-                <li>Work Opportunity Tax Credit (WOTC)</li>
+                <li>
+                    <a href="http://www.doleta.gov/business/incentives/opptax/" target="_blank">Work Opportunity Tax Credit (WOTC)
+                    </a>
+                </li>
 
-                <li>Reboot Northwest</li>
+                <li>
+                    <a href="http://www.rebootnw.org/" target="_blank">Reboot Northwest
+                    </a>
+                </li>
 
-                <li>Jack Cain\'s LinkedIn Profile</li>
+                <li>
+                    <a href="http://www.linkedin.com/in/johnpatrickcain" target="_blank">Jack Cain's LinkedIn Profile
+                    </a>
+                </li>
 
-                <li>Worksource Case Manager
-
-                    <ul>
-
-                        <li>Gayle Armstrong, Career Specialist</li>
-
-                        <li>Worksource Beaverton - Hillsboro</li>
-
-                        <li>241 SW Edgeway Drive</li>
-
-                        <li>Beaverton OR 97006</li>
-
-                        <li>971-722-2663</li>
-
-                    </ul>
-
+                <li>
+                    <a href="http://worksourceoregon.org/home/worksourcecenters/269-beavertonhillsboro" target="_blank">Worksource
+                    </a> Case Manager
                 </li>
 
             </ul>
+
+            <address id="gayle">
+
+                Gayle Armstrong, Career Specialist
+                <br>
+                Worksource Beaverton - Hillsboro
+                <br>
+                241 SW Edgeway Drive
+                <br>
+                Beaverton OR 97006
+
+            </address>
 
         </section>
 
@@ -849,16 +896,18 @@
 
     </div><!--end mainProposal div -->
 
-    <div id="pieChart"></div>
-    <div id="waterfallChart"></div>
-    <svg class="chart"></svg>
+
+
+
 
 </div> <!-- end wrapper div -->
 
+<script src="assets/scripts/epicodus.js"></script>
 
+<!--<script src="./assets/scripts/waterfallChart.js"></script>-->
 <script src="./assets/scripts/pie.js"></script>
 <script src="./assets/scripts/barChart.js"></script>
-<script src="assets/scripts/epicodus.js"></script>
+
 <script src="assets/scripts/bootlint.js"></script>
 
 </body>
