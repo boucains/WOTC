@@ -67,6 +67,12 @@ p {
     font-size: larger;
 }
 
+#barChart {
+    height: 400px;
+    margin: 0 auto;
+    width: 720px;
+}
+
 #costsBenefits {
 
 }
@@ -82,6 +88,7 @@ p {
 }
 
 #coverLetter {
+    padding-top: 10vh;
 
 }
 
@@ -102,6 +109,10 @@ p {
 
 }
 
+#effHrWageEq dt, #effHrWageEq dd {
+    font-size: larger;
+}
+
 #effHrWageNew {
     color: rgba(43, 154, 94, 1.0);
 }
@@ -109,6 +120,14 @@ p {
 #effHrWageResult {
     font-weight: bold;
     padding: 20px 0;
+}
+
+#effHrWages {
+    padding-top: 1vh;
+}
+
+#effHrWages dt, #effHrWages dd {
+    padding-top: 1vh;
 }
 
 #effPayroll {
@@ -138,6 +157,10 @@ p {
 
 #execSummary h2 {
 
+}
+
+#gayle {
+    padding: 0 0 0 4.5vh;
 }
 
 #goldMuscle {
@@ -268,14 +291,30 @@ p {
 
 }
 
+#taxRates {
+    padding-bottom: 3vh;
+}
+
+#taxRates dt, #taxRates dd {
+    font-size: larger;
+}
+
 #tldr {
     color: rgba(217, 96, 61, 1.0);
     font-variant: small-caps;
     text-align: center;
 }
 
+#waterfallChart {
+    height: 100%;
+    margin: 0 auto;
+    padding: 60px;
+    width: 720px;
+
+}
+
 #weeklyPayroll {
-    ;
+
 }
 
 #wotcWagePct {
@@ -292,6 +331,7 @@ p {
 }
 
 .chart {
+
 
 }
 
@@ -361,21 +401,9 @@ p {
     color: rgba(44, 105, 138, 1.0);
 }
 
-.navPaddingBottom {
-    padding-bottom: 3vh;
-}
-
-.navPaddingTop {
-    padding-top: 7vh;
-}
-
-.navPaddingSWOT {
-    padding-top: 10vh;
-}
-
 .paper {
     background-color: rgba(255, 255, 255, 1.0);
-    padding: 10vh 7vh;
+    padding: 0 7vh;
 }
 
 .red {
