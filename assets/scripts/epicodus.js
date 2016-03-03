@@ -41,51 +41,6 @@ $(document).ready(function() {
   }
   zeroValues();
 
-  function calcBaseValues() {
-
-    var wotcWagePct = (wotcPct * 100) + '%';
-
-    var minWOTCWages = (maxWOTCCredit / wotcPct);
-
-    var maxWOTCCreditString = numberWithCommas(maxWOTCCredit);
-
-    var minWagePaidString = numberWithCommas(minWOTCWages);
-
-    var minWOTCWeeks = minWOTCHours / hoursWorkWeek;
-
-    var maxWOTCWeeks = minWOTCWages / (orMinWage * hoursWorkWeek);
-    var maxWOTCWeeksValue = maxWOTCWeeks.toFixed(0);
-
-    var lostStudentCashString = numberWithCommas(lostStudentCash);
-
-    var trainingCostString = numberWithCommas(trainingCost);
-
-    var trainingPaybackString = numberWithCommas(trainingPayback);
-
-    var minEffWage = (maxWOTCCredit / wotcPct) / ((trainingWeeks * hoursTrainingWeek) + ((maxWOTCWeeksValue - trainingWeeks) * hoursWorkWeek) + (internLengthHours));
-
-    var maxEffWage = minWOTCWages / ((trainingWeeks * hoursTrainingWeek) + ((baseEmployWeeks - trainingWeeks) * hoursWorkWeek) + (internLengthHours));
-
-    document.getElementById('maxWOTCCredit').innerHTML = '$' + maxWOTCCreditString;
-    document.getElementById('maxWOTCCreditTwo').innerHTML = '$' + maxWOTCCreditString;
-    document.getElementById('wotcWagePct').innerHTML = wotcWagePct;
-    document.getElementById('minWagePaid').innerHTML = '$' + minWagePaidString;
-    document.getElementById('minWOTCWeeks').innerHTML = minWOTCWeeks.toFixed(0);
-    document.getElementById('orMinWage').innerHTML = orMinWage.toFixed(2);
-    document.getElementById('maxWOTCWeeks').innerHTML = maxWOTCWeeks.toFixed(0);
-    document.getElementById('lostStudentCashStringValue').innerHTML = '$' + lostStudentCashString;
-    document.getElementById('trainingCostStringValue').innerHTML = '$' + trainingCostString;
-    document.getElementById('trainingPaybackValue').innerHTML = '$' + trainingPaybackString;
-    document.getElementById('minEffWageValue').innerHTML = '$' + minEffWage.toFixed(2);
-    document.getElementById('maxEffWageValue').innerHTML = '$' + maxEffWage.toFixed(2);
-
-    return {
-      maxWOTCCreditString: maxWOTCCreditString,
-      minWagePaidString: minWagePaidString
-    };
-  }
-  calcBaseValues();
-
   function calcWOTCValues() {
 
     var wotcWagePct = (wotcPct * 100) + '%';
@@ -169,6 +124,14 @@ $(document).ready(function() {
 
     var netYearWageString = numberWithCommas(netYearWage);
 
+    var totYearWage = (yrMcareTax +
+                       yrWorkCompTax +
+                       yrUnempTax +
+                       yrSocSecTax +
+                       calcWOTCValues().minWOTCWages);
+
+    var totYearWageString = numberWithCommas(totYearWage);
+
     document.getElementById('mcareTaxPctValue').innerHTML = mcareTaxPct.toFixed(2) + '%';
     document.getElementById('workCompTaxPctValue').innerHTML = workCompTaxPct.toFixed(2) + '%';
     document.getElementById('unempTaxPctValue').innerHTML = unempTaxPct.toFixed(2) + '%';
@@ -186,6 +149,8 @@ $(document).ready(function() {
 
     document.getElementById('netYearWages').innerHTML = '$' + netYearWageString;
 
+    document.getElementById('totYearWages').innerHTML = '$' + totYearWageString;
+
     return {
       wkMcareTaxRnd: wkMcareTaxRnd,
       wkWorkCompTaxRnd: wkWorkCompTaxRnd,
@@ -196,119 +161,60 @@ $(document).ready(function() {
       yrUnempTaxRnd: yrUnempTaxRnd,
       yrSocSecTaxRnd: yrSocSecTaxRnd,
       netYearWage: netYearWage,
-      netYearWageString: netYearWageString
+      netYearWageString: netYearWageString,
+      totYearWage: totYearWage,
+      totYearWageString: totYearWageString
     };
 
   }
   payrollTaxes();
 
-  //Waterfall Chart Code
+  function calcBaseValues() {
 
-  var margin = {top: 20, right: 30, bottom: 30, left: 40},// jscs:ignore disallowMultipleVarDecl
-    width = 720 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom,
-    padding = 0.3;
+    var wotcWagePct = (wotcPct * 100) + '%'; // s/b 40%
 
-  var x = d3.scale.ordinal()
-    .rangeRoundBands([0, width], padding);
+    var minWOTCWages = (maxWOTCCredit / wotcPct); // s/b 24000
 
-  var y = d3.scale.linear()
-    .range([height, 0]);
+    var maxWOTCCreditString = numberWithCommas(maxWOTCCredit); // s/b 9,600
 
-  var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient('bottom');
+    var minWagePaidString = numberWithCommas(minWOTCWages); // s/b 24,000
 
-  var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient('left')
-    .tickFormat(function(d) { return dollarFormatter(d); });
+    var minWOTCWeeks = minWOTCHours / hoursWorkWeek; // s/b 10
 
-  var chart = d3.select('.chart')
-    .attr('width', width + margin.left + margin.right)
-    .attr('height', height + margin.top + margin.bottom)
-    .append('g')
-    .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+    var maxWOTCWeeks = minWOTCWages / (orMinWage * hoursWorkWeek); // s/b 65
+    var maxWOTCWeeksValue = maxWOTCWeeks.toFixed(0);
 
-  var gradient = svg.append('defs')
-    .append('linearGradient')
-    .attr('id', 'gradient')
-    .attr('x1', '100%')
-    .attr('y1', '0%')
-    .attr('x2', '100%')
-    .attr('y2', '100%')
-    .attr('spreadMethod', 'pad');
+    var lostStudentCashString = numberWithCommas(lostStudentCash); // s/b 5,000
 
-  gradient.append('stop')
-    .attr('offset', '0%')
-    .attr('stop-color', '#D9923D')
-    .attr('stop-opacity', 1);
+    var trainingCostString = numberWithCommas(trainingCost); // s/b 5,000
 
-  gradient.append('stop')
-    .attr('offset', '50%')
-    .attr('stop-color', '#2C698A')
-    .attr('stop-opacity', 1);
+    var trainingPaybackString = numberWithCommas(trainingPayback); // s/b 5,000
 
-  d3.csv('./assets/data/data.csv', type, function(error, data) {
+    /*var minEffWage = (maxWOTCCredit / wotcPct) / ((trainingWeeks * hoursTrainingWeek) + ((maxWOTCWeeksValue - trainingWeeks) * hoursWorkWeek) + (internLengthHours));*/
 
-    // Transform data (i.e., finding cumulative values and total) for easier charting
-    var cumulative = 0;
-    for (var i = 0; i < data.length; i++) {
-      data[i].start = cumulative;
-      cumulative += data[i].value;
-      data[i].end = cumulative;
+    var minEffWage = (payrollTaxes().netYearWage) / ((trainingWeeks * hoursTrainingWeek) + ((maxWOTCWeeksValue - trainingWeeks) * hoursWorkWeek) + (internLengthHours));
 
-      data[i].class = (data[i].value >= 0) ? 'positive' : 'negative';
-    }
-    data.push({
-      name: 'Total',
-      end: cumulative,
-      start: 0,
-      class: 'total'
-    });
+    var maxEffWage = (payrollTaxes().netYearWage) / ((trainingWeeks * hoursTrainingWeek) + ((baseEmployWeeks - trainingWeeks) * hoursWorkWeek) + (internLengthHours));
 
-    x.domain(data.map(function(d) { return d.name; }));
-    y.domain([0, d3.max(data, function(d) { return d.end; })]);
+    document.getElementById('maxWOTCCredit').innerHTML = '$' + maxWOTCCreditString;
+    document.getElementById('maxWOTCCreditTwo').innerHTML = '$' + maxWOTCCreditString;
+    document.getElementById('wotcWagePct').innerHTML = wotcWagePct;
+    document.getElementById('minWagePaid').innerHTML = '$' + minWagePaidString;
+    document.getElementById('minWOTCWeeks').innerHTML = minWOTCWeeks.toFixed(0);
+    document.getElementById('orMinWage').innerHTML = orMinWage.toFixed(2);
+    document.getElementById('maxWOTCWeeks').innerHTML = maxWOTCWeeks.toFixed(0);
+    document.getElementById('lostStudentCashStringValue').innerHTML = '$' + lostStudentCashString;
+    document.getElementById('trainingCostStringValue').innerHTML = '$' + trainingCostString;
+    document.getElementById('trainingPaybackValue').innerHTML = '$' + trainingPaybackString;
+    document.getElementById('minEffWageValue').innerHTML = '$' + minEffWage.toFixed(2);
+    document.getElementById('maxEffWageValue').innerHTML = '$' + maxEffWage.toFixed(2);
 
-    chart.append('g')
-      .attr('class', 'x axis')
-      .attr('transform', 'translate(0,' + height + ')')
-      .call(xAxis);
-
-    chart.append('g')
-      .attr('class', 'y axis')
-      .call(yAxis);
-
-    var bar = chart.selectAll('.bar')
-      .data(data)
-      .enter().append('g')
-      .attr('class', function(d) { return 'bar ' + d.class; })
-      .attr('transform', function(d) { return 'translate(' + x(d.name) + ',0)'; });
-
-    bar.append('rect')
-      .attr('y', function(d) { return y(Math.max(d.start, d.end)); })
-      .attr('height', function(d) { return Math.abs(y(d.start) - y(d.end)); })
-      .attr('width', x.rangeBand())
-      .style('fill', 'url(#gradient)');
-
-    bar.append('text')
-      .attr('x', x.rangeBand() / 2)
-      .attr('y', function(d) { return y(d.end) + 5; })
-      .attr('dy', function(d) { return ((d.class == 'negative') ? '-' : '') + '.75em'; })
-      .text(function(d) { return dollarFormatter(d.end - d.start);});
-
-    bar.filter(function(d) { return d.class != 'total'; }).append('line')
-      .attr('class', 'connector')
-      .attr('x1', x.rangeBand() + 5)
-      .attr('y1', function(d) { return y(d.end); })
-      .attr('x2', x.rangeBand() / (1 - padding) - 5)
-      .attr('y2', function(d) { return y(d.end); });
-  });
-
-  function type(d) {
-    d.value = +d.value;
-    return d;
+    return {
+      maxWOTCCreditString: maxWOTCCreditString,
+      minWagePaidString: minWagePaidString
+    };
   }
+  calcBaseValues();
 
   function dollarFormatter(n) {
     n = Math.round(n);
@@ -328,6 +234,122 @@ $(document).ready(function() {
 
   }
 
+  //waterfall chart code using D4
+
+  function waterfallCode() {
+
+    var trainingPaybackNeg = trainingPayback * -1;
+    var wotcNeg = maxWOTCCredit * -1;
+
+    var data = [
+      {'category': 'Total Yearly Payroll', 'value': payrollTaxes().totYearWage},
+      {'category': 'Lost School Revenue',  'value': lostStudentCash},
+      {'category': 'Cost of Tuition',      'value': trainingCost},
+      {'category': 'Subtotal',             'value': 'e'},
+      {'category': 'Tuition Repayment',    'value': trainingPaybackNeg},
+      {'category': 'WOTC',                 'value': wotcNeg},
+      {'category': 'Net Wages Paid',       'value': 'e'}
+    ];
+    var parsedData = d4.parsers.waterfall()
+      .x(function() {
+        return 'category';
+      })
+      .y(function() {
+        return 'value';
+      })
+      .nestKey(function() {
+        return 'category';
+      })(data);
+
+    var chart = d4.charts.waterfall()
+      .width($('#waterfallChart').width())
+      .x(function(x) {
+        x.key('category');
+      })
+      .y(function(y) {
+        y.key('value');
+        y.min(15000);
+        y.max(37000);
+      });
+
+    chart.marginLeft(60);
+
+    d3.select('#waterfallChart')
+      .datum(parsedData.data)
+      .call(chart);
+  }
+  waterfallCode();
+
+  // stolen from Ian Clark - scrolls anchors to the proper place when using a fixed header
+  (function(document, history, location) {
+    var HISTORY_SUPPORT = !!(history && history.pushState);
+
+    var anchorScrolls = {
+      ANCHOR_REGEX: /^#[^ ]+$/,
+      OFFSET_HEIGHT_PX: 50,
+
+      /**
+       * Establish events, and fix initial scroll position if a hash is provided.
+       */
+      init: function() {
+        this.scrollIfAnchor(location.hash);
+        $('body').on('click', 'a', $.proxy(this, 'delegateAnchors'));
+      },
+
+      /**
+       * Return the offset amount to deduct from the normal scroll position.
+       * Modify as appropriate to allow for dynamic calculations
+       */
+      getFixedOffset: function() {
+        return this.OFFSET_HEIGHT_PX;
+      },
+
+      /**
+       * If the provided href is an anchor which resolves to an element on the
+       * page, scroll to it
+       * * @param  {String} href
+       * * @return {Boolean} - Was the href an anchor.
+       * */
+      scrollIfAnchor: function(href, pushToHistory) {
+        var match;
+        var anchorOffset;
+
+        if (!this.ANCHOR_REGEX.test(href)) {
+          return false;
+        }
+
+        match = document.getElementById(href.slice(1));
+
+        if (match) {
+          anchorOffset = $(match).offset().top - this.getFixedOffset();
+          $('html, body').animate({scrollTop: anchorOffset});
+
+          // Add the state to history as-per normal anchor links
+          if (HISTORY_SUPPORT && pushToHistory) {
+            history.pushState({}, document.title, location.pathname + href);
+          }
+        }
+
+        return !!match;
+      },
+
+      /**
+       * If the click event's target was an anchor, fix the scroll position.
+       */
+      delegateAnchors: function(e) {
+        var elem = e.target;
+
+        if (this.scrollIfAnchor(elem.getAttribute('href'), true)) {
+          e.preventDefault();
+        }
+      }
+    };
+
+    $(document).ready($.proxy(anchorScrolls, 'init'));
+  })(window.document, window.history, window.location);
+
+  //]]>
+
 });
 
 function calcEffWages() {
@@ -340,7 +362,10 @@ function calcEffWages() {
   var workHoursTrainingInput = document.getElementById('minHours');
   var minWorkHoursTraining = workHoursTrainingInput.value;
 
-  var effHrWage =  (maxWOTCCredit / wotcPct) / ((trainingWeeks * minWorkHoursTraining) + ((minWorkWeeks - trainingWeeks) * hoursWorkWeek) + (internLengthHours));
+  // 22256 value hard coded to avoid having to re-calculate payrollTaxes().netYearWage
+  // I'll have to learn how to pass that value later
+
+  var effHrWage =  (22256) / ((trainingWeeks * minWorkHoursTraining) + ((minWorkWeeks - trainingWeeks) * hoursWorkWeek) + (internLengthHours));
 
   if ((minWorkWeeks >= 27 && minWorkWeeks <= 65) && (minWorkHoursTraining >= 0 && minWorkHoursTraining <= 10)) {
     $('#minWeeksControl').removeClass('has-error');
@@ -356,3 +381,6 @@ function calcEffWages() {
 
 }
 
+function scrollOnNav() {
+  $.scrollBy(0,100);
+}

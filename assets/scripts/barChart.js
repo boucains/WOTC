@@ -1,7 +1,7 @@
 /**
  * Created by John on 02/15/2016.
  */
-// Bar Chart with Negative Values Code
+// Bar Chart with Negative Values Code stolen from Mike Bostock
 
 var margin = {top: 20, right: 30, bottom: 40, left: 30},
   width = 720 - margin.left - margin.right,

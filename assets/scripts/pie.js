@@ -86,7 +86,7 @@ var pie = new d3pie('pieChart', {// jscs:ignore requireCapitalizedConstructors
     'value': {
       'color': '#D9603D',
       'font': 'open sans',
-      'fontSize': 14
+      'fontSize': 0
     },
     'lines': {
       'enabled': true
