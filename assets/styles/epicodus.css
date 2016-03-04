@@ -1,18 +1,14 @@
+@font-face { font-family: "Glyphicons Halflings"; src: url('../fonts/glyphicons-halflings-regular.svg'); }
+
 a:link {
     color: rgba(69, 127, 158, 1.0);
     font-weight: bold;
-
-}
-
-a:visited {
-
 }
 
 a:hover, a:active {
     color: rgba(44, 105, 138, 1.0);
     text-decoration: none;
-
-}
+ }
 
 address {
     font-size: larger;
@@ -73,40 +69,22 @@ p {
     width: 720px;
 }
 
-#costsBenefits {
-
-}
-
 #costsBenefits p {
     font-size: 150%;
     font-variant: small-caps;
 }
 
-#costRecovery {
-
-
-}
-
 #coverLetter {
     padding-top: 10vh;
-
 }
 
-#effHrWage {
+#costRecoveryText {
 
 }
 
 #effWageCalcBtn {
     background-color: rgba(154, 196, 219, 1.0);
     font-weight: bold;
-}
-
-#effHrWageAdjust {
-
-}
-
-#effHrWageCalc {
-
 }
 
 #effHrWageEq dt, #effHrWageEq dd {
@@ -130,10 +108,6 @@ p {
     padding-top: 1vh;
 }
 
-#effPayroll {
-
-}
-
 #effPayrollChart {
     font-size: 60%;
 }
@@ -147,16 +121,8 @@ p {
     width: 99%;
 }
 
-#execSummary {
-
-}
-
 #execSummary dt, #execSummary dd {
     font-size: larger;
-}
-
-#execSummary h2 {
-
 }
 
 #gayle {
@@ -190,10 +156,6 @@ p {
     padding: 5px 0;
 }
 
-#hrWage {
-
-}
-
 #ideaHead {
     width: 100%;
 }
@@ -219,57 +181,21 @@ p {
     padding-right: 3vh;
 }
 
-#maxWOTCCredit {
-
-}
-
-#maxWOTCWeeks {
-
-}
-
-#maxWOTCYears {
-
-}
-
 #me {
     width: 100%;
-}
-
-#minWagePaid {
-
-}
-
-#minWOTCWeeks {
-
 }
 
 #myPlace {
     padding: 3vh 0;
 }
 
-#num2Know {
-
-}
-
 #oldMan {
     width: 70%;
 }
 
-#options {
-
-}
-
-#orMinWage {
-
-}
-
-#pieChart {
-
-}
-
-#service {
-
-}
+#pieChartWrapper {
+    margin: 0 auto;
+ }
 
 #serviceList {
     background-color: rgba(206, 245, 224, 0.5);
@@ -287,10 +213,6 @@ p {
     padding: 5px 0;
 }
 
-#swot {
-
-}
-
 #taxRates {
     padding-bottom: 3vh;
 }
@@ -305,40 +227,26 @@ p {
     text-align: center;
 }
 
+#waterfall {
+    margin: 0 auto;
+}
+
 #waterfallChart {
     height: 100%;
     margin: 0 auto;
     padding: 60px;
     width: 720px;
-
 }
 
-#weeklyPayroll {
-
-}
-
-#wotcWagePct {
-
+#wotcHands {
+    height: 200%;
+    width: 200%;
 }
 
 #wrapper {
     color: rgba(44, 105, 138, 1.0);
     padding: 0 20px 20px 20px;
 }
-
-.active {
-
-}
-
-.chart {
-
-
-}
-
-.container-fluid {
-
-}
-
 
 .dropdown-menu {
     background-color: rgba(206, 229, 242, 1.0);
@@ -366,6 +274,10 @@ p {
     font-size: larger;
 }
 
+.hiddenLarge {
+    display: none;
+}
+
 .imageContainer {
     display: flex;
     flex-direction: column;
@@ -373,7 +285,6 @@ p {
     align-self: stretch;     /* make sure that the column is stretched */
     justify-content: space-around;
 }
-
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
     background-color: rgba(206, 229, 242, 1.0);
@@ -391,7 +302,7 @@ p {
             rgba(255, 255, 255, 1),
             rgba(206, 229, 242, 0.25)
     );
- }
+}
 
 .navbar-default .navbar-nav > li > a {
     color: rgba(44, 105, 138, 1.0);
@@ -416,14 +327,13 @@ p {
 }
 
 .vertical-center {
-    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-    min-height: 100vh; /* These two lines are counted as one :-)       */
     display: flex;
     align-items: center;
 }
 
 
-/* styles for Waterfall Chart */
+/* styles for bar & pie charts */
+
 .bar.total rect {
     fill: rgba(44, 105, 138, 1.0);
 }
@@ -453,7 +363,7 @@ p {
 
 .axis path,
 .axis line {
-    fill: rgba(44, 105, 138, 1.0);
+    fill: none;
     stroke: rgba(69, 127, 158, 1.0);
     shape-rendering: crispEdges;
 }
@@ -468,24 +378,86 @@ p {
     fill: rgba(217, 146, 61, 1.0);
 }
 
-.axis text {
-    color: rgba(44, 105, 138, 1.0);
-    font: 14px 'open sans';
-}
+/* CSS for D4 */
 
-.axis path,
-.axis line {
-    fill: none;
-    stroke: rgba(44, 105, 138, 1.0);
+svg.d4 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+}
+.d4 .tick text {
+    font-size: 14px;
+    fill: rgba(44, 105, 138, 1.0);
     shape-rendering: crispEdges;
 }
 
+.d4 .axis .domain, .d4 .axis .tick line {
+    fill: none;
+    stroke: rgba(44, 105, 138, 1.0);
+    stroke-width: 1px;
+    shape-rendering: crispEdges;
+}
+
+.d4 .line, .d4 path, .d4 .connectors line {
+    fill: none;
+    stroke: rgba(44, 105, 138, 1.0);
+    stroke-width: 1px;
+}
+
+.d4 .columnLabels {
+    font-size: smaller;
+    font-weight: bold;
+}
+
+
+#waterfall  .d4 .bar.negative.fill {
+    fill: rgba(43, 154, 94, 1.0);
+}
+#waterfall .d4 .bar.positive.fill {
+    fill: rgba(217, 146, 61, 1.0);
+}
+#waterfall .d4 .bar.subtotal.fill {
+    fill: rgba(44, 105, 138, 1.0);
+}
+
+/* Media Queries */
 
 @media (min-width: 768px){
-    .navbar-nav{
-        float:none;
-        margin: 0 auto;
-        display: table;
-        table-layout: fixed;
+
+ .navbar-nav {
+     width: 100%;
+     text-align: center;
+ }
+
+.navbar-nav>li {
+      float: none;
+      display: inline-block;
+  }
+}
+
+@media (min-width: 601px ) and (max-width: 767px) {
+
+.hiddenSmall {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+}
+
+@media (min-width: 319px ) and (max-width: 600px) {
+
+    .hiddenExSmall {
+        display: none;
     }
+
+    .hiddenSmall {
+        display: none;
+    }
+
+    .visible {
+        display: block;
+    }
+
 }
