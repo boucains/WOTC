@@ -250,7 +250,7 @@ $(document).ready(function() {
       {'category': 'WOTC',                 'value': wotcNeg},
       {'category': 'Net Wages Paid',       'value': 'e'}
     ];
-    var parsedData = d4.parsers.waterfall()
+    var parsedData = d4.parsers.waterfall()   //don't add a require statement; it breaks the chart
       .x(function() {
         return 'category';
       })
@@ -273,6 +273,7 @@ $(document).ready(function() {
       });
 
     chart.marginLeft(60);
+    chart.marginBottom(60);
 
     d3.select('#waterfallChart')
       .datum(parsedData.data)
