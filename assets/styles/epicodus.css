@@ -10,37 +10,41 @@ a:hover, a:active {
     text-decoration: none;
  }
 
-address {
-    font-size: larger;
-}
-
 body {
     background-color: rgba(206, 229, 242, 0.25);
     margin: 0 auto;
     max-width: 960px;
+    font-size: 1.5rem;
 }
 
-dl.dl-horizontal dt {
+dl.dl-horizontal dt {       /* service & helpOutList dt styled separately */
+    font-weight: bold;
+    padding: 0.75vh;
     width: 15%;
 }
 
 dl.dl-horizontal dd {
     margin: 0 0 0 20%;
+    padding: 0.75vh;
     width: 80%;
 }
 
-h2 {
+h1 {
     font-size: 180%;
-    padding: 1vh 0;
 }
 
-h3 {
+h2 {
     font-size: 160%;
     padding: 1vh 0;
 }
 
+h3 {
+    font-size: 140%;
+    padding: 1vh 0;
+}
+
 h4 {
-    font-size: 130%;
+    font-size: 110%;
     padding: 2vh 0;
 }
 
@@ -51,16 +55,12 @@ hr {
 }
 
 li {
-    font-size: larger;
-    padding: 0 0 1vh 0;
+    font-weight: normal;
+    padding: 0;
 }
 
 nav li {
     padding: 0;
-}
-
-p {
-    font-size: larger;
 }
 
 #barChart {
@@ -78,17 +78,9 @@ p {
     padding-top: 10vh;
 }
 
-#costRecoveryText {
-
-}
-
 #effWageCalcBtn {
     background-color: rgba(154, 196, 219, 1.0);
     font-weight: bold;
-}
-
-#effHrWageEq dt, #effHrWageEq dd {
-    font-size: larger;
 }
 
 #effHrWageNew {
@@ -104,25 +96,21 @@ p {
     padding-top: 1vh;
 }
 
-#effHrWages dt, #effHrWages dd {
-    padding-top: 1vh;
-}
-
 #effPayrollChart {
     font-size: 60%;
 }
 
+#epiApp h4 {
+    color: rgba(43, 154, 94, 1.0);
+}
+
 #eSig {
-    width: 120px;
+    width: 100px;
 }
 
 #eSig img {
-    height: 99%;
-    width: 99%;
-}
-
-#execSummary dt, #execSummary dd {
-    font-size: larger;
+    height: 100%;
+    width: 100%;
 }
 
 #gayle {
@@ -141,8 +129,6 @@ p {
 
 #helpOutList {
     background-color: rgba(206, 245, 224, 0.5);
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
     border-radius: 15px;
     border: 2px solid rgba(43, 153, 94, 1.0);
     color: rgba(43, 154, 94, 1.0);
@@ -151,9 +137,8 @@ p {
 }
 
 #helpOutList dt {
-    font-size: larger;
-    margin-bottom: 0;
-    padding: 5px 0;
+    font-weight: bold;
+    padding: 0.75vh;
 }
 
 #ideaHead {
@@ -195,12 +180,15 @@ p {
 
 #pieChartWrapper {
     margin: 0 auto;
- }
+}
+
+#service dt {
+    font-weight: bold;
+    padding: 0.75vh;
+}
 
 #serviceList {
     background-color: rgba(206, 245, 224, 0.5);
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
     border-radius: 15px;
     border: 2px solid rgba(43, 153, 94, 1.0);
     color: rgba(43, 154, 94, 1.0);
@@ -208,17 +196,8 @@ p {
     padding: 10px 15px;
 }
 
-#serviceList dt {
-    font-size: larger;
-    padding: 5px 0;
-}
-
 #taxRates {
     padding-bottom: 3vh;
-}
-
-#taxRates dt, #taxRates dd {
-    font-size: larger;
 }
 
 #tldr {
@@ -265,15 +244,6 @@ p {
     color: rgba(206, 229, 242, 1.0);
 }
 
-.execNumKnow dd {
-    font-size: larger;
-    padding: 0 0 10px 0;
-}
-
-.execNumKnow dt {
-    font-size: larger;
-}
-
 .hiddenLarge {
     display: none;
 }
@@ -281,7 +251,7 @@ p {
 .imageContainer {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* or center */
+    align-items: flex-start;
     align-self: stretch;     /* make sure that the column is stretched */
     justify-content: space-around;
 }
@@ -409,13 +379,13 @@ svg.d4 {
 }
 
 
-#waterfall  .d4 .bar.negative.fill {
+#wtrfall  .d4 .bar.negative.fill {
     fill: rgba(43, 154, 94, 1.0);
 }
-#waterfall .d4 .bar.positive.fill {
+#wtrfall .d4 .bar.positive.fill {
     fill: rgba(217, 146, 61, 1.0);
 }
-#waterfall .d4 .bar.subtotal.fill {
+#wtrfall .d4 .bar.subtotal.fill {
     fill: rgba(44, 105, 138, 1.0);
 }
 
@@ -423,30 +393,38 @@ svg.d4 {
 
 @media (min-width: 768px){
 
- .navbar-nav {
-     width: 100%;
-     text-align: center;
- }
+    .navbar-nav {
+        width: 100%;
+        text-align: center;
+    }
 
-.navbar-nav>li {
-      float: none;
-      display: inline-block;
-  }
+    .navbar-nav>li {
+         float: none;
+         display: inline-block;
+    }
 }
 
 @media (min-width: 601px ) and (max-width: 767px) {
 
-.hiddenSmall {
-    display: none;
-}
+    #execSummary dd {
+        margin-left: 5vh;
+    }
 
-.visible {
-    display: block;
-}
+    .hiddenSmall {
+       display: none;
+    }
+
+    .visible {
+       display: block;
+    }
 
 }
 
 @media (min-width: 319px ) and (max-width: 600px) {
+
+    #execSummary dd {
+        margin-left: 2vh;
+    }
 
     .hiddenExSmall {
         display: none;
