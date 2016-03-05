@@ -4,6 +4,7 @@
     <!-- Meta Tags -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="noindex, noarchive">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above qty 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <!-- HTML5 html-equiv attribute tag strongly recommended by W3C -->
@@ -16,6 +17,7 @@
     <!-- 21 characters with spaces, keep under 55 characters with spaces max, http://moz.com/learn/seo/title-tag -->
 
     <!-- Web Fonts and Related Scripts -->
+
     <!-- End Fonts and Related Scripts -->
 
     <!-- JavaScript - put after CSS files -->
@@ -30,7 +32,7 @@
     <!-- Bootstrap -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
    <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" rel="stylesheet">-->
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- Provides basic HTML5 behavior in pre-HTML5 browsers, https://github.com/aFarkas/html5shiv -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -44,7 +46,6 @@
     <!-- <link rel="stylesheet" href="./assets/styles/html5_reset.css"> <!- - CSS reset to make all browsers use basic CSS essentially alike, http://www.cssreset.com/ -->
     <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">"<!- -  Font Awesome  -->
     <!-- <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
-    <link rel="stylesheet" href="./assets/styles/d4.css">
     <link rel="stylesheet" href="./assets/styles/epicodus.css">
     <!-- Contains site-specific color, font and standard formatting tags -->
     <!-- End Style Sheets, Shims, Resets -->
@@ -75,7 +76,7 @@
 
                     <button type="button" class="navbar-toggle collapsed"
                             data-toggle="collapse"
-                            data-target="#navbar-collapse-1"
+                            data-target="#navbarCollapse"
                             aria-expanded="false">
 
                         <span class="sr-only">Toggle navigation</span>
@@ -92,7 +93,7 @@
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
 
-                <div class="collapse navbar-collapse navbar-collapse-1">
+                <div id="navbarCollapse" class="collapse navbar-collapse navbar-collapse-1">
 
                     <ul class="nav navbar-nav">
 
@@ -127,7 +128,7 @@
 
                                 <li>
 
-                                    <a href="#effHrWageCalc">Effective Wage</a>
+                                    <a href="#effHrWgCalc">Effective Wage</a>
 
                                 </li>
 
@@ -149,7 +150,7 @@
 
                                 <li onclick="scrollOnNav()">
 
-                                    <a href="#mainProposal"
+                                    <a href="#mainProp"
                                        target="_self">Overview
                                     </a>
 
@@ -160,7 +161,7 @@
 
                                 <li>
 
-                                    <a href="#effHrWageCalc">Effective Wage</a>
+                                    <a href="#effHrWgCalc">Effective Wage</a>
 
                                 </li>
 
@@ -169,7 +170,7 @@
 
                                 <li class="dropdown-submenu">
 
-                                    <a href="#capabilities">Jack's Background</a>
+                                    <a href="#jackCap">Jack's Background</a>
 
                                 </li>
 
@@ -178,13 +179,14 @@
 
                                 <li class="dropdown-submenu">
 
-                                    <a href="#costBenefits">Essential Numbers</a>
+                                    <a href="#costBfts">Essential Numbers</a>
 
                                 </li>
 
                             </ul>
 
                         </li>
+                        <!-- nav menu entry three - Proposal -->
 
                         <li class="dropdown">
 
@@ -207,7 +209,7 @@
 
                                 <li>
 
-                                    <a href="#weaknesses">Weaknesses</a>
+                                    <a href="#wkness">Weaknesses</a>
 
                                 </li>
 
@@ -216,7 +218,7 @@
 
                                 <li>
 
-                                    <a href="#opportunities">Opportunities</a>
+                                    <a href="#opptunty">Opportunities</a>
 
                                 </li>
 
@@ -233,7 +235,7 @@
 
                         </li>
 
-                        <!-- nav menu entry three - SWOT -->
+                        <!-- nav menu entry four - SWOT -->
 
                         <li class="dropdown">
 
@@ -247,7 +249,7 @@
 
                                 <li>
 
-                                    <a href="#costRecovery">Effective Payroll</a>
+                                    <a href="#costRec">Effective Payroll</a>
 
                                 </li>
 
@@ -264,11 +266,11 @@
 
                         </li>
 
-                        <!-- nav menu entry four - recovery -->
+                        <!-- nav menu entry five - recovery -->
 
                         <li class="dropdown">
 
-                            <a href="#" class="dropdown-toggle"
+                            <a href="#" class="dropdown-toggle hiddenSmall"
                                data-toggle="dropdown" role="button"
                                aria-haspopup="true"
                                aria-expanded="false">Charts <span
@@ -278,7 +280,7 @@
 
                                 <li>
 
-                                    <a href="#">Weekly Wage Breakdown</a>
+                                    <a href="#barChtTtl">Costs vs. Credits</a>
 
                                 </li>
 
@@ -287,7 +289,7 @@
 
                                 <li>
 
-                                    <a href="#">Effective Payroll</a>
+                                    <a href="#wtrfall">Effective Payroll</a>
 
                                 </li>
 
@@ -296,7 +298,7 @@
 
                                 <li>
 
-                                    <a href="#">Costs vs. Credits</a>
+                                    <a href="#pieChart">Weekly Payroll Breakdown</a>
 
                                 </li>
 
@@ -304,19 +306,29 @@
 
                         </li>
 
-                        <!-- nav menu entry five - charts -->
-
-
+                        <!-- nav menu entry six - charts -->
 
                         <li class="dropdown">
 
-                            <a href="#" class="dropdown-toggle"
+                            <a href="#" class="dropdown-toggle hiddenSmall"
                                data-toggle="dropdown" role="button"
                                aria-haspopup="true"
-                               aria-expanded="false">Infographic <span
+                               aria-expanded="false">Application <span
                                     class="caret"></span></a>
 
+                            <ul class="dropdown-menu">
+
+                                <li>
+
+                                    <a href="#epiApp">Epicodus Application</a>
+
+                                </li>
+
+                            </ul>
+
                         </li>
+
+                        <!-- nav menu entry seven - Epicodus Application -->
 
                     </ul>
 
@@ -336,7 +348,7 @@
             400 SW 6th Ave, Suite 800<br>
             Portland OR 97204<br>
             &nbsp;<br>
-            February 18, 2016<br>
+            March 3, 2016<br>
             &nbsp;<br>
             RE: Work for Training Proposal<br>
 
@@ -344,13 +356,13 @@
 
         <p>Dear Mr. Kaiser-Nyman,</p>
 
-        <p>Thank you for taking the time to read this proposal. You and your staff are busy, especially with a new class to enroll and expansion into Seattle. While I believe this proposal could be beneficial to both of us, especially right now, the fact is that I am asking for a hand up because I am out of options.
+        <p>Thank you for taking the time to come to this site. You and your staff are busy, especially with enrolling a new class and expansion into Seattle. I believe this proposal could be beneficial to both of us, especially right now, but the fact is that I am asking for a hand up because I am out of options.
         </p>
 
-        <p>I am a service-connected disabled vet who would like to attend Epicodus, but funding is an issue. I have employment incentives from two Federal sources totaling approximately $12,100. Most of this money is only available if I am your employee. The proposal below details many costs and benefits from trading approximately one year’s employment plus these incentives for your training. The overview explains my skills and the circumstances that brought me to this request.
+        <p>I am a service-connected disabled vet who would like to attend Epicodus, but funding is an issue. I have employment incentives from two Federal sources. One will fund a four-week internship at Epicodus and the other would give you a $9,600 tax credit for hiring me. The proposal below details many of the costs and benefits, and also explains my skills and the circumstances that brought me to this request.
         </p>
 
-        <p>Please allow me some time with you or your representative in person to provide further details. I hope that the creative thinking behind this proposal provides some evidence of my ability to find unique solutions to problems, a talent that saved Seagate Technology over a million dollars across eight years. I truly believe that I can provide services to Epicodus that will make this a clear benefit to your company, your staff, and your students.
+        <p>Please allow me some time with you or your representative in person to provide further details. I hope that the creative thinking behind this proposal provides some evidence of my ability to find unique solutions to problems, a talent that saved Seagate Technology over a million dollars across eight years.   I truly believe that I can provide services to Epicodus that will make this a clear benefit to your company, your staff, and your students.
         </p>
 
         <p>Sincerely,</p>
@@ -435,7 +447,7 @@
 
         </dl>
 
-         <div id="effHrWageCalc" class="paper">
+         <div id="effHrWgCalc">
 
             <h2>Effective Hourly Wage Adjustments</h2>
 
@@ -462,7 +474,7 @@
 
     <hr>
 
-    <div id="mainProposal">
+    <div id="mainProp">
 
         <div id="intro">
 
@@ -479,10 +491,10 @@
 
             </section>
 
-                <h2 id="tldr"><strong>Tl;dr Warning.</strong><br> This section is a reference for details best discussed in person.
+                <h2 id="tldr"><strong>Tl;dr Warning.</strong><br> The remaining sections are a reference for details best discussed in person. You are welcome to read it, <strong>but you are not obligated to do so.</strong>
                 </h2>
 
-            <section id="capabilities">
+            <section id="jackCap">
 
                 <h2>What I Can Bring to the Table</h2>
 
@@ -498,13 +510,13 @@
 
                         <div class="rowFlexCenter row">
 
-                            <div class="imageContainer col-xs-3 col-md-3">
+                            <div class="imageContainer col-xs-0 col-md-3 hiddenExSmall">
 
                                 <img id="ideaHead" class="img-responsive" src="./assets/images/baldHeadWords.svg" alt="silhouette of a man's head with a word cloud where the brain would be"/>
 
                             </div>
 
-                            <div class="col-xs-8 col-md-8">
+                            <div class="col-xs-12 col-md-8">
 
                                 <dl id="serviceList">
 
@@ -583,7 +595,7 @@
 
                     <div class="rowFlexCenter row">
 
-                        <dl id="helpOutList" class="col-xs-7 col-md-7">
+                        <dl id="helpOutList" class="col-xs-12 col-sm-7 col-md-7">
 
                             <dt>Handling the monthly info session for potential students</dt>
 
@@ -601,7 +613,7 @@
 
                         </dl>
 
-                        <div class="imageContainer col-xs-4 col-md-4">
+                        <div class="imageContainer col-xs-0 col-sm-4 col-md-4 hiddenExSmall">
 
                             <img id="intern" class="img-responsive" src="./assets/images/hard_working_engineer.svg" alt="image of donkey with a large load and an intern brand" />
 
@@ -617,7 +629,7 @@
 
         <hr>
 
-        <section id="costBenefits">
+        <section id="costBfts">
 
             <h2>Costs and Benefits to Epicodus</h2>
 
@@ -626,9 +638,15 @@
             <p><a href="#execSummary" target="_self">Please see the Executive Summary</a>
             </p>
 
-            <h2>Resulting Gain</h2>
+            <h2 id="barChtTtl">Resulting Gain</h2>
 
-            <div id="barChart"></div>
+            <p class="hiddenLarge visible">This chart is not responsive. Please use a display larger than 768 pixels.</p>
+
+            <div id="barChartWrapper" class="hiddenSmall">
+
+                <div id="barChart"></div>
+
+            </div>
 
         </section>
 
@@ -655,7 +673,7 @@
             </ul>
 
 
-        <h4 id="weaknesses">Weaknesses</h4>
+        <h4 id="wkness">Weaknesses</h4>
 
             <ul>
 
@@ -667,7 +685,7 @@
 
             </ul>
 
-        <h4 id="opportunities">Opportunities</h4>
+        <h4 id="opptunty">Opportunities</h4>
 
             <ul>
 
@@ -703,7 +721,7 @@
 
         <hr>
 
-        <section id="costRecovery">
+        <section id="costRec">
 
             <h1>Cost Recovery</h1>
 
@@ -711,7 +729,7 @@
 
                 <div class="rowFlexCenter row">
 
-                    <div class="col-xs-7 col-md-7">
+                    <div id="costRecoveryText" class="col-xs-9 col-sm-7 col-md-7">
 
                         <p>There are three components to the effective payroll:</p>
 
@@ -727,9 +745,9 @@
 
                     </div>
 
-                    <div class="imageContainer col-xs-3 col-md-3">
+                    <div class="imageContainer col-xs-3 col-sm-3 col-md-3 hiddenExSmall">
 
-                        <img id="wotcHands" class="img-responsive" src="./assets/images/wotcHands.svg" alt="Uncle Sam's hands holding a money bag labelled $9600"/>
+                        <img id="wotcHands" class="img-responsive" src="./assets/images/wotcHands.svg" alt="Uncle Sam's hands holding a money bag labelled $9600" />
 
                     </div>
 
@@ -746,15 +764,20 @@
             <p>It takes $24,000 in wages to generate the maximum WOTC. That total does not change, only the amount of time involved. This means that the wage on paper can vary from about $11.54/hr for a years’ time to the minimum wage of $9.25/hr for 1.25 years’ time. The employer’s share of taxes adds another $2,856 to the cost of payroll, for a total of $26, 856.
             </p>
 
-            <p>Next, that cost is increased by the loss of external tuition revenue and the cost of my tuition. The new total of $36,856 is then reduced by the tuition paid back through my wages (-$5,000) and the WOTC (-$9,600). That brings the effective payroll outlay down to $22,256.
+            <p>Next, that cost is increased by the loss of external tuition revenue and the cost of my tuition. The new total of $36,856 is then reduced by the tuition paid back through my wages (-$5,000) and the WOTC (-$9,600). That brings the effective payroll outlay down $4,600 to $22,256.
             </p>
 
             <p class="navPaddingBottom">Finally, there is a four-week internship involved at no cost to you. For a pay rate of $9.25, this reduces the effective payroll $1,480 to $20,778. For a pay rate of $11.54, the effective payroll is reduced by $1,846 to $20,409.
             </p>
 
-            <div id="waterfall">
+            <h3>Effective Payroll Chart</h3>
+
+            <p class="hiddenLarge visible">This chart is not responsive. Please use a display larger than 768 pixels.</p>
+
+            <div id="wtrfall" class="hiddenSmall">
 
                 <div id="waterfallChart"></div>
+
             </div>
 
         </section>
@@ -838,12 +861,144 @@
 
             </dl>
 
-            <div id="pieChart"></div>
+            <h2>Weekly Payroll Chart</h2>
+
+            <p class="hiddenLarge visible">This chart is not responsive. Please use a display larger than 768 pixels.</p>
+
+            <div id="pieChartWrapper" class="hiddenSmall">
+
+                <div id="pieChart"></div>
+
+            </div>
 
             <hr>
 
         </section>
 
+        <section id="epiApp">
+
+            <h1>Epicodus Application</h1>
+
+            <h2>Teamwork Section</h2>
+
+            <h3>Describe a Specific Time You Worked on a Close-Kint Team</h3>
+
+            <h4>How did you contribute to the success or failure of the project?</h4>
+
+            <p>I took a contract to program CNC equipment for a very small startup. The work began with a courier coming to my home almost every morning with a handmade model of the product under development. My job was to measure it within .001”, turn it into a 3D model, then produce a program that would be sent to a machinist to cut them.
+            </p>
+
+            <p>Immediately I had trouble reproducing the models, and had several calls with the model maker. I tried to get him to understand that I couldn’t built his prototypes, but to no avail. I just couldn’t understand his unwillingness to fix the problems, as they were clear and easy to understand. For example, ever try to cut a square inside corner with a round tool? Ain’t gonna happen! Finally, he angrily said, “You use a computer; you’re supposed to be able to do things better than what I can do!”, and I began to realize that the conflict was based in fear. This professional manual model maker was not going to be replaced by a stupid computer!
+            </p>
+
+            <p>I arranged to go over to his house one afternoon to discuss how to move forward. As he gave me a tour, I realized that he was truly an artist, with examples of beautiful consumer product development he had done. Much of it was on products that most people would have used or at least seen. He took the position, correctly, that product development is more art than science, and that computers were not art.
+            </p>
+
+            <p>Just as his world was initially a mystery to me, mine was to him as well. So, I packed up my hundred pounds of computer hardware and took it to his house. I walked through the process, and let him see what was required. It was certainly more complex than he assumed, and he began to see why I was saying there were problems. Soon, we began including the machinist as well, who was able to give me feedback on the speed of my programs and tips on how to approach holding the product during machining.
+            </p>
+
+            <p>I made sure to praise their work, and told them often that I couldn’t do their job. I created on-screen representations of actual tools so they could see in advance how they would interact with the design. Very quickly, we began to meet at each other’s homes, or at the company’s office, and design as a team. With my computer modeling skills, the model maker’s design experience and the machinist’s real-world feedback, we were able to keep pace with a very demanding schedule for a first-of-its-kind product.
+            </p>
+
+            <h4>How did you contribute to the success or failure of the project?</h4>
+
+            <p><strong>My contributions to the success of the product were</strong></p>
+
+            <ul>
+
+                <li>my willingness to respect the skill sets of others</li>
+
+                <li>praising the work of others to give them confidence about their work</li>
+
+                <li>teaching others about my work process so we could interface more effectively</li>
+
+                <li>diligently seeking to modify my processes so others could be more efficient</li>
+
+            </ul>
+
+            <h4>How did other people on the team contribute to the success or failure?</h4>
+
+            <p><strong>The model maker’s contributions were</strong></p>
+
+            <ul>
+
+                <li>a willingness to learn about what was to him a very threatening technology</li>
+
+                <li>a willingness to pass on years of product design wisdom to make my work easier</li>
+
+                <li>flexibility in work location and timing</li>
+
+            </ul>
+
+            <p><strong>The machinist’s contributions were</strong></p>
+
+            <ul>
+
+                <li>to provide feedback on manufacturing processes</li>
+
+                <li>education on rapid prototyping tools to speed production</li>
+
+            </ul>
+
+            <h4>What were your strengths as a group member?</h4>
+
+            <p>My strengths were mostly technical at the time, but one of the biggest soft strengths was the desire to work together with other experts rather than toss my work over the wall to the next person. Next, I had a strong desire to create the supporting graphics, like exact measurements of tools, to help us find design defects before manufacturing. Finally, I built the project files as a set rather than a series of individual projects. This allowed me to place each layer together, which exposed clearance problems and allowed for rendering of each part, or all, of a product onscreen before manufacturing. While these things are common now, back then this type of creative work was rare. All of these things show my desire to make processes more efficient and products better than the competition.
+            </p>
+
+            <h4>What were your weaknesses?</h4>
+
+            <ul>
+
+                <li>a tendency to get frustrated about last minute changes to the design by outside influences (the deadlines were very tight, and we worked 6 – 7 days a week, so a seemingly minor change caused havoc on our production schedule)
+                </li>
+
+                <li>a failure to ask about the bigger picture which made me less supportive of project changes</li>
+
+                <li>working too long, which led to times when I would miss a chance to work with others as a team because I was sleeping</li>
+
+            </ul>
+
+            <h4>How did you deal with other group members you didn't get along well with?</h4>
+
+            <p>There was only one person I didn’t get along with, and the dislike was based in his unwillingness to work with the rest of us. We added a night machinist, and he would do things that would result in models being out of tolerance. He would then say it was my fault for giving him a bad program, even though the day shift machinist produced good parts with the same program. For a while, I tried to use the same techniques I used with the others to gain his trust, but he wasn’t interested in working together with anyone, thus the night shift job. Eventually, we just left him alone until he was fired for producing too many bad parts after the day machinist presented some stats on scrap to the owner.
+            </p>
+
+            <p>About this same time, I learned a great lesson from John W. Thompson when he was the VP of Consumer Products at IBM. I ran into him at an airport, and he was kind enough to give me 45 minutes of his time. We discussed my dissatisfaction with IBM’s marketing, and he explained why they were making the decisions they were making. I had an epiphany about this subject. I had assumed that they were a bunch of idiots, but I learned that they had solid reasons for making the decisions they made. The light bulb went on that very few people make truly stupid decisions. If I see someone making such a move, chances are that I don’t have the same set of information as the other person. By respecting them up front, I get the opportunity to hear why those “stupid” decisions were being made so I understand them, and gain the opportunity to have input into them if I have relevant information to add.
+            </p>
+
+            <h4>What Class Are You Interested In?</h4>
+
+            <p>Portland - May full-time or later class</p>
+
+            <h4>Track Desired</h4>
+
+            <p>Intro, Java, JavaScript, Android</p>
+
+            <h4> How did You Hear About Epicodus?</h4>
+
+            <p>Other Epicodus students at meetups</p>
+
+            <h4>Demographics</h4>
+
+            <dl class="dl-horizontal">
+
+                <dt>Gender</dt>
+                <dd>Male</dd>
+
+                <dt>Race</dt>
+                <dd>Caucasian</dd>
+
+                <dt>Age</dt>
+                <dd>Over 18</dd>
+
+                <dt>Education</dt>
+                <dd>Associate's Degree</dd>
+
+            </dl>
+
+        </section> <!-- end epiApp section -->
+
+    <hr>
 
         <section>
 
@@ -891,8 +1046,46 @@
 
         <hr>
 
+            <footer>
 
-            <hr>
+                <h1>Thanks to:</h1>
+
+                <ul>
+
+                    <li>
+                        <a href="https://bost.ocks.org/mike/" target="_blank">Mike Bostock</a>
+                        for
+                        <a href="https://d3js.org/" target="_blank">D3</a>
+                    </li>
+
+                    <li>
+                        <a href="https://github.com/heavysixer" target="_blank">Mark Daggett</a>
+                        for
+                        <a href="https://github.com/heavysixer/d4" target="_blank">D4</a>
+                    </li>
+
+                    <li>
+                        <a href="http://www.ianclark.me/" target="_blank">Ian Clark</a>
+                        for
+                        <a href="https://jsfiddle.net/user/ianclark001/fiddles/" target="_blank">the scrolling help</a>
+                    </li>
+
+                    <li>
+                        <a href="https://github.com/mikez302" target="">Elias Zamaria</a>
+                        for the
+                        <a href="http://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript/2901298#2901298" target="_blank">comma regex</a>
+                    </li>
+
+
+                </ul>
+
+
+
+
+            </footer>
+
+
+        <hr>
 
     </div><!--end mainProposal div -->
 
