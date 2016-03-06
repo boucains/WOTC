@@ -410,6 +410,11 @@ svg.d4 {
         margin-left: 5vh;
     }
 
+    #navbarCollapse a {
+        background-color: rgba(107, 161, 190, 1.0);
+        color: rgba(206, 229, 242, 1.0);
+    }
+
     .hiddenSmall {
        display: none;
     }
@@ -418,12 +423,19 @@ svg.d4 {
        display: block;
     }
 
+
 }
 
 @media (min-width: 319px ) and (max-width: 600px) {
 
     #execSummary dd {
         margin-left: 2vh;
+    }
+
+    #navbarCollapse a {
+        background-color: rgba(107, 161, 190, 1.0);
+        color: rgba(206, 229, 242, 1.0);
+        padding: 2vh 0;
     }
 
     .hiddenExSmall {
