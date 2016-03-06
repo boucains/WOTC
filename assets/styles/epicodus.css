@@ -419,6 +419,10 @@ svg.d4 {
        display: none;
     }
 
+    .navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse {
+        max-height: 450px;
+    }
+
     .visible {
        display: block;
     }
@@ -433,7 +437,7 @@ svg.d4 {
     }
 
     #navbarCollapse a {
-        background-color: rgba(107, 161, 190, 1.0);
+        background-color: rgba(107, 161, 190, 0.95);
         color: rgba(206, 229, 242, 1.0);
         padding: 2vh 0;
     }
@@ -444,6 +448,10 @@ svg.d4 {
 
     .hiddenSmall {
         display: none;
+    }
+
+    .navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse {
+        max-height: 450px;
     }
 
     .visible {
