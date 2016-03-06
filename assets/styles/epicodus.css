@@ -104,6 +104,10 @@ nav li {
     color: rgba(43, 154, 94, 1.0);
 }
 
+#epiApp li {
+    list-style-type: circle;
+}
+
 #eSig {
     width: 100px;
 }
@@ -113,8 +117,8 @@ nav li {
     width: 100%;
 }
 
-#gayle {
-    padding: 0 0 0 4.5vh;
+#ftrAcks dt {
+    padding: 0 0 2vh 0;
 }
 
 #goldMuscle {
@@ -172,6 +176,10 @@ nav li {
 
 #myPlace {
     padding: 3vh 0;
+}
+
+#navbar {
+
 }
 
 #oldMan {
