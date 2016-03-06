@@ -41,6 +41,13 @@ $(document).ready(function() {
   }
   zeroValues();
 
+  // Helps collapse the menu after touch on small screens
+  $(document).on('click','.navbar-collapse.in',function(e) {
+    if ($(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle') {
+      $(this).collapse('hide');
+    }
+  });
+
   function calcWOTCValues() {
 
     var wotcWagePct = (wotcPct * 100) + '%';
