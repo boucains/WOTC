@@ -73,7 +73,7 @@
 
             </ul>
 
-            <p>A disabled veteran is one who is entitled to <em>monthly compensation payments</em> from the VA.</p>
+            <p>A disabled veteran is one who is entitled to <em>monthly compensation payments</em> from the VA per IRS Code .</p>
 
             <div id="nonProfit" class="form-group">
 
@@ -106,16 +106,16 @@
                 <label for="vetGroup" class="col-xs-12 col-sm-12">Have you, or has your prospective employee:
                 </label>
 
-                    <label class="col-xs-10 col-sm-10">Received SNAP benefits for at least 3 months out of the last 12 months ending on the hiring date?
+                    <label id="vetGroupSnap" class="col-xs-10 col-sm-10">Received SNAP benefits for at least 3 months out of the last 12 months ending on the hiring date?
                     </label>
 
-                    <label for="vetGroupSNAPYes" class="pad5Left pad5Right">Yes </label>
-                    <input id="vetGroupSNAPYes" class="radio-inline" type="radio" name="vetGroupSNAP" value="yes" required>
+                    <label for="vetGroupSnapYes" class="pad5Left pad5Right">Yes </label>
+                    <input id="vetGroupSnapYes" class="radio-inline" type="radio" name="vetGroupSNAP" value="yes" required>
 
-                    <label for="vetGroupSNAPNo" class="pad5Left pad5Right">No </label>
-                    <input id="vetGroupSNAPNo" class="radio-inline" type="radio" name="vetGroupSNAP" value="no" required checked><br>
+                    <label for="vetGroupSnapNo" class="pad5Left pad5Right">No </label>
+                    <input id="vetGroupSnapNo" class="radio-inline" type="radio" name="vetGroupSNAP" value="no" required checked><br>
 
-                    <label class="col-xs-10 col-sm-10">Been unemployed for at least 4 weeks, but less than 6 months, in the 12 months prior to the hiring date?
+                    <label id="vetGroupShortUmp" class="col-xs-10 col-sm-10">Been unemployed for at least 4 weeks, but less than 6 months, in the 12 months prior to the hiring date?
                     </label>
 
                     <label for="vetGroupShortUmpYes" class="pad5Left pad5Right">Yes </label>
@@ -124,7 +124,7 @@
                     <label for="vetGroupShortUmpNo" class="pad5Left pad5Right">No </label>
                     <input id="vetGroupShortUmpNo" class="radio-inline" type="radio" name="vetGroupShortUmp" value="no" required checked><br>
 
-                    <label class="col-xs-10 col-sm-10">Been disabled, and whose hiring date is less than 1 year after discharge or release from active duty
+                    <label id="vetGroupDisabledDis" class="col-xs-10 col-sm-10">Been disabled, and whose hiring date is less than 1 year after discharge or release from active duty
                     </label>
                     <label for="vetGroupDisabledDisYes" class="pad5Left pad5Right">Yes </label>
                     <input id="vetGroupDisabledDisYes" class="radio-inline" type="radio" name="vetGroupDisabledDis" value="yes" required>
@@ -132,7 +132,7 @@
                     <label for="vetGroupDisabledDisNo" class="pad5Left pad5Right">No </label>
                     <input id="vetGroupDisabledDisNo" class="radio-inline" type="radio" name="vetGroupDisabledDis" value="no" required checked><br>
 
-                    <label class="col-xs-10 col-sm-10">Been unemployed for at least 6 months or more in the 12 months prior to the hiring date?
+                    <label id="vetGroupLongUmp" class="col-xs-10 col-sm-10">Been unemployed for at least 6 months or more in the 12 months prior to the hiring date?
                     </label>
                     <label for="vetGroupLongUmpYes" class="pad5Left pad5Right">Yes </label>
                     <input id="vetGroupLongUmpYes" class="radio-inline" type="radio" name="vetGroupLongUmp" value="yes" required>
@@ -140,7 +140,7 @@
                     <label for="vetGroupLongUmpNo" class="pad5Left pad5Right">No </label>
                     <input id="vetGroupLongUmpNo" class="radio-inline" type="radio" name="vetGroupLongUmp" value="no" required checked><br>
 
-                    <label class="col-xs-10 col-sm-10">Been disabled and been unemployed for at least 6 months or more in the 12 months prior to the hiring date?
+                    <label id="vetGroupDisLongUmp" class="col-xs-10 col-sm-10">Been disabled and been unemployed for at least 6 months or more in the 12 months prior to the hiring date?
                     </label>
                     <label for="vetGroupDisLongUmpYes" class="pad5Left pad5Right">Yes </label>
                     <input id="vetGroupDisLongUmpYes" class="radio-inline" type="radio" name="vetGroupDisLongUmp" value="yes" required>
@@ -366,11 +366,12 @@ claim the tax credit. In general, the credits are calculated by the following:</
 
     </section>
 
-    <script src="assets/scripts/wotc.js"></script>
+    <!--<script src="assets/scripts/wotc.js"></script>-->
+    <script src="assets/scripts/wotcForm.js"></script>
 
     <!--<script src="./assets/scripts/waterfallChart.js"></script>-->
-    <script src="./assets/scripts/pie.js"></script>
-    <script src="./assets/scripts/barChart.js"></script>
+<!--    <script src="./assets/scripts/pie.js"></script>
+    <script src="./assets/scripts/barChart.js"></script>-->
 
 </body>
 </html>
