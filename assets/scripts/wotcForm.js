@@ -37,10 +37,6 @@ $(document).ready(function() {
 
   function initValues() { // zeroes out several elements in the Effective Hourly Wage Calculation
 
-    var effHrWageNew = 0;
-    var minHours = 0;
-    var minWeeks = 0;
-
     var intMinWotcHrsPct = (minWotcHrsPct * pctConvert); // s/b 25
     var intMaxWotcHrsPct = (maxWotcHrsPct * pctConvert); // s/b 40
     var intMinWotcHrsNPPct = (minWotcHrsNPPct * pctConvert); // s/b 16.25
@@ -51,9 +47,30 @@ $(document).ready(function() {
     var strMinWotcHrsNPPct = intMinWotcHrsNPPct.toString() + '%'; // s/b 16.25%
     var strMaxWotcHrsNPPct = intMaxWotcHrsNPPct.toString() + '%'; // s/b 26%
 
-    document.getElementById('effHrWageNew').innerHTML = effHrWageNew.toString();
-    document.getElementById('minHours').innerHTML = minHours.toString();
-    document.getElementById('minWeeks').innerHTML = minWeeks.toString();
+    var nonProfitSelect = document.querySelector('input[name = "nonProfit"]:checked').value; // s/b "no"
+    var isVetSelect = document.querySelector('input[name = "nonProfit"]:checked').value; // s/b "no"
+    var vetGroupSelect = document.querySelector('input[name = "nonProfit"]:checked').value; // s/b "no"
+    var vetGroupSnapSelect = document.querySelector('input[name = "nonProfit"]:checked').value; // s/b "no"
+    var vetGroupShortUmpSelect = document.querySelector('input[name = "nonProfit"]:checked').value; // s/b "no"
+    var vetGroupDisabledDisSelect = document.querySelector('input[name = "nonProfit"]:checked').value; // s/b "no"
+    var vetGroupLongUmpSelect = document.querySelector('input[name = "nonProfit"]:checked').value; // s/b "no"
+    var vetGroupDisLongUmpSelect = document.querySelector('input[name = "nonProfit"]:checked').value; // s/b "no"
+    var tanfShortSelect = document.querySelector('input[name = "nonProfit"]:checked').value; // s/b "no"
+    var tanfLongSelect = document.querySelector('input[name = "nonProfit"]:checked').value; // s/b "no"
+    var snapSelect = document.querySelector('input[name = "nonProfit"]:checked').value; // s/b "no"
+    var vocRehabSelect = document.querySelector('input[name = "nonProfit"]:checked').value; // s/b "no"
+    var exFelonSelect = document.querySelector('input[name = "nonProfit"]:checked').value; // s/b "no"
+    var ssiSelect = document.querySelector('input[name = "nonProfit"]:checked').value; // s/b "no"
+    var longUnEmpSelect = document.querySelector('input[name = "nonProfit"]:checked').value; // s/b "no"
+    var empZoneSelect = document.querySelector('input[name = "nonProfit"]:checked').value; // s/b "no"
+    var summerYouthSelect = document.querySelector('input[name = "nonProfit"]:checked').value; // s/b "no"
+    var empFirstYearSelect = document.querySelector('input[name = "nonProfit"]:checked').value; // s/b "no"
+    var empSecondYearSelect = document.querySelector('input[name = "nonProfit"]:checked').value; // s/b "no"
+
+    var isForProfit = 'no';
+    var isNonProfit = 'no';
+    var isVet = 'no';
+
   }
   initValues();
 
@@ -70,10 +87,6 @@ $(document).ready(function() {
     var maxWOTCWeeks = minWOTCWages / (orMinWage * hoursWorkWeek);
 
     document.getElementById('maxWOTCCredit').innerHTML = '$' + maxWOTCCreditString;
-    document.getElementById('wotcWagePct').innerHTML = wotcWagePct;
-    document.getElementById('minWagePaid').innerHTML = '$' + minWagePaidString;
-    document.getElementById('minWOTCWeeks').innerHTML = minWOTCWeeks.toFixed(0);
-    document.getElementById('orMinWage').innerHTML = orMinWage.toFixed(2);
     document.getElementById('maxWOTCWeeks').innerHTML = maxWOTCWeeks.toFixed(0);
 
     return {
@@ -247,53 +260,6 @@ $(document).ready(function() {
     }
 
   }
-
-  //waterfall chart code using D4
-
-  function waterfallCode() {
-
-    var trainingPaybackNeg = trainingPayback * -1;
-    var wotcNeg = maxWOTCCredit * -1;
-
-    var data = [
-      {'category': 'Total Yearly Payroll', 'value': payrollTaxes().totYearWage},
-      {'category': 'Lost School Revenue',  'value': lostStudentCash},
-      {'category': 'Cost of Tuition',      'value': trainingCost},
-      {'category': 'Subtotal',             'value': 'e'},
-      {'category': 'Tuition Repayment',    'value': trainingPaybackNeg},
-      {'category': 'WOTC',                 'value': wotcNeg},
-      {'category': 'Net Wages Paid',       'value': 'e'}
-    ];
-    var parsedData = d4.parsers.waterfall()   //don't add a require statement; it breaks the chart
-      .x(function() {
-        return 'category';
-      })
-      .y(function() {
-        return 'value';
-      })
-      .nestKey(function() {
-        return 'category';
-      })(data);
-
-    var chart = d4.charts.waterfall()
-      .width($('#waterfallChart').width())
-      .x(function(x) {
-        x.key('category');
-      })
-      .y(function(y) {
-        y.key('value');
-        y.min(15000);
-        y.max(37000);
-      });
-
-    chart.marginLeft(60);
-    chart.marginBottom(60);
-
-    d3.select('#waterfallChart')
-      .datum(parsedData.data)
-      .call(chart);
-  }
-  waterfallCode();
 
   // stolen from Ian Clark - scrolls anchors to the proper place when using a fixed header
   (function(document, history, location) {
