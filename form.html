@@ -103,8 +103,8 @@
 
             <div id="vetGroup" class="form-group">
 
-                <label for="vetGroup" class="col-xs-12 col-sm-12">Have you, or has your prospective employee:
-                </label>
+                <p class="col-xs-12 col-sm-12">Have you, or has your prospective employee:
+                </p>
 
                     <label id="vetGroupSnap" class="col-xs-10 col-sm-10">Received SNAP benefits for at least 3 months out of the last 12 months ending on the hiring date?
                     </label>
@@ -148,7 +148,6 @@
                     <label for="vetGroupDisLongUmpNo" class="pad5Left pad5Right">No </label>
                     <input id="vetGroupDisLongUmpNo" class="radio-inline" type="radio" name="vetGroupDisLongUmp" value="no" required checked>
 
-                </div> <!-- end sizing col div -->
 
             </div> <!-- end vetGroup div -->
 
@@ -299,7 +298,7 @@
 
             <div id="empSecondYear" class="form-group">
 
-                <label class="col-xs-9 col-sm-9">Are you, or is your prospective employee, expected to stay working longer than 365 days?"
+                <label class="col-xs-9 col-sm-9">Are you, or is your prospective employee, expected to stay working longer than 365 days?
                 </label>
 
                     <label for="empSecondYearYes" class="pad5Left pad5Right">Yes </label>
@@ -362,7 +361,17 @@ claim the tax credit. In general, the credits are calculated by the following:</
 
         </dl>
 
+    </section>
 
+    <section>
+
+        <form>
+
+            <button type="button" id="calcWotcButton" onclick="calcWotcIO()" class="btn">Show the WOTC for Me</button>
+
+        </form>
+
+        <p id="wotcResult">The WOTC value for the options you chose were: <span id="wotcValue"></span></p>
 
     </section>
 
