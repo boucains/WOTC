@@ -267,16 +267,11 @@ function calcWotcIO() {
   }
 
   if ((nonProfitSelect === 'yes') && (isVetSelect === 'yes')) {
-
-    alert(vetGroupSnapSelect);
-    alert(empFirstYearSelect);
-
-  } else if ((vetGroupSnapSelect === 'yes') && (empFirstYearSelect === '120')) {    //vetGroupSnap Select not working
-    alert(nonProfitSelect);
-    alert(isVetSelect);
-    alert(vetGroupSnapSelect);
-    alert(empFirstYearSelect);
+    if ((vetGroupSnapSelect === 'yes') && (empFirstYearSelect === '120')) {
+      document.getElementById('wotcValue').innerHTML = npVetSnapShort;
+    }
   }
+
 }
 
 calcWotcIO();
