@@ -196,7 +196,7 @@ function calcWotcIO() {
   // get user selections
   var nonProfitSelect = document.querySelector('input[name = "nonProfit"]:checked').value;
   var isVetSelect = document.querySelector('input[name = "isVet"]:checked').value;
-  var vetGroupSnapSelect = document.querySelector('input[name = "isVet"]:checked').value;
+  var vetGroupSnapSelect = document.querySelector('input[name = "vetGroupSnap"]:checked').value;
   var vetGroupShortUmpSelect = document.querySelector('input[name = "vetGroupShortUmp"]:checked').value;
   var vetGroupDisabledDisSelect = document.querySelector('input[name = "vetGroupDisabledDis"]:checked').value;
   var vetGroupLongUmpSelect = document.querySelector('input[name = "vetGroupLongUmp"]:checked').value;
@@ -258,10 +258,9 @@ function calcWotcIO() {
   var disVetUnEmpOverSixLong = 'You qualify for ' + strMaxWotcHrsPct + ' of ' + dollarVars().wotcWageDisVetOverSixCurr  +
                                  ' for a total of ' + dollarVars().wotcWageDisVetOverSixMaxCurr + ' in WOTC.';
 
-
   alert(disVetUnEmpOverSixLong); // testing output
 
-  if (nonProfitSelect === 'yes' && isVetSelect === 'no') {
+  if ((nonProfitSelect === 'yes') && (isVetSelect === 'no')) {
 
     document.getElementById('wotcValue').innerHTML = npNoVet;
 
@@ -272,7 +271,7 @@ function calcWotcIO() {
     alert(vetGroupSnapSelect);
     alert(empFirstYearSelect);
 
-  } else if (vetGroupSelect === 'yes' && empFirstYearSelect === '120') {
+  } else if ((vetGroupSnapSelect === 'yes') && (empFirstYearSelect === '120')) {    //vetGroupSnap Select not working
     alert(nonProfitSelect);
     alert(isVetSelect);
     alert(vetGroupSnapSelect);
