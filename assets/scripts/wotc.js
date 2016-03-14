@@ -25,6 +25,74 @@ function numberWithCommas(x) {  //stolen from Elias Zamaria
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 } // see http://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript
 
+//accurate rounding for math.floor from MDN
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round
+
+(function() {
+  /**
+   * Decimal adjustment of a number.
+   *
+   * @param {String}  type  The type of adjustment.
+   * @param {Number}  value The number.
+   * @param {Integer} exp   The exponent (the 10 logarithm of the adjustment base).
+   * @returns {Number} The adjusted value.
+   */
+  function decimalAdjust(type, value, exp) {
+    // If the exp is undefined or zero...
+    if (typeof exp === 'undefined' || +exp === 0) {
+      return Math[type](value);
+    }
+    value = +value;
+    exp = +exp;
+    // If the value is not a number or the exp is not an integer...
+    if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
+      return NaN;
+    }
+    // Shift
+    value = value.toString().split('e');
+    value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
+    // Shift back
+    value = value.toString().split('e');
+    return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
+  }
+
+  // Decimal round
+  if (!Math.round10) {
+    Math.round10 = function(value, exp) {
+      return decimalAdjust('round', value, exp);
+    };
+  }
+  // Decimal floor
+  if (!Math.floor10) {
+    Math.floor10 = function(value, exp) {
+      return decimalAdjust('floor', value, exp);
+    };
+  }
+  // Decimal ceil
+  if (!Math.ceil10) {
+    Math.ceil10 = function(value, exp) {
+      return decimalAdjust('ceil', value, exp);
+    };
+  }
+})();
+
+function dollarFormatter(n) {
+  n = Math.round10(n, -2);
+  var result = n.toString();
+  //    if (Math.abs(n) > 1000) {     // removed to give exact amounts
+  // rounded to the dollar
+  //      result = Math.round(n/1000) + 'K';
+  //    }
+  if (result < 0) {
+    if (result.charAt(0) === '-') {
+      result = result.substr(1);
+      return '-$' + result.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+  }else {
+    return '$' + result.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+}
+
 //**********document.ready**********
 
 $(document).ready(function() {
@@ -54,17 +122,17 @@ $(document).ready(function() {
 
     var minWOTCWages = (maxWOTCCredit / wotcPct);
 
-    var maxWOTCCreditString = numberWithCommas(maxWOTCCredit);
+    var maxWOTCCreditString = dollarFormatter(maxWOTCCredit);
 
-    var minWagePaidString = numberWithCommas(minWOTCWages);
+    var minWagePaidString = dollarFormatter(minWOTCWages);
 
     var minWOTCWeeks = minWOTCHours / hoursWorkWeek;
 
     var maxWOTCWeeks = minWOTCWages / (orMinWage * hoursWorkWeek);
 
-    document.getElementById('maxWOTCCredit').innerHTML = '$' + maxWOTCCreditString;
+    document.getElementById('maxWOTCCredit').innerHTML = maxWOTCCreditString;
     document.getElementById('wotcWagePct').innerHTML = wotcWagePct;
-    document.getElementById('minWagePaid').innerHTML = '$' + minWagePaidString;
+    document.getElementById('minWagePaid').innerHTML = minWagePaidString;
     document.getElementById('minWOTCWeeks').innerHTML = minWOTCWeeks.toFixed(0);
     document.getElementById('orMinWage').innerHTML = orMinWage.toFixed(2);
     document.getElementById('maxWOTCWeeks').innerHTML = maxWOTCWeeks.toFixed(0);
@@ -81,9 +149,9 @@ $(document).ready(function() {
 
     var yearlyWOTCWage = (maxWOTCCredit / wotcPct);
 
-    var yearlyWOTCWageString = numberWithCommas(yearlyWOTCWage);
+    var yearlyWOTCWageString = dollarFormatter(yearlyWOTCWage);
 
-    document.getElementById('yearlyWOTCWageValue').innerHTML = '$' + yearlyWOTCWageString;
+    document.getElementById('yearlyWOTCWageValue').innerHTML = yearlyWOTCWageString;
 
     return yearlyWOTCWage;
   }
@@ -129,7 +197,7 @@ $(document).ready(function() {
                       (trainingPayback +
                        maxWOTCCredit);
 
-    var netYearWageString = numberWithCommas(netYearWage);
+    var netYearWageString = dollarFormatter(netYearWage);
 
     var totYearWage = (yrMcareTax +
                        yrWorkCompTax +
@@ -137,26 +205,21 @@ $(document).ready(function() {
                        yrSocSecTax +
                        calcWOTCValues().minWOTCWages);
 
-    var totYearWageString = numberWithCommas(totYearWage);
+    var totYearWageString = dollarFormatter(totYearWage);
 
     document.getElementById('mcareTaxPctValue').innerHTML = mcareTaxPct.toFixed(2) + '%';
     document.getElementById('workCompTaxPctValue').innerHTML = workCompTaxPct.toFixed(2) + '%';
     document.getElementById('unempTaxPctValue').innerHTML = unempTaxPct.toFixed(2) + '%';
     document.getElementById('socSecTaxPctValue').innerHTML = socSecTaxPct.toFixed(2) + '%';
 
-    document.getElementById('yrMcareTaxRnd').innerHTML = '$' + yrMcareTaxRnd;
-    document.getElementById('yrWorkCompTaxRnd').innerHTML = '$' + yrWorkCompTaxRnd;
-    document.getElementById('yrUnempTaxRnd').innerHTML = '$' + yrUnempTaxRnd;
-    document.getElementById('yrSocSecTaxRnd').innerHTML = '$' + yrSocSecTaxRnd;
+    document.getElementById('yrMcareTaxRnd').innerHTML = dollarFormatter(yrMcareTaxRnd);
+    document.getElementById('yrWorkCompTaxRnd').innerHTML = dollarFormatter(yrWorkCompTaxRnd);
+    document.getElementById('yrUnempTaxRnd').innerHTML = dollarFormatter(yrUnempTaxRnd);
+    document.getElementById('yrSocSecTaxRnd').innerHTML = dollarFormatter(yrSocSecTaxRnd);
 
-    /*    document.getElementById('wkMcareTaxRnd').innerHTML = '$' + wkMcareTaxRnd;
-    document.getElementById('wkWorkCompTaxRnd').innerHTML = '$' + wkWorkCompTaxRnd;
-    document.getElementById('wkUnempTaxRnd').innerHTML = '$' + wkUnempTaxRnd;
-    document.getElementById('wkSocSecTaxRnd').innerHTML = '$' + wkSocSecTaxRnd;*/
+    document.getElementById('netYearWages').innerHTML = netYearWageString;
 
-    document.getElementById('netYearWages').innerHTML = '$' + netYearWageString;
-
-    document.getElementById('totYearWages').innerHTML = '$' + totYearWageString;
+    document.getElementById('totYearWages').innerHTML = totYearWageString;
 
     return {
       wkMcareTaxRnd: wkMcareTaxRnd,
@@ -182,39 +245,39 @@ $(document).ready(function() {
 
     var minWOTCWages = (maxWOTCCredit / wotcPct); // s/b 24000
 
-    var maxWOTCCreditString = numberWithCommas(maxWOTCCredit); // s/b 9,600
+    var maxWOTCCreditString = dollarFormatter(maxWOTCCredit); // s/b $9,600
 
-    var minWagePaidString = numberWithCommas(minWOTCWages); // s/b 24,000
+    var minWagePaidString = dollarFormatter(minWOTCWages); // s/b $24,000
 
     var minWOTCWeeks = minWOTCHours / hoursWorkWeek; // s/b 10
 
     var maxWOTCWeeks = minWOTCWages / (orMinWage * hoursWorkWeek); // s/b 65
     var maxWOTCWeeksValue = maxWOTCWeeks.toFixed(0);
 
-    var lostStudentCashString = numberWithCommas(lostStudentCash); // s/b 5,000
+    var lostStudentCashString = dollarFormatter(lostStudentCash); // s/b $5,000
 
-    var trainingCostString = numberWithCommas(trainingCost); // s/b 5,000
+    var trainingCostString = dollarFormatter(trainingCost); // s/b $5,000
 
-    var trainingPaybackString = numberWithCommas(trainingPayback); // s/b 5,000
-
-    /*var minEffWage = (maxWOTCCredit / wotcPct) / ((trainingWeeks * hoursTrainingWeek) + ((maxWOTCWeeksValue - trainingWeeks) * hoursWorkWeek) + (internLengthHours));*/
+    var trainingPaybackString = dollarFormatter(trainingPayback); // s/b $5,000
 
     var minEffWage = (payrollTaxes().netYearWage) / ((trainingWeeks * hoursTrainingWeek) + ((maxWOTCWeeksValue - trainingWeeks) * hoursWorkWeek) + (internLengthHours));
+    var minEffWageValue = dollarFormatter(minEffWage);
 
     var maxEffWage = (payrollTaxes().netYearWage) / ((trainingWeeks * hoursTrainingWeek) + ((baseEmployWeeks - trainingWeeks) * hoursWorkWeek) + (internLengthHours));
+    var maxEffWageValue = dollarFormatter(maxEffWage);
 
-    document.getElementById('maxWOTCCredit').innerHTML = '$' + maxWOTCCreditString;
-    document.getElementById('maxWOTCCreditTwo').innerHTML = '$' + maxWOTCCreditString;
+    document.getElementById('maxWOTCCredit').innerHTML = maxWOTCCreditString;
+    document.getElementById('maxWOTCCreditTwo').innerHTML = maxWOTCCreditString;
     document.getElementById('wotcWagePct').innerHTML = wotcWagePct;
-    document.getElementById('minWagePaid').innerHTML = '$' + minWagePaidString;
+    document.getElementById('minWagePaid').innerHTML = minWagePaidString;
     document.getElementById('minWOTCWeeks').innerHTML = minWOTCWeeks.toFixed(0);
     document.getElementById('orMinWage').innerHTML = orMinWage.toFixed(2);
     document.getElementById('maxWOTCWeeks').innerHTML = maxWOTCWeeks.toFixed(0);
-    document.getElementById('lostStudentCashStringValue').innerHTML = '$' + lostStudentCashString;
-    document.getElementById('trainingCostStringValue').innerHTML = '$' + trainingCostString;
-    document.getElementById('trainingPaybackValue').innerHTML = '$' + trainingPaybackString;
-    document.getElementById('minEffWageValue').innerHTML = '$' + minEffWage.toFixed(2);
-    document.getElementById('maxEffWageValue').innerHTML = '$' + maxEffWage.toFixed(2);
+    document.getElementById('lostStudentCashStringValue').innerHTML = lostStudentCashString;
+    document.getElementById('trainingCostStringValue').innerHTML = trainingCostString;
+    document.getElementById('trainingPaybackValue').innerHTML = trainingPaybackString;
+    document.getElementById('minEffWageValue').innerHTML = minEffWageValue;
+    document.getElementById('maxEffWageValue').innerHTML = maxEffWageValue;
 
     return {
       maxWOTCCreditString: maxWOTCCreditString,
@@ -222,24 +285,6 @@ $(document).ready(function() {
     };
   }
   calcBaseValues();
-
-  function dollarFormatter(n) {
-    n = Math.round(n);
-    var result = n.toString();
-    //    if (Math.abs(n) > 1000) {     // removed to give exact amounts
-    // rounded to the dollar
-    //      result = Math.round(n/1000) + 'K';
-    //    }
-    if (result < 0) {
-      if (result.charAt(0) === '-') {
-        result = result.substr(1);
-        return '-$' + result;
-      }
-    }else {
-      return '$' + result;
-    }
-
-  }
 
   //waterfall chart code using D4
 
