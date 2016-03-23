@@ -784,6 +784,8 @@ $('#isVet input[value="no"]').click(function() {
 });
 
 $('#nonProfit input[value="yes"]').click(function() {
+
+  if (document.getElementById('isVetNo').checked) {
     $('#vetGroup').hide();
     $('#tanfShort').hide();
     $('#tanfLong').hide();
@@ -796,7 +798,8 @@ $('#nonProfit input[value="yes"]').click(function() {
     $('#summerYouth').hide();
     $('#quals').hide();
     $('#empLength').hide();
-  });
+  }
+});
 
 $('#nonProfit input[value="no"]').click(function() {
 
