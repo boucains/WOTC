@@ -52,11 +52,59 @@
 </head>
 <body>
 
+    <section>
+
+        <h1>Calculating the Tax Credit</h1>
+
+        <p>Employees must work at least 120 hours in the first year of employment for the employer to qualify to
+            claim the tax credit. In general, the credits are calculated by the following:</p>
+
+        <h2>For Profit</h2>
+
+        <dl>
+
+            <dt>After 120 Hours</dt>
+            <dd>The employer may claim a tax credit equal to 25% of the new hire's first year of qualified wages. The maximum tax credit on first year wages is between $750 and $6,000, depending on the eligible target group.
+            </dd>
+
+            <dt>After 400 Hours</dt>
+            <dd>The employer may claim a tax credit equal to 40% of the new hire's first year of wages. The maximum tax credit on first year wages is between $1,200 and $9,600, depending on the eligible target group.
+            </dd>
+
+            <dt>Second Year</dt>
+            <dd>For the Long-term Temporary Assistance for Needy Families (TANF) Recipient target group, the credit is also available to employers in the second year of employment. The employer may claim a tax credit equal to 50% of second year wages, up to the maximum tax credit of $5,000.
+            </dd>
+
+        </dl>
+
+        <h2>Non-Profit Hiring Veterans</h2>
+
+        <dl>
+
+            <dt>Different Rules</dt>
+            <dd>Because tax-exempt companies do not pay Federal tax, the credit is taken against the company's total Social Security tax payment.</dd>
+
+            <dt>After 120 Hours</dt>
+            <dd>The employer may claim a tax credit equal to 16.25% of between $6,000 and $24,000 of the new hire's first year of qualified wages. The maximum tax credit on first year wages is between $975 and $3,900, depending on the eligible target group.
+            </dd>
+
+            <dt>After 400 Hours</dt>
+            <dd>The employer may claim a tax credit equal to 26% of between $6,000 and $24,000 of the new hire's first year of wages. The maximum tax credit on first year wages is between $1,560 and $6,240, depending on the eligible target group.
+            </dd>
+
+            <dt>Second Year</dt>
+            <dd>No TANF second-year guidance was available.
+            </dd>
+
+        </dl>
+
+    </section>
+
     <form id="wotcForm" class="form-horizontal" role="form">
 
         <fieldset id="classification">
 
-            <legend>Classification</legend>
+            <legend>Classification Notes</legend>
 
             <p>Please note that members of the following groups are not eligible:</p>
 
@@ -73,20 +121,11 @@
 
             </ul>
 
-            <p>A disabled veteran is one who is entitled to <em>monthly compensation payments</em> from the VA per IRS Code .</p>
+            <p>A disabled veteran is one who is entitled to <em>monthly compensation payments</em> from the VA per IRS Code.</p>
 
-            <div id="nonProfit" class="form-group">
+            <p>There is a new category for those non-veterans hired on January 1, 2016 or later who were unemployed for more than 27 consecutive weeks, and who received federal or state unemployment compensation at least once during that time. This was authorized by the <a href="https://www.doleta.gov/business/incentives/opptax/pdf/PATH_Act_2015-WOTC_Interim_Instructions.pdf" target="_blank">Path Act of 2015</a> signed on December 15, 2015. </p>
 
-                <label class="col-xs-9 col-sm-9">Is your company, or the company for which you are applying, a non-profit?
-                </label>
-
-                    <label for="nonProfitYes" class="pad5Left pad5Right">Yes </label>
-                    <input id="nonProfitYes" class="radio-inline" type="radio" name="nonProfit" value="yes" required>
-
-                    <label for="nonProfitNo" class="pad5Left pad5Right">No </label>
-                    <input id="nonProfitNo" class="radio-inline" type="radio" name="nonProfit" value="no" required checked>
-
-            </div> <!-- end nonProfit div -->
+            <legend>Classification Questions</legend>
 
             <div id="isVet" class="form-group">
 
@@ -100,6 +139,19 @@
                     <input id="isVetNo" class="radio-inline" type="radio" name="isVet" value="no" required checked>
 
             </div> <!-- end isVet div -->
+
+            <div id="nonProfit" class="form-group">
+
+                <label class="col-xs-9 col-sm-9">Is your company, or the company for which you are applying, a non-profit?
+                </label>
+
+                    <label for="nonProfitYes" class="pad5Left pad5Right">Yes </label>
+                    <input id="nonProfitYes" class="radio-inline" type="radio" name="nonProfit" value="yes" required>
+
+                    <label for="nonProfitNo" class="pad5Left pad5Right">No </label>
+                    <input id="nonProfitNo" class="radio-inline" type="radio" name="nonProfit" value="no" required checked>
+
+            </div> <!-- end nonProfit div -->
 
             <div id="vetGroup" class="form-group">
 
@@ -194,8 +246,7 @@
 
             <div id="vocRehab" class="form-group">
 
-                <label class="col-xs-9 col-sm-9">Have you, or has your prospective employee, completed, or is completing, rehabilitative services from a
-                    state-certified agency, the Ticket to Work program, or the VA?
+                <label class="col-xs-9 col-sm-9">Have you, or has your prospective employee, completed, or is completing, rehabilitative services from a state-certified agency, the Ticket to Work program, or the VA?
                 </label>
 
                     <label for="vocRehabYes" class="pad5Left pad5Right">Yes </label>
@@ -208,8 +259,7 @@
 
             <div id="exFelon" class="form-group">
 
-                <label class="col-xs-9 col-sm-9">Have you, or has your prospective employee, been convicted of a felony and released or convicted within
-                    1 year of the hiring date?
+                <label class="col-xs-9 col-sm-9">Have you, or has your prospective employee, been convicted of a felony and released or convicted within 1 year of the hiring date?
                 </label>
 
                     <label for="exFelonYes" class="pad5Left pad5Right">Yes </label>
@@ -222,8 +272,7 @@
 
             <div id="ssi" class="form-group">
 
-                <label class="col-xs-9 col-sm-9">Have you, or has your prospective employee, received Social Security Income (SSI) for any month during the
-                    60-day period ending on the hiring date?
+                <label class="col-xs-9 col-sm-9">Have you, or has your prospective employee, received Social Security Income (SSI) for any month during the 60-day period ending on the hiring date?
                 </label>
 
                     <label for="ssiYes" class="pad5Left pad5Right">Yes </label>
@@ -236,7 +285,7 @@
 
             <div id="longUnEmp" class="form-group">
 
-                <label class="col-xs-9 col-sm-9">Have you, or has your prospective employee, been unemployed not less than 27 consecutive weeks, within which they received unemployment compensation?"
+                <label class="col-xs-9 col-sm-9">Have you, or has your prospective employee, been unemployed not less than 27 consecutive weeks, within which they received unemployment compensation? (Hiring date after 01/01/2016)
                 </label>
 
                     <label for="longUnEmpYes" class="pad5Left pad5Right">Yes </label>
@@ -249,7 +298,7 @@
 
             <div id="empZone" class="form-group">
 
-                <label class="col-xs-9 col-sm-9">Do you, or does your prospective employee, live in a <a href="http://egis.hud.gov/ezrclocator/" target="_blank">federally-designated Rural Renewal County or Empowerment Zone</a>? <span class="red">(None in Oregon)</span>
+                <label class="col-xs-9 col-sm-9">Do you, or does your prospective employee, live in a <a href="http://egis.hud.gov/ezrclocator/" target="_blank">federally-designated Rural Renewal County or Empowerment Zone</a>? <span class="red">(None in Oregon or Southern Washington)</span>
                 </label>
 
                     <label for="empZoneYes" class="pad5Left pad5Right">Yes </label>
@@ -262,7 +311,7 @@
 
             <div id="summerYouth" class="form-group">
 
-                <label class="col-xs-9 col-sm-9">Are you, or is your prospective employee, aged 16 or 17 and lives in a <a href="http://egis.hud.gov/ezrclocator/" target="_blank">federally-designated Rural Renewal County or Empowerment Zone</a>? <span class="red">(None in Oregon)</span>
+                <label class="col-xs-9 col-sm-9">Are you, or is your prospective employee, aged 16 or 17 and lives in a <a href="http://egis.hud.gov/ezrclocator/" target="_blank">federally-designated Rural Renewal County or Empowerment Zone</a>? <span class="red">(None in Oregon or Southern Washington)</span>
                 </label>
 
                     <label for="summerYouthYes" class="pad5Left pad5Right">Yes </label>
@@ -273,11 +322,9 @@
 
             </div> <!-- end summerYouth div -->
 
-            <p><span class="red">*</span>See additional qualifications in the <a href="https://www.doleta.gov/business/incentives/opptax/PDF/WOTC_Employer_Guide.pdf" target="_blank">eligibility guidelines</a> for this category.</p>
+            <p id="quals"><span class="red">*</span>See additional qualifications in the <a href="https://www.doleta.gov/business/incentives/opptax/PDF/WOTC_Employer_Guide.pdf" target="_blank">eligibility guidelines</a> for this category.</p>
 
         </fieldset> <!-- end classification fieldset -->
-
-        <hr>
 
         <fieldset id="empLength">
 
@@ -313,61 +360,15 @@
 
     </form>
 
-    <hr>
-
     <section>
 
-        <h1>Calculating the Tax Credit</h1>
+        <form id="calcWotc">
 
-        <p>Employees must work at least 120 hours in the first year of employment for the employer to qualify to
-claim the tax credit. In general, the credits are calculated by the following:</p>
-
-        <h2>For Profit</h2>
-
-        <dl>
-
-            <dt>After 120 Hours</dt>
-            <dd>The employer may claim a tax credit equal to 25% of the new hire's first year of qualified wages. The maximum tax credit on first year wages is between $750 and $6,000, depending on the eligible target group.
-            </dd>
-
-            <dt>After 400 Hours</dt>
-            <dd>The employer may claim a tax credit equal to 40% of the new hire's first year of wages. The maximum tax credit on first year wages is between $1,200 and $9,600, depending on the eligible target group.
-            </dd>
-
-            <dt>Second Year</dt>
-            <dd>For the Long-term Temporary Assistance for Needy Families (TANF) Recipient target group, the credit is also available to employers in the second year of employment. The employer may claim a tax credit equal to 50% of second year wages, up to the maximum tax credit of $5,000.
-            </dd>
-
-        </dl>
-
-        <h2>Non-Profit Hiring Veterans</h2>
-
-        <dl>
-
-            <dt>Different Rules</dt>
-            <dd>Because tax-exempt companies do not pay Federal tax, the credit is taken against the company's total Social Security tax payment.</dd>
-
-            <dt>After 120 Hours</dt>
-            <dd>The employer may claim a tax credit equal to 16.25% of between $6,000 and $24,000 of the new hire's first year of qualified wages. The maximum tax credit on first year wages is between $975 and $3,900, depending on the eligible target group.
-            </dd>
-
-            <dt>After 400 Hours</dt>
-            <dd>The employer may claim a tax credit equal to 26% of between $6,000 and $24,000 of the new hire's first year of wages. The maximum tax credit on first year wages is between $1,560 and $6,240, depending on the eligible target group.
-            </dd>
-
-            <dt>Second Year</dt>
-            <dd>No TANF second-year guidance was available.
-            </dd>
-
-        </dl>
-
-    </section>
-
-    <section>
-
-        <form>
+            <legend>Calculate</legend>
 
             <button type="button" id="calcWotcButton" onclick="calcWotcIO()" class="btn">Show the WOTC for Me</button>
+
+            <button type="reset" id="resetWotcForm" onclick="resetForm()" class="btn">Reset the Form</button>
 
         </form>
 
