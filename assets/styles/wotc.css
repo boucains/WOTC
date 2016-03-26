@@ -17,18 +17,6 @@ body {
     font-size: 1.5rem;
 }
 
-dl.dl-horizontal dt {       /* service & helpOutList dt styled separately */
-    font-weight: bold;
-    padding: 0.75vh;
-    width: 15%;
-}
-
-dl.dl-horizontal dd {
-    margin: 0 0 0 20%;
-    padding: 0.75vh;
-    width: 80%;
-}
-
 h1 {
     font-size: 180%;
 }
@@ -59,175 +47,12 @@ li {
     padding: 0;
 }
 
-nav li {
-    padding: 0;
+#headerText h1 {
+    font-size: 6rem;
 }
 
-#barChart {
-    height: 400px;
-    margin: 0 auto;
-    width: 720px;
-}
-
-#costsBenefits p {
-    font-size: 150%;
-    font-variant: small-caps;
-}
-
-#coverLetter {
-    padding-top: 10vh;
-}
-
-#effWageCalcBtn {
-    background-color: rgba(154, 196, 219, 1.0);
-    font-weight: bold;
-}
-
-#effHrWageNew {
-    color: rgba(43, 154, 94, 1.0);
-}
-
-#effHrWageResult {
-    font-weight: bold;
-    padding: 20px 0;
-}
-
-#effHrWages {
-    padding-top: 1vh;
-}
-
-#effPayrollChart {
-    font-size: 60%;
-}
-
-#epiApp h4 {
-    color: rgba(43, 154, 94, 1.0);
-}
-
-#epiApp li {
-    list-style-type: circle;
-}
-
-#eSig {
-    width: 100px;
-}
-
-#eSig img {
-    height: 100%;
-    width: 100%;
-}
-
-#ftrAcks dt {
-    padding: 0 0 2vh 0;
-}
-
-#goldMuscle {
-    padding: 1vh 0 0 0;
-    width: 160%;
-}
-
-#helping {
-    padding-bottom: 3vh;
-    padding-top: 3vh;
-}
-
-#helpOutList {
-    background-color: rgba(206, 245, 224, 0.5);
-    border-radius: 15px;
-    border: 2px solid rgba(43, 153, 94, 1.0);
-    color: rgba(43, 154, 94, 1.0);
-    margin-bottom: 0;
-    padding: 10px 15px;
-}
-
-#helpOutList dt {
-    font-weight: bold;
-    padding: 0.75vh;
-}
-
-#ideaHead {
-    width: 100%;
-}
-
-#intern {
-    width: 80%;
-}
-
-#intro {
-    background: url("../images/helpingHand.svg") no-repeat center fixed;
-}
-
-#lessThanLeft {
-    width: 100%;
-}
-
-#lessThanRight {
-    width: 100%;
-}
-
-#mainProposal {
-    padding-left: 3vh;
-    padding-right: 3vh;
-}
-
-#me {
-    width: 100%;
-}
-
-#myPlace {
-    padding: 3vh 0;
-}
-
-#navbar {
-
-}
-
-#oldMan {
-    width: 70%;
-}
-
-#pieChartWrapper {
-    margin: 0 auto;
-}
-
-#service dt {
-    font-weight: bold;
-    padding: 0.75vh;
-}
-
-#serviceList {
-    background-color: rgba(206, 245, 224, 0.5);
-    border-radius: 15px;
-    border: 2px solid rgba(43, 153, 94, 1.0);
-    color: rgba(43, 154, 94, 1.0);
-    margin-bottom: 0;
-    padding: 10px 15px;
-}
-
-#taxRates {
-    padding-bottom: 3vh;
-}
-
-#tldr {
-    color: rgba(217, 96, 61, 1.0);
-    font-variant: small-caps;
-    text-align: center;
-}
-
-#waterfall {
-    margin: 0 auto;
-}
-
-#waterfallChart {
-    height: 100%;
-    margin: 0 auto;
-    padding: 60px;
-    width: 720px;
-}
-
-#wotcHands {
-    height: 200%;
-    width: 200%;
+#wotcResult {
+    padding: 25px 0;
 }
 
 #wotcValue {
@@ -240,59 +65,12 @@ nav li {
     padding: 0 20px 20px 20px;
 }
 
-.dropdown-menu {
-    background-color: rgba(206, 229, 242, 1.0);
-}
-
-.dropdown-menu .divider {
-    background-color: rgba(154, 196, 219, 1.0);
-}
-
-.dropdown-menu > li > a {
-    color: rgba(44, 105, 138, 1.0);
-}
-
-.dropdown-menu > li > a:hover, .dropdown-menu > li > a:active  {
-    background-color: rgba(44, 105, 138, 1.0);
-    color: rgba(206, 229, 242, 1.0);
-}
-
-.hiddenLarge {
-    display: none;
-}
-
 .imageContainer {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     align-self: stretch;     /* make sure that the column is stretched */
     justify-content: space-around;
-}
-
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
-    background-color: rgba(206, 229, 242, 1.0);
-    color: rgba(44, 105, 138, 1.0);
-}
-
-.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
-    background-color: rgba(154, 196, 219, 1.0);
-    color: rgba(44, 105, 138, 1.0);
-}
-
-.navbar {
-    background: linear-gradient(
-            to bottom,
-            rgba(255, 255, 255, 1),
-            rgba(206, 229, 242, 0.25)
-    );
-}
-
-.navbar-default .navbar-nav > li > a {
-    color: rgba(44, 105, 138, 1.0);
-}
-
-.navbar-default .navbar-nav > li > a:hover {
-    color: rgba(44, 105, 138, 1.0);
 }
 
 .pad15Left {
@@ -305,11 +83,6 @@ nav li {
 
 .pad5Right {
     padding-right: 5px;
-}
-
-.paper {
-    background-color: rgba(255, 255, 255, 1.0);
-    padding: 0 7vh;
 }
 
 .red {
@@ -326,161 +99,24 @@ nav li {
     align-items: center;
 }
 
-
-/* styles for bar & pie charts */
-
-.bar.total rect {
-    fill: rgba(44, 105, 138, 1.0);
-}
-
-.bar.positive rect {
-    fill: rgba(217, 146, 61, 1.0);
-}
-.bar.negative rect {
-    fill: rgba(43, 154, 94, 1.0);
-}
-
-.bar line.connector {
-    stroke: rgba(44, 105, 138, 1.0);
-    stroke-dasharray: 3;
-}
-
-.bar text {
-    fill: rgba(44, 105, 138, 1.0);
-    font: 12px 'open sans';
-    text-anchor: middle;
-}
-
-.axis text {
-    color: rgba(44, 105, 138, 1.0);
-    font: 14px 'open sans';
-}
-
-.axis path,
-.axis line {
-    fill: none;
-    stroke: rgba(69, 127, 158, 1.0);
-    shape-rendering: crispEdges;
-}
-
-/* styles for Bar Chart with Negative Values */
-
-.bar--positive {
-    fill: rgba(43, 154, 94, 1.0);
-}
-
-.bar--negative {
-    fill: rgba(217, 146, 61, 1.0);
-}
-
-/* CSS for D4 */
-
-svg.d4 {
-    font-family: "Open Sans", sans-serif;
-    font-size: 14px;
-}
-.d4 .tick text {
-    font-size: 14px;
-    fill: rgba(44, 105, 138, 1.0);
-    shape-rendering: crispEdges;
-}
-
-.d4 .axis .domain, .d4 .axis .tick line {
-    fill: none;
-    stroke: rgba(44, 105, 138, 1.0);
-    stroke-width: 1px;
-    shape-rendering: crispEdges;
-}
-
-.d4 .line, .d4 path, .d4 .connectors line {
-    fill: none;
-    stroke: rgba(44, 105, 138, 1.0);
-    stroke-width: 1px;
-}
-
-.d4 .columnLabels {
-    font-size: smaller;
-    font-weight: bold;
-}
-
-
-#wtrfall  .d4 .bar.negative.fill {
-    fill: rgba(43, 154, 94, 1.0);
-}
-#wtrfall .d4 .bar.positive.fill {
-    fill: rgba(217, 146, 61, 1.0);
-}
-#wtrfall .d4 .bar.subtotal.fill {
-    fill: rgba(44, 105, 138, 1.0);
-}
-
 /* Media Queries */
 
-@media (min-width: 768px){
+@media (min-width: 791px){
 
-    .navbar-nav {
-        width: 100%;
-        text-align: center;
-    }
-
-    .navbar-nav>li {
-         float: none;
-         display: inline-block;
-    }
 }
 
-@media (min-width: 601px ) and (max-width: 767px) {
+@media (min-width: 601px ) and (max-width: 790px) {
 
-    #execSummary dd {
-        margin-left: 5vh;
+    #headerText h1 {
+        font-size: 4rem;
     }
-
-    #navbarCollapse a {
-        background-color: rgba(107, 161, 190, 1.0);
-        color: rgba(206, 229, 242, 1.0);
-    }
-
-    .hiddenSmall {
-       display: none;
-    }
-
-    .navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse {
-        max-height: 450px;
-    }
-
-    .visible {
-       display: block;
-    }
-
 
 }
 
 @media (min-width: 319px ) and (max-width: 600px) {
 
-    #execSummary dd {
-        margin-left: 2vh;
-    }
-
-    #navbarCollapse a {
-        background-color: rgba(107, 161, 190, 0.95);
-        color: rgba(206, 229, 242, 1.0);
-        padding: 2vh 0;
-    }
-
-    .hiddenExSmall {
-        display: none;
-    }
-
-    .hiddenSmall {
-        display: none;
-    }
-
-    .navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse {
-        max-height: 450px;
-    }
-
-    .visible {
-        display: block;
+    #headerText h1 {
+        font-size: 3rem;
     }
 
 }
