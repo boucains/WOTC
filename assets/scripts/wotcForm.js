@@ -10,10 +10,6 @@
 
 //code that runs outside of document.ready
 
-var baseEmployWeeks = 52;
-var weeksInYear = 52;
-var hoursWorkWeek = 40;
-var percent = 0.010;
 var pctConvert = 100;
 
 // the maximum wage used to calculate WOTC for the Summer Youth category
@@ -77,31 +73,6 @@ var strMaxWotcHrsPct = fltMaxWotcHrsPct.toString() + '%'; // s/b '40%'
 var strMinWotcHrsNPPct = fltMinWotcHrsNPPct.toString() + '%'; // s/b '16.25%'
 var strMaxWotcHrsNPPct = fltMaxWotcHrsNPPct.toString() + '%'; // s/b '26%'
 var strMaxWotcTanfYrTwoPct = fltMaxWotcTanfYrTwoPct.toString() + '%'; // s/b '50%'
-
-// set variables to default values
-var nonProfitSelect = 'no';
-var isVetSelect = 'no';
-var vetGroupSelect = 'no';
-var vetGroupSnapSelect = 'no';
-var vetGroupShortUmpSelect = 'no';
-var vetGroupDisabledDisSelect = 'no';
-var vetGroupLongUmpSelect = 'no';
-var vetGroupDisLongUmpSelect = 'no';
-var tanfShortSelect = 'no';
-var tanfLongSelect = 'no';
-var snapSelect = 'no';
-var vocRehabSelect = 'no';
-var exFelonSelect = 'no';
-var ssiSelect = 'no';
-var longUnEmpSelect = 'no';
-var empZoneSelect = 'no';
-var summerYouthSelect = 'no';
-var empFirstYearSelect = 'no';
-var empSecondYearSelect = 'no';
-
-var isForProfit = 'no';
-var isNonProfit = 'no';
-var isVet = 'no';
 
 function numberWithCommas(x) {  //stolen from Elias Zamaria
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -744,81 +715,17 @@ function resetForm() {
   document.getElementById('empFirstYear120').checked = true;
   document.getElementById('empSecondYearNo').checked = true;
 
-  document.getElementById('wotcValue').innerHTML = 'Please make a selection';
+  document.getElementById('wotcValue').innerHTML = 'Please make one selection';
 }
 
 // ***** Hiding non-valid options section ***** //
 
-$('#isVet input[value="yes"]').click(function() {
+$('input[name="isVet"]').click(function() {
 
-  $('#vetGroup').show();
-  $('#tanfShort').hide();
-  $('#tanfLong').hide();
-  $('#snap').hide();
-  $('#vocRehab').hide();
-  $('#exFelon').hide();
-  $('#ssi').hide();
-  $('#longUnEmp').hide();
-  $('#empZone').hide();
-  $('#summerYouth').hide();
-  $('#quals').hide();
-  $('#empLength').hide();
+  var isVetvalue = $(this).val();
 
-});
+  if (isVetvalue === 'yes') {
 
-$('#isVet input[value="no"]').click(function() {
-
-  $('#vetGroup').hide();
-  $('#tanfShort').show();
-  $('#tanfLong').show();
-  $('#snap').show();
-  $('#vocRehab').show();
-  $('#exFelon').show();
-  $('#ssi').show();
-  $('#longUnEmp').show();
-  $('#empZone').show();
-  $('#summerYouth').show();
-  $('#quals').show();
-  $('#empLength').show();
-
-});
-
-$('#nonProfit input[value="yes"]').click(function() {
-
-  if (document.getElementById('isVetNo').checked) {
-    $('#vetGroup').hide();
-    $('#tanfShort').hide();
-    $('#tanfLong').hide();
-    $('#snap').hide();
-    $('#vocRehab').hide();
-    $('#exFelon').hide();
-    $('#ssi').hide();
-    $('#longUnEmp').hide();
-    $('#empZone').hide();
-    $('#summerYouth').hide();
-    $('#quals').hide();
-    $('#empLength').hide();
-  }
-});
-
-$('#nonProfit input[value="no"]').click(function() {
-
-  if (document.getElementById('isVetNo').checked) {
-    $('#vetGroup').hide();
-    $('#tanfShort').show();
-    $('#tanfLong').show();
-    $('#snap').show();
-    $('#vocRehab').show();
-    $('#exFelon').show();
-    $('#ssi').show();
-    $('#longUnEmp').show();
-    $('#empZone').show();
-    $('#summerYouth').show();
-    $('#quals').show();
-    $('#empLength').show();
-  }
-
-  if (document.getElementById('isVetYes').checked) {
     $('#vetGroup').show();
     $('#tanfShort').hide();
     $('#tanfLong').hide();
@@ -831,6 +738,90 @@ $('#nonProfit input[value="no"]').click(function() {
     $('#summerYouth').hide();
     $('#quals').hide();
     $('#empLength').hide();
+
+  }else if ((isVetvalue === 'no') && (document.getElementById('nonProfitYes').checked)) {
+
+    $('#vetGroup').hide();
+    $('#tanfShort').hide();
+    $('#tanfLong').hide();
+    $('#snap').hide();
+    $('#vocRehab').hide();
+    $('#exFelon').hide();
+    $('#ssi').hide();
+    $('#longUnEmp').hide();
+    $('#empZone').hide();
+    $('#summerYouth').hide();
+    $('#quals').hide();
+    $('#empLength').hide();
+
+  }else if ((isVetvalue === 'no') && (document.getElementById('nonProfitNo').checked)) {
+
+    $('#vetGroup').hide();
+    $('#tanfShort').show();
+    $('#tanfLong').show();
+    $('#snap').show();
+    $('#vocRehab').show();
+    $('#exFelon').show();
+    $('#ssi').show();
+    $('#longUnEmp').show();
+    $('#empZone').show();
+    $('#summerYouth').show();
+    $('#quals').show();
+    $('#empLength').show();
+
   }
+
+});
+
+$('input[name="nonProfit"]').click(function() {
+
+  var nonProfitValue = $(this).val();
+
+  if ((nonProfitValue === 'yes') && (document.getElementById('isVetNo').checked)) {
+    $('#vetGroup').hide();
+    $('#tanfShort').hide();
+    $('#tanfLong').hide();
+    $('#snap').hide();
+    $('#vocRehab').hide();
+    $('#exFelon').hide();
+    $('#ssi').hide();
+    $('#longUnEmp').hide();
+    $('#empZone').hide();
+    $('#summerYouth').hide();
+    $('#quals').hide();
+    $('#empLength').hide();
+
+  }else if ((nonProfitValue === 'no') && (document.getElementById('isVetYes').checked)) {
+
+    $('#vetGroup').show();
+    $('#tanfShort').hide();
+    $('#tanfLong').hide();
+    $('#snap').hide();
+    $('#vocRehab').hide();
+    $('#exFelon').hide();
+    $('#ssi').hide();
+    $('#longUnEmp').hide();
+    $('#empZone').hide();
+    $('#summerYouth').hide();
+    $('#quals').hide();
+    $('#empLength').hide();
+
+  }else if ((nonProfitValue === 'no') && (document.getElementById('isVetNo').checked)) {
+
+    $('#vetGroup').hide();
+    $('#tanfShort').show();
+    $('#tanfLong').show();
+    $('#snap').show();
+    $('#vocRehab').show();
+    $('#exFelon').show();
+    $('#ssi').show();
+    $('#longUnEmp').show();
+    $('#empZone').show();
+    $('#summerYouth').show();
+    $('#quals').show();
+    $('#empLength').show();
+
+  }
+
 });
 
