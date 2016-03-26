@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above qty 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <!-- HTML5 html-equiv attribute tag strongly recommended by W3C -->
-    <meta name="description" content="Jack Cain - WOTC Value Proposition">
-    <!-- 29 character length with spaces, use 155 characters with spaces max, http://moz.com/learn/seo/meta-description -->
+    <meta name="description" content="Jack Cain - Unofficial WOTC Calculator">
+    <!-- 38 character length with spaces, use 155 characters with spaces max, http://moz.com/learn/seo/meta-description -->
     <meta name="author" content="Jack Cain">
     <!-- End Meta Tags -->
 
-    <title>Jack Cain - WOTC Value Proposition</title>
-    <!-- 21 characters with spaces, keep under 55 characters with spaces max, http://moz.com/learn/seo/title-tag -->
+    <title>Jack Cain - Unofficial WOTC Calculator</title>
+    <!-- 38 characters with spaces, keep under 55 characters with spaces max, http://moz.com/learn/seo/title-tag -->
 
     <!-- Web Fonts and Related Scripts -->
 
@@ -22,15 +22,11 @@
     <!-- JavaScript - put after CSS files -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <!-- Google CDN for jQuery 1.11.3 - cannot use jQuery 2.x on IE>9 -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.15/d3.js"></script>
-    <script src="./assets/scripts/d4.min.js"></script>
-    <script src="./assets/scripts/d3pie.min.js"></script>
-    <!-- script to generate pie charts -->
     <!-- end javascript -->
 
     <!-- Bootstrap -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-   <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" rel="stylesheet">-->
+     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" rel="stylesheet">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- Provides basic HTML5 behavior in pre-HTML5 browsers, https://github.com/aFarkas/html5shiv -->
@@ -42,1090 +38,437 @@
     <!-- end bootstrap -->
 
     <!-- Style Sheets, Shims, Resets -->
-    <!-- <link rel="stylesheet" href="./assets/styles/html5_reset.css"> <!- - CSS reset to make all browsers use basic CSS essentially alike, http://www.cssreset.com/ -->
-    <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">"<!- -  Font Awesome  -->
-    <!-- <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
-    <link rel="stylesheet" href="assets/styles/wotc.css">
     <!-- Contains site-specific color, font and standard formatting tags -->
+    <link rel="stylesheet" href="assets/styles/wotc.css">
     <!-- End Style Sheets, Shims, Resets -->
 
 </head>
 
 <body>
 
-<!-- insert code to remove hidden attribute on wrapper css selector if JS is enabled -->
-<noscript>
-
-    <h1>Many items in this proposal are JavaScript based. Therefore, you must
-        have <a href="http://enable-javascript.com/">JavaScript enabled</a> to
-        view this page. </h1>
-
-</noscript>
-<!-- end insert code to remove hidden attribute on wrapper css selector if JS is enabled -->
-
-<div id="wrapper" class=" container-fluid center-block">
-
     <header>
 
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div id="headerText" class="container-fluid">
 
-            <div class="container-fluid">
+            <div class="rowFlexCenter row">
 
-                <!-- Brand and toggle get grouped for better mobile display -->
+                <h1 class="col-xs-6 col-sm-6 col-md-6">The
+                    <span class="red"><em>unofficial</em><br></span>Oregon Work Opportunity Tax Credit Page
+                </h1>
 
-                <div class="navbar-header">
+                <img src="./assets/images/wotcHandsText.svg" class="col-xs-5 col-sm-5 col-md-5">
 
-                    <button type="button" class="navbar-toggle collapsed"
-                            data-toggle="collapse"
-                            data-target="#navbarCollapse"
-                            aria-expanded="false">
-
-                        <span class="sr-only">Toggle navigation</span>
-
-                        <span class="icon-bar"></span>
-
-                        <span class="icon-bar"></span>
-
-                        <span class="icon-bar"></span>
-
-                    </button>
-
-                </div>  <!-- end navbar-header div -->
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-
-                <div id="navbarCollapse" class="collapse navbar-collapse navbar-collapse-1">
-
-                    <ul class="nav navbar-nav">
-
-                        <li>
-
-                            <a href="index.html">Cover Letter <span class="sr-only">(current)</span></a>
-
-                        </li>
-
-                        <!-- nav menu entry one - cover letter -->
-
-                        <li class="dropdown">
-
-                            <a href="#" class="dropdown-toggle"
-                               data-toggle="dropdown" role="button"
-                               aria-haspopup="true"
-                               aria-expanded="false">Summary<span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu">
-
-                                <li>
-
-                                    <a href="#execSummary"
-                                       target="_self">Executive Summary
-                                    </a>
-
-                                </li>
-
-                                <li role="separator" class="divider hiddenSmall hiddenExSmall"></li>
-                                <!-- provides extra padding and a hr separating the entry from the one above -->
-
-                                <li>
-
-                                    <a href="#effHrWgCalc">Effective Wage</a>
-
-                                </li>
-
-                            </ul>
-
-                        </li>
-
-                        <!-- nav menu entry two - executive summary -->
-
-                        <li class="dropdown">
-
-                            <a href="#" class="dropdown-toggle"
-                               data-toggle="dropdown" role="button"
-                               aria-haspopup="true"
-                               aria-expanded="false">Proposal<span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu" role="menu">
-
-                                <li onclick="scrollOnNav()">
-
-                                    <a href="#mainProp"
-                                       target="_self">Overview
-                                    </a>
-
-                                </li>
-
-                                <li role="separator" class="divider hiddenSmall hiddenExSmall"></li>
-                                <!-- provides extra padding and a hr separating the entry from the one above -->
-
-                                <li>
-
-                                    <a href="#effHrWgCalc">Effective Wage</a>
-
-                                </li>
-
-                                <li role="separator" class="divider hiddenSmall hiddenExSmall"></li>
-                                <!-- provides extra padding and a hr separating the entry from the one above -->
-
-                                <li class="dropdown-submenu">
-
-                                    <a href="#jackCap">Jack's Background</a>
-
-                                </li>
-
-                                <li role="separator" class="divider hiddenSmall hiddenExSmall"></li>
-                                <!-- provides extra padding and a hr separating the entry from the one above -->
-
-                                <li class="dropdown-submenu">
-
-                                    <a href="#costBfts">Essential Numbers</a>
-
-                                </li>
-
-                            </ul>
-
-                        </li>
-                        <!-- nav menu entry three - Proposal -->
-
-                        <li class="dropdown">
-
-                            <a href="#" class="dropdown-toggle"
-                               data-toggle="dropdown" role="button"
-                               aria-haspopup="true"
-                               aria-expanded="false">SWOT <span
-                                    class="caret"></span></a>
-
-                            <ul class="dropdown-menu">
-
-                                <li>
-
-                                    <a href="#swot">Strengths</a>
-
-                                </li>
-
-                                <li role="separator" class="divider hiddenSmall hiddenExSmall"></li>
-                                <!-- provides extra padding and a hr separating the entry from the one above -->
-
-                                <li>
-
-                                    <a href="#wkness">Weaknesses</a>
-
-                                </li>
-
-                                <li role="separator" class="divider hiddenSmall hiddenExSmall"></li>
-                                <!-- provides extra padding and a hr separating the entry from the one above -->
-
-                                <li>
-
-                                    <a href="#opptunty">Opportunities</a>
-
-                                </li>
-
-                                <li role="separator" class="divider hiddenSmall hiddenExSmall"></li>
-                                <!-- provides extra padding and a hr separating the entry from the one above -->
-
-                                <li>
-
-                                    <a href="#threats">Threats</a>
-
-                                </li>
-
-                            </ul>
-
-                        </li>
-
-                        <!-- nav menu entry four - SWOT -->
-
-                        <li class="dropdown">
-
-                            <a href="#" class="dropdown-toggle"
-                               data-toggle="dropdown" role="button"
-                               aria-haspopup="true"
-                               aria-expanded="false">Recovery <span
-                                    class="caret"></span></a>
-
-                            <ul class="dropdown-menu">
-
-                                <li>
-
-                                    <a href="#costRec">Effective Payroll</a>
-
-                                </li>
-
-                                <li role="separator" class="divider hiddenSmall hiddenExSmall"></li>
-                                <!-- provides extra padding and a hr separating the entry from the one above -->
-
-                                <li>
-
-                                    <a href="#hrWage">Effective Hourly Wage</a>
-
-                                </li>
-
-                            </ul>
-
-                        </li>
-
-                        <!-- nav menu entry five - recovery -->
-
-                        <li class="dropdown">
-
-                            <a href="#" class="dropdown-toggle hiddenSmall hiddenExSmall"
-                               data-toggle="dropdown" role="button"
-                               aria-haspopup="true"
-                               aria-expanded="false">Charts <span
-                                    class="caret"></span></a>
-
-                            <ul class="dropdown-menu hiddenSmall hiddenExSmall">
-
-                                <li>
-
-                                    <a href="#barChtTtl">Costs vs. Credits</a>
-
-                                </li>
-
-                                <li role="separator" class="divider hiddenSmall hiddenExSmall"></li>
-                                <!-- provides extra padding and a hr separating the entry from the one above -->
-
-                                <li>
-
-                                    <a href="#wtrfall">Effective Payroll</a>
-
-                                </li>
-
-                                <li role="separator" class="divider hiddenSmall hiddenExSmall"></li>
-                                <!-- provides extra padding and a hr separating the entry from the one above -->
-
-                                <li>
-
-                                    <a href="#pieChart">Weekly Payroll Breakdown</a>
-
-                                </li>
-
-                            </ul>
-
-                        </li>
-
-                        <!-- nav menu entry six - charts -->
-
-                        <li class="dropdown">
-
-                            <a href="#" class="dropdown-toggle hiddenSmall"
-                               data-toggle="dropdown" role="button"
-                               aria-haspopup="true"
-                               aria-expanded="false">Application <span
-                                    class="caret"></span></a>
-
-                            <ul class="dropdown-menu">
-
-                                <li>
-
-                                    <a href="#epiApp">Epicodus Application</a>
-
-                                </li>
-
-                            </ul>
-
-                        </li>
-
-                        <!-- nav menu entry seven - Epicodus Application -->
-
-                    </ul>
-
-                </div><!-- /.navbar-collapse -->
-
-            </div><!-- /.container-fluid -->
-
-        </nav>
-
-    </header>
-
-    <section id="coverLetter" class="paper">
-
-        <address>
-
-            Name<br>
-            Street Address<br>
-            City, ST ZIP<br>
-            &nbsp;<br>
-            Date<br>
-            &nbsp;<br>
-            RE: Work Opportunity Tax Credit Value Proposition<br>
-
-        </address>
-
-        <p>Dear (Person),</p>
-
-        <p>The <a href="https://www.doleta.gov/business/incentives/opptax/" target="_blank">Work Opportunity Tax Credit</a> (WOTC) is a federal program designed to make it more cost-effective to hire <a href="https://www.doleta.gov/business/incentives/opptax/eligible.cfm" target="_blank">people in various categories</a> who have faced significant barriers to employment. A tax credit is generated, up to a maximum amount, from a percent of wages paid to the eligible employee. The credit can be as high as $9,600. Currently, this program is <a href="https://www.doleta.gov/business/incentives/opptax/pdf/PATH_Act_2015-WOTC_Interim_Instructions.pdf" target="_blank">authorized through December 31, 2019</a>.
-        </p>
-
-        <p>The Department of Labor's <a href="https://www.doleta.gov/business/incentives/opptax/PDF/WOTC_Employer_Guide.pdf" target="_blank">eligibility guidelines</a> define the qualifications of each target group.
-        </p>
-
-        <p>
-        </p>
-
-        <p>Sincerely,</p>
-
-        <!--<div id="eSig">
-
-            <img src="./assets/images/jackCain.svg" alt="Jack Cain's signature" />
-
-        </div>-->
-
-        <p>Your Name</p>
-
-    </section><!--end coverLetter section -->
-
-    <hr>
-
-    <section id="execSummary" class="paper">
-
-        <h1>Executive Summary</h1>
-
-        <p>I am a disabled veteran who is requesting a hand up, not a hand out. After an injury and layoff in 2009, I am out of personal resources and options. This proposal allows me to attend Epicodus while providing a clear financial mechanism for you to recoup those costs and more.
-        </p>
-
-        <p>This proposal has many inherently flexible parameters. In the most likely scenario, I would begin by performing an approximately four-week internship at no cost to you, sponsored by the <a href="http://www.rebootnw.org/" target="_blank">Federal “Reboot” program</a>. Upon successful completion, I would become an employee of Epicodus for between 52 and 65 weeks in order for you to receive a <a href="https://www.doleta.gov/business/incentives/opptax/" target="_blank">Work Opportunity Tax Credit</a> (WOTC). My hourly rate would be between $9.25 and $11.54 per hour, but the effective rate would be somewhat higher as explained below. At some point during this time I would attend a full course of Epicodus training. No health insurance, vacation, or other benefits are expected. Nothing in this proposal is meant to limit the end date of my employment, but simply tracks the period required to get the maximum WOTC.
-        </p>
-
-        <p>I have a <a href="https://www.linkedin.com/in/johnpatrickcain" target="_blank">wide range of technical and administrative skills</a> that are of use supporting your busy staff, as well as a lifelong drive to help others.
-        </p>
-
-        <h2 id="execNumKnow">Numbers to Know</h2>
-
-        <dl class="dl-horizontal">
-
-            <dt><strong><span id="maxWOTCCredit"></span></strong></dt>
-            <dd>the maximum WOTC amount for which I am eligible</dd>
-
-            <dt><strong><span id="minWagePaid"></span></strong></dt>
-            <dd>the total amount of paid wages required to generate this credit</dd>
-
-            <dt><strong><span id="wotcWagePct"></span></strong></dt>
-            <dd>the decrease in wage cost effected by the credit</dd>
-
-            <dt><strong><span id="minWOTCWeeks"></span> Weeks</strong></dt>
-            <dd>the minimum number of 40-hour equivalent weeks required to trigger the credit</dd>
-
-            <dt><strong><span id="maxWOTCWeeks"></span> Weeks</strong></dt>
-            <dd>the maximum number of 40-hour equivalent weeks before reaching the maximum WOTC</dd>
-            <dd>- determined by the current minimum wage of <strong>$<span id="orMinWage"></span></strong></dd>
-            <dd>- please note that the new Oregon minimum wage will change in 2017, which will decrease the maximum number of weeks required to obtain the maximum WOTC</dd>
-
-            <dt><strong><span id="totYearWages"></span></strong></dt>
-            <dd>total wages paid including employer share of payroll taxes</dd>
-
-            <dt><strong><span id="netYearWages"></span></strong></dt>
-            <dd>net wages paid, (<a href="#pieChart">charts</a>), for up to 65 weeks of work, including:</dd>
-            <dd><strong>Taxes:</strong></dd>
-            <dd>- Medicare tax of <span id="mcareTaxPctValue"></span> totalling <strong><span id="yrMcareTaxRnd"></span></strong></dd>
-            <dd>- Workman's Comp tax of <span id="workCompTaxPctValue"></span> totalling <strong><span id="yrWorkCompTaxRnd"></span></strong></dd>
-            <dd>- Unemployment tax of <span id="unempTaxPctValue"></span> totalling <strong><span id="yrUnempTaxRnd"></span></strong></dd>
-            <dd>- Social Security tax of <span id="socSecTaxPctValue"></span> totalling <strong><span id="yrSocSecTaxRnd"></span></strong></dd>
-            <dd><strong>Wages:</strong></dd>
-            <dd>- Wages paid of <strong><span id="yearlyWOTCWageValue"></span></strong></dd>
-            <dd><strong>Revenue Loss:</strong></dd>
-            <dd>- Lost outside student training revenue of <strong><span id="lostStudentCashStringValue"></span></strong></dd>
-            <dd>- Tuition cost for my training slot <strong><span id="trainingCostStringValue"></span></strong></dd>
-            <dd><strong>Revenue Gain:</strong></dd>
-            <dd>- Tuition revenue from my training slot, paid from wages, <strong><span id="trainingPaybackValue" class="red"></span></strong></dd>
-            <dd>- WOTC amount of <strong><span id="maxWOTCCreditTwo" class="red"></span></strong></dd>
-
-            <dt><strong><span id="minEffWageValue"></span></strong></dt>
-            <dd>the effective hourly wage for a 65-week employment period</dd>
-            <dd>- based on a 40-hour work week with 10 work hours per training week</dd>
-            <dd>- includes employer share of payroll taxes</dd>
-            <dd>- includes ~160 hour free (to you) internship period</dd>
-
-            <dt><strong><span id="maxEffWageValue"></span></strong></dt>
-            <dd>the effective hourly wage for a 52-week employment period</dd>
-            <dd>- based on a 40-hour work week with 10 work hours per training week</dd>
-            <dd>- includes employer share of payroll taxes</dd>
-            <dd>- includes ~160 hour free (to you) internship period</dd>
-
-
-        </dl>
-
-        <div id="effHrWgCalc">
-
-            <h2>Effective Hourly Wage Adjustments</h2>
-
-            <p>Wages during training are essential. Working full time during training is unrealistic. The minimum hours worked while training is suggested to be 10 hours per week. You may feel that the effective wage shown is too high (or too low). If you feel that either of the default values is unacceptable, changing them will change the effective wage.
-            </p>
-
-            <form id='effHrWageForm'>
-                <div id="minWeeksControl" class='form-group'>
-                    <label class="control-label" for='minWeeks'>Enter the minimum acceptable number of total weeks, with a minimum of 27 and a maximum of 65, that you wish worked under this proposal. The most likely values will be between 52 and 65.</label>
-                    <input type="number" class="form-control" id="minWeeks" min="27" max="65" required>
-                </div>
-                <div id="minHoursControl" class="form-group">
-                    <label for="minHours">Enter the minimum acceptable number of work hours, with a maximum of 10, you wish worked during training weeks.</label>
-                    <input type="number" class="form-control" id="minHours" min='0' max='10' required>
-                </div>
-                <button type="button" id="effWageCalcBtn" onclick="calcEffWages()" class="btn">Change the Effective Wage</button>
-            </form>
-
-            <p id="effHrWageResult">The new effective hourly wage is $<span id="effHrWageNew"></span></p>
+            </div>
 
         </div>
 
-    </section> <!--end execSummary section -->
+    </header>
 
     <hr>
 
-    <div id="mainProp">
+    <section>
 
-        <div id="intro">
+        <p class="red">This page is not official and is not connected in any way to the federal or state organizations who are responsible for administering this program! You can get all of the <em>official</em> info at the
 
-            <section id="overview">
+            <a href="https://www.doleta.gov/business/incentives/opptax/" target="_blank">Department of Labor's WOTC site.
+            </a>
 
-                <h1>Proposal</h1>
+        Oregon also has a
 
-                <h2>Introduction</h2>
+            <a href="http://www.oregon.gov/EMPLOY/Businesses/Pages/Work-Opportunity-Tax-Credit.aspx" target="_blank">WOTC page
+            </a>
 
-                <p><strong>I am asking for your help.</strong> Seven years ago, I was laid off two weeks after having major surgery. While I have recovered, I still have some physical limitations. Even though I obtained a Web Development & Design AAS from PCC, I have been unable to obtain a job since graduation. My family is teetering on the edge of homelessness. I need a hand up to get back on my feet. Please consider whether your company can afford to be part of this process.
-                </p>
+        , but it is minimal.
 
-                <p>In return for a full course of training while an employee, Epicodus would receive a no-cost four-week internship, my service near minimum wage for 1 - 1.25 years, and a $9,600 Work Opportunity Tax Credit. I would also pay for my tuition out of my wages, effectively increasing the value proposition further. </p>
+        </p>
 
-            </section>
+        <p>So why use this page? It's easier to find the specific credit amount for your situation without digging through the various site links.</p>
 
-            <h2 id="tldr"><strong>Tl;dr Warning.</strong><br> The remaining sections are a reference for details best discussed in person. You are welcome to read it, <strong>but you are not obligated to do so.</strong>
-            </h2>
+        <h1>The Work Opportunity Tax Credit</h1>
 
-            <section id="jackCap">
+        <p>The Work Opportunity Tax Credit (WOTC) is a credit based on your earnings that reduces an employer's tax burden. It's meant to encourage them to hire you, so don't be shy about letting potential employers know you are eligible. Answer the
 
-                <h2>What I Can Bring to the Table</h2>
+            <a href="#classQuest">Classification Questions</a>
 
-                <h3>Interpersonal Approach</h3>
+        below to see if you have this hiring advantage.
 
-                <p>I am adaptable, and I know how to follow. My most useful characteristic is my curiosity. I like to analyze complex problems and find innovative solutions. I accept people for who they are, and feel that respecting each other as human beings is the basis for a sound work and civic environment. I am comfortable speaking in any environment to anyone, and helping others is a life-long pattern for me. My broad curiosity and detailed approach mean that I tend to provide more information than most people need. I struggle when dealing with people who deliberately take advantage of others, especially those who cannot fight back.</p>
+        </p>
 
-                <div id="service">
+    </section>
 
-                    <h3>Service to Others</h3>
+    <section>
 
-                    <div id="serviceContainer" class="container-fluid">
+        <h1>Calculating the Work Opportunity Tax Credit</h1>
 
-                        <div class="rowFlexCenter row">
+        <p>Employees must work at least 120 hours in the first year of employment for the employer to qualify to claim the tax credit. In general, the credits are calculated by the following:</p>
 
-                            <div class="imageContainer col-xs-0 col-md-3 hiddenExSmall">
+        <h2>For Profit Employers</h2>
 
-                                <img id="ideaHead" class="img-responsive" src="./assets/images/baldHeadWords.svg" alt="silhouette of a man's head with a word cloud where the brain would be"/>
+        <dl>
 
-                            </div>
+            <dt>After 120 Hours</dt>
+            <dd>The employer may claim a tax credit equal to 25% of the new hire's first year of qualified wages. The maximum tax credit on first year wages is between $750 and $6,000, depending on the eligible target group.
+            </dd>
 
-                            <div class="col-xs-12 col-md-8">
+            <dt>After 400 Hours</dt>
+            <dd>The employer may claim a tax credit equal to 40% of the new hire's first year of wages. The maximum tax credit on first year wages is between $1,200 and $9,600, depending on the eligible target group.
+            </dd>
 
-                                <dl id="serviceList">
+            <dt>Second Year</dt>
+            <dd>For the Long-term Temporary Assistance for Needy Families (TANF) Recipient target group, the credit is also available to employers in the second year of employment. The employer may claim a tax credit equal to 50% of second year wages, up to the maximum tax credit of $5,000.
+            </dd>
 
-                                    <dt>Military service – submarine nuclear reactor operator</dt>
+        </dl>
 
-                                    <dt>Starting & growing computer user groups</dt>
+        <h2>Non-Profit Employers (Hiring Veterans Only)</h2>
 
-                                    <dt>Voliunteer technical support for a private school</dt>
+        <dl>
 
-                                    <dt>Adjutant for a local American Legion post </dt>
+            <dt>Different Rules</dt>
+            <dd>Because tax-exempt companies do not pay Federal tax, the credit is taken against the company's total Social Security tax payment.</dd>
 
-                                    <dt>Technology Advisory Board member Oregon State American Legion</dt>
+            <dt>After 120 Hours</dt>
+            <dd>The employer may claim a tax credit equal to 16.25% of between $6,000 and $24,000 of the new hire's first year of qualified wages. The maximum tax credit on first year wages is between $975 and $3,900, depending on the eligible target group.
+            </dd>
 
-                                    <dt>45 supported literacy and STEM projects on Donors Choose</dt>
+            <dt>After 400 Hours</dt>
+            <dd>The employer may claim a tax credit equal to 26% of between $6,000 and $24,000 of the new hire's first year of wages. The maximum tax credit on first year wages is between $1,560 and $6,240, depending on the eligible target group.
+            </dd>
 
-                                    <dt>Admin for PCC’s Web Development & Design Facebook page</dt>
+            <dt>Second Year</dt>
+            <dd>No TANF second-year guidance was available.
+            </dd>
 
-                                </dl>
+        </dl>
 
-                            </div>
+    </section>
 
-                        </div> <!-- end rowFlexCenter div -->
+    <section>
 
-                    </div> <!-- end serviceContainer div -->
+        <h1>WOTC Classifications</h1>
 
-                </div>  <!-- end service div -->
+        <form id="wotcForm" class="form-horizontal" role="form">
 
+            <fieldset id="classification">
 
-                <h3>Work History</h3>
+                <legend>Classification Notes</legend>
 
-                <p><a href="https://www.linkedin.com/in/johnpatrickcain" target="_blank">My work history is quite diverse.</a> I’ve done production scheduling for factories, programmed 3-axis CNC manufacturing equipment, and made the cover of Popular Science as part of a product design team. Switching focus, I then provided PC and Mac desktop support, sales and service, ran a small help desk at IBM, designed and built global computer infrastructure and negotiated first of its kind software licensing features. Far from being a poly-proficient rock star, my opportunities have arisen from my curiosity and willingness to learn from others. I’ve been lucky to have opportunities and challenges to motivate me to continuously learn and explore.</p>
+                <p>Please note that members of the following groups are not eligible:</p>
 
-                <div id="myPlace" class="rowFlexCenter row">
+                <ul>
 
-                    <div class="col-xs-2 col-md-2">
+                    <li>Relatives and dependents of the employer, including sons, daughters, stepchildren, spouses, fathers, mothers, brothers, sisters, step-brothers or sisters, nephews, nieces, uncles, aunts,
+                        cousins, or in-laws
+                    </li>
 
-                        <img id="oldMan" src="./assets/images/oldMan.svg" alt="cartoon drawing of old man" />
+                    <li>Former employees, regardless of how long it has been since he/she last worked for the employer</li>
 
-                    </div>
+                    <li>Majority owners of the business</li>
 
-                    <div class="col-xs-2 col-md-2">
+                </ul>
 
-                        <img id="lessThanLeft" src="./assets/images/lessThan.svg" alt="a less than sign" />
+                <p>A disabled veteran is one who is entitled to <em>monthly compensation payments</em> from the VA per IRS Code.</p>
 
-                    </div>
+                <p>There is a new category for those non-veterans hired on January 1, 2016 or later who were unemployed for more than 27 consecutive weeks, and who received federal or state unemployment compensation at least once during that time. This was authorized by the <a href="https://www.doleta.gov/business/incentives/opptax/pdf/PATH_Act_2015-WOTC_Interim_Instructions.pdf" target="_blank">Path Act of 2015</a> signed on December 15, 2015. </p>
 
-                    <div class="col-xs-3 col-md-3">
+                <legend id="classQuest">Classification Questions</legend>
 
-                        <img id="me" src="./assets/images/me.svg" alt="the word 'me'" />
+                <div id="isVet" class="form-group">
 
-                    </div>
+                    <label for="isVetYes" class="col-xs-9 col-sm-9">Are you, or is your prospective employee, a veteran?
+                    </label>
 
-                    <div class="col-xs-2 col-md-2">
+                        <label for="isVetYes" class="pad5Left pad5Right">Yes </label>
+                        <input id="isVetYes" class="radio-inline" type="radio" name="isVet" value="yes" required>
 
-                        <img id="lessThanRight" src="./assets/images/lessThan.svg" alt="a less than sign" />
+                        <label for="isVetNo" class="pad5Left pad5Right">No </label>
+                        <input id="isVetNo" class="radio-inline" type="radio" name="isVet" value="no" required>
 
-                    </div>
+                </div> <!-- end isVet div -->
 
-                    <div class="col-xs-2 col-md-2">
+                <div id="nonProfit" class="form-group">
 
-                        <img id="goldMuscle" src="./assets/images/muscleManBustGold.svg" alt="cartoon bust of a gold body builder" />
+                    <label class="col-xs-9 col-sm-9">Is your company, or the company for which you are applying, a non-profit?
+                    </label>
 
-                    </div>
+                        <label for="nonProfitYes" class="pad5Left pad5Right">Yes </label>
+                        <input id="nonProfitYes" class="radio-inline" type="radio" name="nonProfit" value="yes" required>
 
-                </div> <!-- end myPlace div -->
+                        <label for="nonProfitNo" class="pad5Left pad5Right">No </label>
+                        <input id="nonProfitNo" class="radio-inline" type="radio" name="nonProfit" value="no" required checked>
 
-                <p>My last position was at Seagate Technology, where I worked for eight years, finishing as a Systems Senior Engineer in their Global Client Server Engineering team. By 2008, a military service-connected injury limited me to a 20-hour work week. On December 31, 2008, I had surgery to correct this injury. Two weeks later, Seagate had the first of several large layoffs. Even though I had been awarded a 10% Key Performer bonus for 2009 in addition to my $82K salary, I was part of the first RIF. While at PCC I realized that I am better suited for web development than design. The development aspect of my training was not sufficient to prepare me for work in the field.
-                </p>
+                </div> <!-- end nonProfit div -->
 
-                <h3>Potential Service to Epicodus</h3>
+                <div id="vetGroup" class="form-group">
 
-                <p>I believe that I can help fill some needs at Epicodus during your rapid growth and expansion.
-                </p>
+                    <p class="col-xs-12 col-sm-12">Have you, or has your prospective employee:
+                    </p>
 
-                <div id="helping" class="container-fluid">
+                        <label id="vetGroupSnap" class="col-xs-10 col-sm-10">Received SNAP benefits for at least 3 months out of the last 12 months ending on the hiring date?
+                        </label>
 
-                    <div class="rowFlexCenter row">
+                        <label for="vetGroupSnapYes" class="pad5Left pad5Right">Yes </label>
+                        <input id="vetGroupSnapYes" class="radio-inline" type="radio" name="vetGroupSnap" value="yes" required>
 
-                        <dl id="helpOutList" class="col-xs-12 col-sm-7 col-md-7">
+                        <label for="vetGroupSnapNo" class="pad5Left pad5Right">No </label>
+                        <input id="vetGroupSnapNo" class="radio-inline" type="radio" name="vetGroupSnap" value="no" required checked><br>
 
-                            <dt>Handling the monthly info session for potential students</dt>
+                        <label id="vetGroupShortUmp" class="col-xs-10 col-sm-10">Been unemployed for at least 4 weeks, but less than 6 months, in the 12 months prior to the hiring date?
+                        </label>
 
-                            <dt>Equipment technical support and maintenance</dt>
+                        <label for="vetGroupShortUmpYes" class="pad5Left pad5Right">Yes </label>
+                        <input id="vetGroupShortUmpYes" class="radio-inline" type="radio" name="vetGroupShortUmp" value="yes" required>
 
-                            <dt>Help maintain the school’s website </dt>
+                        <label for="vetGroupShortUmpNo" class="pad5Left pad5Right">No </label>
+                        <input id="vetGroupShortUmpNo" class="radio-inline" type="radio" name="vetGroupShortUmp" value="no" required checked><br>
 
-                            <dt>Processing of student paperwork</dt>
+                        <label id="vetGroupDisabledDis" class="col-xs-10 col-sm-10">Been disabled, and whose hiring date is less than 1 year after discharge or release from active duty
+                        </label>
+                        <label for="vetGroupDisabledDisYes" class="pad5Left pad5Right">Yes </label>
+                        <input id="vetGroupDisabledDisYes" class="radio-inline" type="radio" name="vetGroupDisabledDis" value="yes" required>
 
-                            <dt>Support for school presence at local tech events</dt>
+                        <label for="vetGroupDisabledDisNo" class="pad5Left pad5Right">No </label>
+                        <input id="vetGroupDisabledDisNo" class="radio-inline" type="radio" name="vetGroupDisabledDis" value="no" required checked><br>
 
-                            <dt>Support for instructors and other staff</dt>
+                        <label id="vetGroupLongUmp" class="col-xs-10 col-sm-10">Been unemployed for at least 6 months or more in the 12 months prior to the hiring date?
+                        </label>
+                        <label for="vetGroupLongUmpYes" class="pad5Left pad5Right">Yes </label>
+                        <input id="vetGroupLongUmpYes" class="radio-inline" type="radio" name="vetGroupLongUmp" value="yes" required>
 
-                            <dt>Scheduling and administrative services</dt>
+                        <label for="vetGroupLongUmpNo" class="pad5Left pad5Right">No </label>
+                        <input id="vetGroupLongUmpNo" class="radio-inline" type="radio" name="vetGroupLongUmp" value="no" required checked><br>
 
-                        </dl>
+                        <label id="vetGroupDisLongUmp" class="col-xs-10 col-sm-10">Been disabled and been unemployed for at least 6 months or more in the 12 months prior to the hiring date?
+                        </label>
+                        <label for="vetGroupDisLongUmpYes" class="pad5Left pad5Right">Yes </label>
+                        <input id="vetGroupDisLongUmpYes" class="radio-inline" type="radio" name="vetGroupDisLongUmp" value="yes" required>
 
-                        <div class="imageContainer col-xs-0 col-sm-4 col-md-4 hiddenExSmall">
+                        <label for="vetGroupDisLongUmpNo" class="pad5Left pad5Right">No </label>
+                        <input id="vetGroupDisLongUmpNo" class="radio-inline" type="radio" name="vetGroupDisLongUmp" value="no" required checked>
 
-                            <img id="intern" class="img-responsive" src="./assets/images/hard_working_engineer.svg" alt="image of donkey with a large load and an intern brand" />
 
-                        </div>
+                </div> <!-- end vetGroup div -->
 
-                    </div>
 
-                </div> <!-- end helping div -->
 
-            </section>  <!-- end capabilities section -->
+                <div id="tanfShort" class="form-group">
 
-        </div> <!-- end intro div -->
+                    <label for="tanfShort" class="col-xs-9 col-sm-9">Have you, or has your prospective employee, received Temporary Aid for Needy Families (TANF) benefits for any 9 months out of the previous 18 months ending on the hiring date?
+                    </label>
 
-        <hr>
+                        <label for="tanfShortYes" class="pad5Left pad5Right">Yes </label>
+                        <input id="tanfShortYes" class="radio-inline" type="radio" name="tanfShort" value="yes" required>
 
-        <section id="costBfts">
+                        <label for="tanfShortNo" class="pad5Left pad5Right">No </label>
+                        <input id="tanfShortNo" class="radio-inline" type="radio" name="tanfShort" value="no" required checked>
 
-            <h2>Costs and Benefits to Epicodus</h2>
+                </div> <!-- end tanfShort div -->
 
-            <h3>Essential Numbers</h3>
+                <div id="tanfLong" class="form-group">
 
-            <p><a href="#execSummary" target="_self">Please see the Executive Summary</a>
-            </p>
+                    <label for="tanfLongYes" class="col-xs-9 col-sm-9">Have you, or has your prospective employee, received Temporary Aid for Needy Families (TANF) benefits for 18 consecutive months ending on the hiring date?<span class="red"><strong>*</strong></span>
+                    </label>
 
-            <h2 id="barChtTtl">Resulting Gain</h2>
+                        <label for="tanfLongYes" class="pad5Left pad5Right">Yes </label>
+                        <input id="tanfLongYes" class="radio-inline" type="radio" name="tanfLong" value="yes" required>
 
-            <p class="hiddenLarge visible">This chart is not responsive. Please use a display larger than 768 pixels.</p>
+                        <label for="tanfLongNo" class="pad5Left pad5Right">No </label>
+                        <input id="tanfLongNo" class="radio-inline" type="radio" name="tanfLong" value="no" required checked>
 
-            <div id="barChartWrapper" class="hiddenSmall">
+                </div> <!-- end tanfLong div -->
 
-                <div id="barChart"></div>
+                <div id="snap" class="form-group">
 
-            </div>
+                    <label class="col-xs-9 col-sm-9">Have you, or has your prospective employee, received Supplemental Nutrition Assistance (SNAP) benefits for the 6-month period ending on the hiring date?<span class="red"><strong>*</strong></span>
+                    </label>
 
-        </section>
+                        <label for="snapYes" class="pad5Left pad5Right">Yes </label>
+                        <input id="snapYes" class="radio-inline" type="radio" name="snap" value="yes" required>
 
-        <hr>
+                        <label for="snapNo" class="pad5Left pad5Right">No </label>
+                        <input id="snapNo" class="radio-inline" type="radio" name="snap" value="no" required checked>
 
-        <section id="swot">
+                </div> <!-- end snap div -->
 
-            <h3>SWOT</h3>
+                <div id="vocRehab" class="form-group">
 
-            <h4 id="strengths">Strengths</h4>
+                    <label class="col-xs-9 col-sm-9">Have you, or has your prospective employee, completed, or is completing, rehabilitative services from a state-certified agency, the Ticket to Work program, or the VA?
+                    </label>
 
-            <ul>
+                        <label for="vocRehabYes" class="pad5Left pad5Right">Yes </label>
+                        <input id="vocRehabYes" class="radio-inline" type="radio" name="vocRehab" value="yes" required>
 
-                <li>The internship provides a no-cost way to evaluate my performance, abilities and attitude</li>
+                        <label for="vocRehabNo" class="pad5Left pad5Right">No </label>
+                        <input id="vocRehabNo" class="radio-inline" type="radio" name="vocRehab" value="no" required checked>
 
-                <li>Guaranteed work availability after training allows planning for future work</li>
+                </div> <!-- end vocRehab div -->
 
-                <li>WOTC provides 40% credit against wages up to $9,600</li>
+                <div id="exFelon" class="form-group">
 
-                <li>Track record of volunteer service in tech (<a href="https://www.linkedin.com/in/johnpatrickcain" target="_blank">see LinkedIn profile)</a></li>
+                    <label class="col-xs-9 col-sm-9">Have you, or has your prospective employee, been convicted of a felony and released or convicted within 1 year of the hiring date?
+                    </label>
 
-                <li>Training costs paid from wages reduce the total cost of employment</li>
+                        <label for="exFelonYes" class="pad5Left pad5Right">Yes </label>
+                        <input id="exFelonYes" class="radio-inline" type="radio" name="exFelon" value="yes" required>
 
-            </ul>
+                        <label for="exFelonNo" class="pad5Left pad5Right">No </label>
+                        <input id="exFelonNo" class="radio-inline" type="radio" name="exFelon" value="no" required checked>
 
+                </div> <!-- end exFelon div -->
 
-            <h4 id="wkness">Weaknesses</h4>
+                <div id="ssi" class="form-group">
 
-            <ul>
+                    <label class="col-xs-9 col-sm-9">Have you, or has your prospective employee, received Social Security Income (SSI) for any month during the 60-day period ending on the hiring date?
+                    </label>
 
-                <li>Loss of outside cash flow by taking a training slot</li>
+                        <label for="ssiYes" class="pad5Left pad5Right">Yes </label>
+                        <input id="ssiYes" class="radio-inline" type="radio" name="ssi" value="yes" required>
 
-                <li>Unplanned employee onboard affects expansion planning</li>
+                        <label for="ssiNo" class="pad5Left pad5Right">No </label>
+                        <input id="ssiNo" class="radio-inline" type="radio" name="ssi" value="no" required checked>
 
-                <li>Initial decrease in productivity from training to assist existing people / processes</li>
+                </div> <!-- end ssi div -->
 
-            </ul>
+                <div id="longUnEmp" class="form-group">
 
-            <h4 id="opptunty">Opportunities</h4>
+                    <label class="col-xs-9 col-sm-9">Have you, or has your prospective employee, been unemployed not less than 27 consecutive weeks, within which they received unemployment compensation? (Hiring date after 01/01/2016)
+                    </label>
 
-            <ul>
+                        <label for="longUnEmpYes" class="pad5Left pad5Right">Yes </label>
+                        <input id="longUnEmpYes" class="radio-inline" type="radio" name="longUnEmp" value="yes" required>
 
-                <li>Equipment maintenance after normal class hours</li>
+                        <label for="longUnEmpNo" class="pad5Left pad5Right">No </label>
+                        <input id="longUnEmpNo" class="radio-inline" type="radio" name="longUnEmp" value="no" required checked>
 
-                <li>Expanded help hours after training</li>
+                </div> <!-- end longUnEmp div -->
 
-                <li>Assistance to current employees during expansion, student onboarding</li>
+                <div id="empZone" class="form-group">
 
-                <li>Assistance to instructors so they can concentrate on students instead of paperwork</li>
+                    <label class="col-xs-9 col-sm-9">Do you, or does your prospective employee, live in a <a href="http://egis.hud.gov/ezrclocator/" target="_blank">federally-designated Rural Renewal County or Empowerment Zone</a>? <span class="red">(None in Oregon or Southern Washington)</span>
+                    </label>
 
-                <li>Help to long-term unemployed veteran, social impact, taxes, etc.</li>
+                        <label for="empZoneYes" class="pad5Left pad5Right">Yes </label>
+                        <input id="empZoneYes" class="radio-inline" type="radio" name="empZone" value="yes" disabled>
 
-            </ul>
+                        <label for="empZoneNo" class="pad5Left pad5Right">No </label>
+                        <input id="empZoneNo" class="radio-inline" type="radio" name="empZone" value="no" checked disabled>
 
-            <h4 id="threats">Threats</h4>
+                </div> <!-- end empZone div -->
 
-            <ul>
+                <div id="summerYouth" class="form-group">
 
-                <li>Extra cash outflow from unplanned wages</li>
+                    <label class="col-xs-9 col-sm-9">Are you, or is your prospective employee, aged 16 or 17 and lives in a <a href="http://egis.hud.gov/ezrclocator/" target="_blank">federally-designated Rural Renewal County or Empowerment Zone</a>? <span class="red">(None in Oregon or Southern Washington)</span>
+                    </label>
 
-                <li>Unexpected employment termination before required period is complete</li>
+                        <label for="summerYouthYes" class="pad5Left pad5Right">Yes </label>
+                        <input id="summerYouthYes" class="radio-inline" type="radio" name="summerYouth" value="yes" disabled>
 
-                <li>Insufficient productivity to justify wages</li>
+                        <label for="summerYouthNo" class="pad5Left pad5Right">No </label>
+                        <input id="summerYouthNo" class="radio-inline" type="radio" name="summerYouth" value="no" checked disabled>
 
-                <li>Unexpected decrease in class size – decreased revenue</li>
+                </div> <!-- end summerYouth div -->
 
-                <li>Personality conflicts</li>
+                <p id="quals"><span class="red">*</span>See additional qualifications in the <a href="https://www.doleta.gov/business/incentives/opptax/PDF/WOTC_Employer_Guide.pdf" target="_blank">eligibility guidelines</a> for this category.</p>
 
-            </ul>
+            </fieldset> <!-- end classification fieldset -->
 
-        </section> <!-- end swot section -->
+            <fieldset id="empLength">
 
-        <hr>
+                <legend>Projected Length of Employment</legend>
 
-        <section id="costRec">
+                <div id="empFirstYear" class="form-group">
 
-            <h1>Cost Recovery</h1>
+                    <label for="empFirstYear120" class="col-xs-9 col-sm-9">Please choose the projected number of work hours within the first 365 days, starting on the hiring date:
+                    </label>
 
-            <div id="effPayrollParts" class="container-fluid">
+                        <label for="empFirstYear120" class="pad5Left pad5Right">> 120 </label>
+                        <input id="empFirstYear120" class="radio-inline" type="radio" name="empFirstYear" value="120" required checked>
 
-                <div class="rowFlexCenter row">
+                        <label for="empFirstYear400" class="pad5Left pad5Right">> 400 </label>
+                        <input id="empFirstYear400" class="radio-inline" type="radio" name="empFirstYear" value="400" required>
 
-                    <div id="costRecoveryText" class="col-xs-9 col-sm-7 col-md-7">
+                </div> <!-- end empFirstYear div -->
 
-                        <p>There are three components to the effective payroll:</p>
+                <div id="empSecondYear" class="form-group">
 
-                        <ul>
+                    <label class="col-xs-9 col-sm-9">Are you, or is your prospective employee, expected to stay working longer than 365 days?
+                    </label>
 
-                            <li>52 – 65 weeks of work at a reduced wage</li>
+                        <label for="empSecondYearYes" class="pad5Left pad5Right">Yes </label>
+                        <input id="empSecondYearYes" class="radio-inline" type="radio" name="empSecondYear" value="yes" required>
 
-                            <li>The WOTC of $9,600</li>
+                        <label for="empSecondYearNo" class="pad5Left pad5Right">No </label>
+                        <input id="empSecondYearNo" class="radio-inline" type="radio" name="empSecondYear" value="no" required  checked>
 
-                            <li>The four-week internship provided at no cost to you</li>
+                </div> <!-- end empSecondYear div -->
 
-                        </ul>
+            </fieldset> <!-- end empLength fieldset -->
 
-                    </div>
+        </form>
 
-                    <div class="imageContainer col-xs-3 col-sm-3 col-md-3 hiddenExSmall">
+    </section>
 
-                        <img id="wotcHands" class="img-responsive" src="./assets/images/wotcHands.svg" alt="Uncle Sam's hands holding a money bag labelled $9600" />
+    <section>
 
-                    </div>
+        <form id="calcWotc">
 
-                </div>
+            <fieldset id="calculation">
 
-            </div>
+                <legend>Calculate</legend>
 
-        </section>
+                <button type="button" id="calcWotcButton" onclick="calcWotcIO()" class="btn">Show the WOTC for Me</button>
 
-        <section id="effPayroll">
+                <button type="reset" id="resetWotcForm" onclick="resetForm()" class="btn">Reset the Form</button>
 
-            <h2>Effective Payroll</h2>
+            </fieldset>
 
-            <p>It takes $24,000 in wages to generate the maximum WOTC. That total does not change, only the amount of time involved. This means that the wage on paper can vary from about $11.54/hr for a years’ time to the minimum wage of $9.25/hr for 1.25 years’ time. The employer’s share of taxes adds another $2,856 to the cost of payroll, for a total of $26, 856.
-            </p>
+        </form>
 
-            <p>Next, that cost is increased by the loss of external tuition revenue and the cost of my tuition. The new total of $36,856 is then reduced by the tuition paid back through my wages (-$5,000) and the WOTC (-$9,600). That brings the effective payroll outlay down $4,600 to $22,256.
-            </p>
+        <p id="wotcResult"><strong>The WOTC value for the options you chose were: <span id="wotcValue"></span></strong></p>
 
-            <p class="navPaddingBottom">Finally, there is a four-week internship involved at no cost to you. For a pay rate of $9.25, this reduces the effective payroll $1,480 to $20,778. For a pay rate of $11.54, the effective payroll is reduced by $1,846 to $20,409.
-            </p>
+    </section>
 
-            <h3>Effective Payroll Chart</h3>
+    <hr>
 
-            <p class="hiddenLarge visible">This chart is not responsive. Please use a display larger than 768 pixels.</p>
+    <footer>
 
-            <div id="wtrfall" class="hiddenSmall">
+        <div id="ftrAckDiv" class="container-fluid">
 
-                <div id="waterfallChart"></div>
+            <div class="rowFlexCenter row">
 
-            </div>
+                <div id="ftrAcks"  class="col-xs-6 col-sm-6 col-md-6">
 
-        </section>
+                    <p><strong>Thanks to:</strong></p>
 
-        <hr>
+                    <dl>
 
-        <section id="hrWage">
-
-            <h1>Hourly Wage Discussion</h1>
-
-            <h2>Overview</h2>
-
-            <p>This proposal is predicated on my employment during training. Up front this may sound unreasonable, but the amount of the WOTC and the free four-week internship make the value proposition work. My wages are required to pay for the training as well as keep my family housed and fed. The numbers to know section has sample effective hourly rates listed as well as an effective wage calculator.
-            </p>
-
-            <h2>Actual Hours Worked</h2>
-
-            <p>Attempting to work full time while attending your classes is unrealistic. I estimate that while in class I could work an additional 10 hours per week. A 40-hour workweek while not in training would be normal.
-            </p>
-
-            <h2>Effective Hourly Wage (including Employer Tax Portions)</h2>
-
-            <p>The effective pay rate is dependent on the number of hours worked over a given period of time. For the samples, I used 52-week and 65-week time periods. It’s important to note that the total amount paid does not change, just the period of time. Also, the pay rate listed is not what I would earn, but what you would pay including the employer portion of payroll taxes.
-            </p>
-
-            <p>The effective total payroll is obtained by the following:</p>
-
-            <p>(yearly net wages including employer share of payroll tax) / ((total weeks * 40hrs) - ((40hrs paid - 10hrs worked) * 27 wks class) + 160hrs internship) = effective pay rate
-            </p>
-
-            <div id="effHrWageEq" class="container-fluid">
-
-                <div class="rowFlexCenter row">
-
-                    <dl id="effHrWages" class="dl-horizontal col-xs-12 col-md-12">
-
-                        <dt>$22,256</dt>
-                        <dd>the value of "yearly net wages including employer share"</dd>
-
-                        <dt>$15.56</dt>
-                        <dd>substituting 52 weeks for total weeks, including the employer payroll tax share</dd>
-
-                        <dt>$11.41</dt>
-                        <dd>substituting 65 weeks for total weeks, including the employer payroll tax share</dd>
+                        <dt>
+                            <a href="https://github.com/mikez302" target="">Elias Zamaria</a>
+                            for the
+                            <a href="http://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript/2901298#2901298" target="_blank">comma regex</a>
+                        </dt>
 
                     </dl>
 
-                </div>
+                    <p><strong>This website is not associated with the Federal Department of Labor or the Oregon State Employment Department. All opinions expressed are my own.</strong></p>
 
-            </div> <!-- end helping div -->
+                </div>  <!-- end ftrAcks div -->
 
-            <h2>Effective Hourly Wage (not including Employer Tax Portion)</h2>
+                <div id="ftrNotes" class="col-xs-6 col-sm-6 col-md-6">
 
-            <p>For normal comparisons, hourly rates are based on the employee’s portion, which is not the full amount paid by the employer, but is used for reference. For the purpose of roughing out the job responsibilities, the effective hourly wage excluding the employer share is $13.57 for 52 weeks and $9.95 for 65 weeks.
-            </p>
+                    <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Unofficial WOTC Page</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://epiprop.jackcain.us" property="cc:attributionName" rel="cc:attributionURL">Jack Cain</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+                    </p>
 
-        </section>
+                </div>  <!-- end ftrNotes div -->
 
-        <section id="weeklyPayroll">
+            </div> <!-- end rowFlexCenter div -->
 
-            <h2>Weekly Payroll Cost</h2>
+        </div>  <!-- end ftrAckDiv div -->
 
-            <p>The employer cost of payroll is more than the wages paid. Your exact payroll percentages paid for taxes may be slightly different, but this shows a representative list of payroll costs.
-            </p>
+    </footer>
 
-            <h2>Tax Rates Used</h2>
+    <script src="assets/scripts/wotcForm.js"></script>
 
-            <dl id="taxRates" class="dl-horizontal">
+   </body>
 
-                <dt>Tax Rates Used</dt>
-
-                <dd>Medicare Tax 1.45%</dd>
-
-                <dd>Workman's Comp 1.65%</dd>
-
-                <dd>Unemployment Insurance 2.60%</dd>
-
-                <dd>Social Security Tax 6.20%</dd>
-
-                <dd>Hourly Wage $11.54</dd>
-
-            </dl>
-
-            <h2>Weekly Payroll Chart</h2>
-
-            <p class="hiddenLarge visible">This chart is not responsive. Please use a display larger than 768 pixels.</p>
-
-            <div id="pieChartWrapper" class="hiddenSmall">
-
-                <div id="pieChart"></div>
-
-            </div>
-
-            <hr>
-
-        </section>
-
-        <section id="epiApp">
-
-            <h1>Epicodus Application</h1>
-
-            <h2>Teamwork Section</h2>
-
-            <h3>Describe a Specific Time You Worked on a Close-Kint Team</h3>
-
-            <h4>How did you contribute to the success or failure of the project?</h4>
-
-            <p>I took a contract to program CNC equipment for a very small startup. The work began with a courier coming to my home almost every morning with a handmade model of the product under development. My job was to measure it within .001”, turn it into a 3D model, then produce a program that would be sent to a machinist to cut them.
-            </p>
-
-            <p>Immediately I had trouble reproducing the models, and had several calls with the model maker. I tried to get him to understand that I couldn’t built his prototypes, but to no avail. I just couldn’t understand his unwillingness to fix the problems, as they were clear and easy to understand. For example, ever try to cut a square inside corner with a round tool? Ain’t gonna happen! Finally, he angrily said, “You use a computer; you’re supposed to be able to do things better than what I can do!”, and I began to realize that the conflict was based in fear. This professional manual model maker was not going to be replaced by a stupid computer!
-            </p>
-
-            <p>I arranged to go over to his house one afternoon to discuss how to move forward. As he gave me a tour, I realized that he was truly an artist, with examples of beautiful consumer product development he had done. Much of it was on products that most people would have used or at least seen. He took the position, correctly, that product development is more art than science, and that computers were not art.
-            </p>
-
-            <p>Just as his world was initially a mystery to me, mine was to him as well. So, I packed up my hundred pounds of computer hardware and took it to his house. I walked through the process, and let him see what was required. It was certainly more complex than he assumed, and he began to see why I was saying there were problems. Soon, we began including the machinist as well, who was able to give me feedback on the speed of my programs and tips on how to approach holding the product during machining.
-            </p>
-
-            <p>I made sure to praise their work, and told them often that I couldn’t do their job. I created on-screen representations of actual tools so they could see in advance how they would interact with the design. Very quickly, we began to meet at each other’s homes, or at the company’s office, and design as a team. With my computer modeling skills, the model maker’s design experience and the machinist’s real-world feedback, we were able to keep pace with a very demanding schedule for a first-of-its-kind product.
-            </p>
-
-            <h4>How did you contribute to the success or failure of the project?</h4>
-
-            <p><strong>My contributions to the success of the product were</strong></p>
-
-            <ul>
-
-                <li>my willingness to respect the skill sets of others</li>
-
-                <li>praising the work of others to give them confidence about their work</li>
-
-                <li>teaching others about my work process so we could interface more effectively</li>
-
-                <li>diligently seeking to modify my processes so others could be more efficient</li>
-
-            </ul>
-
-            <h4>How did other people on the team contribute to the success or failure?</h4>
-
-            <p><strong>The model maker’s contributions were</strong></p>
-
-            <ul>
-
-                <li>a willingness to learn about what was to him a very threatening technology</li>
-
-                <li>a willingness to pass on years of product design wisdom to make my work easier</li>
-
-                <li>flexibility in work location and timing</li>
-
-            </ul>
-
-            <p><strong>The machinist’s contributions were</strong></p>
-
-            <ul>
-
-                <li>to provide feedback on manufacturing processes</li>
-
-                <li>education on rapid prototyping tools to speed production</li>
-
-            </ul>
-
-            <h4>What were your strengths as a group member?</h4>
-
-            <p>My strengths were mostly technical at the time, but one of the biggest soft strengths was the desire to work together with other experts rather than toss my work over the wall to the next person. Next, I had a strong desire to create the supporting graphics, like exact measurements of tools, to help us find design defects before manufacturing. Finally, I built the project files as a set rather than a series of individual projects. This allowed me to place each layer together, which exposed clearance problems and allowed for rendering of each part, or all, of a product onscreen before manufacturing. While these things are common now, back then this type of creative work was rare. All of these things show my desire to make processes more efficient and products better than the competition.
-            </p>
-
-            <h4>What were your weaknesses?</h4>
-
-            <ul>
-
-                <li>a tendency to get frustrated about last minute changes to the design by outside influences (the deadlines were very tight, and we worked 6 – 7 days a week, so a seemingly minor change caused havoc on our production schedule)
-                </li>
-
-                <li>a failure to ask about the bigger picture which made me less supportive of project changes</li>
-
-                <li>working too long, which led to times when I would miss a chance to work with others as a team because I was sleeping</li>
-
-            </ul>
-
-            <h4>How did you deal with other group members you didn't get along well with?</h4>
-
-            <p>There was only one person I didn’t get along with, and the dislike was based in his unwillingness to work with the rest of us. We added a night machinist, and he would do things that would result in models being out of tolerance. He would then say it was my fault for giving him a bad program, even though the day shift machinist produced good parts with the same program. For a while, I tried to use the same techniques I used with the others to gain his trust, but he wasn’t interested in working together with anyone, thus the night shift job. Eventually, we just left him alone until he was fired for producing too many bad parts after the day machinist presented some stats on scrap to the owner.
-            </p>
-
-            <p>About this same time, I learned a great lesson from John W. Thompson when he was the VP of Consumer Products at IBM. I ran into him at an airport, and he was kind enough to give me 45 minutes of his time. We discussed my dissatisfaction with IBM’s marketing, and he explained why they were making the decisions they were making. I had an epiphany about this subject. I had assumed that they were a bunch of idiots, but I learned that they had solid reasons for making the decisions they made. The light bulb went on that very few people make truly stupid decisions. If I see someone making such a move, chances are that I don’t have the same set of information as the other person. By respecting them up front, I get the opportunity to hear why those “stupid” decisions were being made so I understand them, and gain the opportunity to have input into them if I have relevant information to add.
-            </p>
-
-            <h4>What Class Are You Interested In?</h4>
-
-            <p>Portland - May full-time or later class</p>
-
-            <h4>Track Desired</h4>
-
-            <p>Intro, Java, JavaScript, Android</p>
-
-            <h4> How did You Hear About Epicodus?</h4>
-
-            <p>Other Epicodus students at meetups</p>
-
-            <h4>Demographics</h4>
-
-            <dl class="dl-horizontal">
-
-                <dt>Gender</dt>
-                <dd>Male</dd>
-
-                <dt>Race</dt>
-                <dd>Caucasian</dd>
-
-                <dt>Age</dt>
-                <dd>Over 18</dd>
-
-                <dt>Education</dt>
-                <dd>Associate's Degree</dd>
-
-            </dl>
-
-        </section> <!-- end epiApp section -->
-
-        <hr>
-
-        <section>
-
-            <h1>References</h1>
-
-            <p>These links supplement the information contained in this page</p>
-
-            <dl>
-
-                <dt>
-                    <a href="http://www.doleta.gov/business/incentives/opptax/" target="_blank">Work Opportunity Tax Credit (WOTC)
-                    </a>
-                </dt>
-
-                <dt>
-                    <a href="http://www.rebootnw.org/" target="_blank">Reboot Northwest
-                    </a>
-                </dt>
-
-                <dt>
-                    <a href="http://www.linkedin.com/in/johnpatrickcain" target="_blank">Jack Cain's LinkedIn Profile
-                    </a>
-                </dt>
-
-                <dt>
-                    <a href="http://worksourceoregon.org/home/worksourcecenters/269-beavertonhillsboro" target="_blank">Worksource
-                    </a> Case Manager
-                </dt>
-
-            </dl>
-
-            <address id="gayle">
-
-                Gayle Armstrong, Career Specialist
-                <br>
-                Worksource Beaverton - Hillsboro
-                <br>
-                241 SW Edgeway Drive
-                <br>
-                Beaverton OR 97006
-
-            </address>
-
-        </section>
-
-        <hr>
-
-        <footer>
-
-            <div id="ftrAckDiv" class="container-fluid">
-
-                <div class="rowFlexCenter row">
-
-                    <div id="ftrAcks"  class="col-xs-6 col-sm-6 col-md-6">
-
-                        <p><strong>Thanks to:</strong></p>
-
-                        <dl>
-
-                            <dt>
-                                <a href="https://bost.ocks.org/mike/" target="_blank">Mike Bostock</a>
-                                for
-                                <a href="https://d3js.org/" target="_blank">D3</a>
-                                (
-                                <a href="https://github.com/mbostock/d3/blob/master/LICENSE" target="_blank">D3 License Notice
-                                </a>)
-                            </dt>
-
-                            <dt>
-                                <a href="https://github.com/heavysixer" target="_blank">Mark Daggett</a>
-                                for
-                                <a href="https://github.com/heavysixer/d4" target="_blank">D4</a>
-                                (
-                                <a href="https://github.com/heavysixer/d4/blob/master/LICENSE-MIT" target="_blank">D4 License Notice
-                                </a>)
-                            </dt>
-
-                            <dt>
-                                <a href="http://www.ianclark.me/" target="_blank">Ian Clark</a>
-                                for
-                                <a href="https://jsfiddle.net/user/ianclark001/fiddles/" target="_blank">the scrolling help</a>
-                            </dt>
-
-                            <dt>
-                                <a href="https://github.com/mikez302" target="">Elias Zamaria</a>
-                                for the
-                                <a href="http://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript/2901298#2901298" target="_blank">comma regex</a>
-                            </dt>
-
-                        </dl>
-
-                    </div>  <!-- end ftrAcks div -->
-
-                    <div id="ftrNotes" class="col-xs-6 col-sm-6 col-md-6">
-
-                        <p><strong>This website is not associated with Epicodus, Inc.</strong></p>
-
-                        <p>All opinions expressed are my own and do not necessarily reflect the views of anyone at Epicodus.
-                        </p>
-
-                        <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Epicodus Proposal</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://epiprop.jackcain.us" property="cc:attributionName" rel="cc:attributionURL">Jack Cain</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-                        </p>
-
-                    </div>  <!-- end ftrNotes div -->
-
-                </div> <!-- end rowFlexCenter div -->
-
-            </div>  <!-- end ftrAckDiv div -->
-
-        </footer>
-
-        <hr>
-
-    </div><!--end mainProposal div -->
-
-
-
-
-
-</div> <!-- end wrapper div -->
-
-<script src="assets/scripts/wotc.js"></script>
-
-<!--<script src="./assets/scripts/waterfallChart.js"></script>-->
-<!--<script src="./assets/scripts/pie.js"></script>
-<script src="./assets/scripts/barChart.js"></script>-->
-
-</body>
 </html>
