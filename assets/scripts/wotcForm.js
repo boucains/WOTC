@@ -313,7 +313,7 @@ function strOutputs() {
                               ' in wages for a total of up to ' + dollarVars().wotcCredVetOverSixMaxCurr + ' in WOTC.';
 
   var disVetUnEmpOverSixShort = 'You qualify for ' + strMinWotcHrsPct + ' of ' + dollarVars().wotcWageDisVetOverSixCurr  +
-                                  'in wages  for a total of up to ' + dollarVars().wotcCredDisVetOverSixMinCurr + ' in WOTC.';
+                                  ' in wages  for a total of up to ' + dollarVars().wotcCredDisVetOverSixMinCurr + ' in WOTC.';
 
   var disVetUnEmpOverSixLong = 'You qualify for ' + strMaxWotcHrsPct + ' of ' + dollarVars().wotcWageDisVetOverSixCurr  +
                                  ' in wages for a total of up to ' + dollarVars().wotcCredDisVetOverSixMaxCurr + ' in WOTC.';
