@@ -423,8 +423,6 @@ strOutputs();
 
 function calcWotcIO() {
 
-  document.getElementById('wotcValue').innerHTML = 'Please make a selection';
-
   // get user selections
   var nonProfitSelect = document.querySelector('input[name = "nonProfit"]:checked').value;
   var isVetSelect = document.querySelector('input[name = "isVet"]:checked').value;
@@ -444,6 +442,8 @@ function calcWotcIO() {
   var summerYouthSelect = document.querySelector('input[name = "summerYouth"]:checked').value;
   var empFirstYearSelect = document.querySelector('input[name = "empFirstYear"]:checked').value;
   var empSecondYearSelect = document.querySelector('input[name = "empSecondYear"]:checked').value;
+
+  document.getElementById('wotcValue').innerHTML = 'Please make a selection';
 
   // there are no valid wotc groups for non-profits if they are not hiring veterans
   if ((nonProfitSelect === 'yes') && (isVetSelect === 'no')) {
@@ -825,3 +825,254 @@ $('input[name="nonProfit"]').click(function() {
 
 });
 
+/* ***** onclick, make sure all other selections switch to false or 'no' ***** */
+
+$('#vetGroupSnapYes').click(function() {
+
+  $('#vetGroupShortUmpNo').prop('checked', true);
+  $('#vetGroupDisabledDisNo').prop('checked', true);
+  $('#vetGroupLongUmpNo').prop('checked', true);
+  $('#vetGroupDisLongUmpNo').prop('checked', true);
+  $('#tanfShortNo').prop('checked', true);
+  $('#tanfLongNo').prop('checked', true);
+  $('#snapNo').prop('checked', true);
+  $('#vocRehabNo').prop('checked', true);
+  $('#exFelonNo').prop('checked', true);
+  $('#ssiNo').prop('checked', true);
+  $('#longUnEmpNo').prop('checked', true);
+
+});
+
+$('#vetGroupShortUmpYes').click(function() {
+
+  $('#vetGroupSnapNo').prop('checked', true);
+  $('#vetGroupDisabledDisNo').prop('checked', true);
+  $('#vetGroupLongUmpNo').prop('checked', true);
+  $('#vetGroupDisLongUmpNo').prop('checked', true);
+  $('#tanfShortNo').prop('checked', true);
+  $('#tanfLongNo').prop('checked', true);
+  $('#snapNo').prop('checked', true);
+  $('#vocRehabNo').prop('checked', true);
+  $('#exFelonNo').prop('checked', true);
+  $('#ssiNo').prop('checked', true);
+  $('#longUnEmpNo').prop('checked', true);
+  $('#empZoneNo').prop('checked', true);
+  $('#summerYouthNo').prop('checked', true);
+
+});
+
+$('#vetGroupDisabledDisYes').click(function() {
+
+  $('#vetGroupSnapNo').prop('checked', true);
+  $('#vetGroupShortUmpNo').prop('checked', true);
+  $('#vetGroupLongUmpNo').prop('checked', true);
+  $('#vetGroupDisLongUmpNo').prop('checked', true);
+  $('#tanfShortNo').prop('checked', true);
+  $('#tanfLongNo').prop('checked', true);
+  $('#snapNo').prop('checked', true);
+  $('#vocRehabNo').prop('checked', true);
+  $('#exFelonNo').prop('checked', true);
+  $('#ssiNo').prop('checked', true);
+  $('#longUnEmpNo').prop('checked', true);
+  $('#empZoneNo').prop('checked', true);
+  $('#summerYouthNo').prop('checked', true);
+
+});
+
+$('#vetGroupLongUmpYes').click(function() {
+
+  $('#vetGroupSnapNo').prop('checked', true);
+  $('#vetGroupShortUmpNo').prop('checked', true);
+  $('#vetGroupDisabledDisNo').prop('checked', true);
+  $('#vetGroupDisLongUmpNo').prop('checked', true);
+  $('#tanfShortNo').prop('checked', true);
+  $('#tanfLongNo').prop('checked', true);
+  $('#snapNo').prop('checked', true);
+  $('#vocRehabNo').prop('checked', true);
+  $('#exFelonNo').prop('checked', true);
+  $('#ssiNo').prop('checked', true);
+  $('#longUnEmpNo').prop('checked', true);
+  $('#empZoneNo').prop('checked', true);
+  $('#summerYouthNo').prop('checked', true);
+
+});
+
+$('#vetGroupDisLongUmpYes').click(function() {
+
+  $('#vetGroupSnapNo').prop('checked', true);
+  $('#vetGroupShortUmpNo').prop('checked', true);
+  $('#vetGroupDisabledDisNo').prop('checked', true);
+  $('#vetGroupLongUmpNo').prop('checked', true);
+  $('#tanfShortNo').prop('checked', true);
+  $('#tanfLongNo').prop('checked', true);
+  $('#snapNo').prop('checked', true);
+  $('#vocRehabNo').prop('checked', true);
+  $('#exFelonNo').prop('checked', true);
+  $('#ssiNo').prop('checked', true);
+  $('#longUnEmpNo').prop('checked', true);
+  $('#empZoneNo').prop('checked', true);
+  $('#summerYouthNo').prop('checked', true);
+
+});
+
+$('#tanfShortYes').click(function() {
+
+  $('#vetGroupSnapNo').prop('checked', true);
+  $('#vetGroupShortUmpNo').prop('checked', true);
+  $('#vetGroupDisabledDisNo').prop('checked', true);
+  $('#vetGroupLongUmpNo').prop('checked', true);
+  $('#vetGroupDisLongUmpNo').prop('checked', true);
+  $('#tanfLongNo').prop('checked', true);
+  $('#snapNo').prop('checked', true);
+  $('#vocRehabNo').prop('checked', true);
+  $('#exFelonNo').prop('checked', true);
+  $('#ssiNo').prop('checked', true);
+  $('#longUnEmpNo').prop('checked', true);
+  $('#empZoneNo').prop('checked', true);
+  $('#summerYouthNo').prop('checked', true);
+
+});
+
+$('#tanfLongYes').click(function() {
+
+  $('#vetGroupSnapNo').prop('checked', true);
+  $('#vetGroupShortUmpNo').prop('checked', true);
+  $('#vetGroupDisabledDisNo').prop('checked', true);
+  $('#vetGroupLongUmpNo').prop('checked', true);
+  $('#vetGroupDisLongUmpNo').prop('checked', true);
+  $('#tanfShortNo').prop('checked', true);
+  $('#snapNo').prop('checked', true);
+  $('#vocRehabNo').prop('checked', true);
+  $('#exFelonNo').prop('checked', true);
+  $('#ssiNo').prop('checked', true);
+  $('#longUnEmpNo').prop('checked', true);
+  $('#empZoneNo').prop('checked', true);
+  $('#summerYouthNo').prop('checked', true);
+
+});
+
+$('#snapYes').click(function() {
+
+  $('#vetGroupSnapNo').prop('checked', true);
+  $('#vetGroupShortUmpNo').prop('checked', true);
+  $('#vetGroupDisabledDisNo').prop('checked', true);
+  $('#vetGroupLongUmpNo').prop('checked', true);
+  $('#vetGroupDisLongUmpNo').prop('checked', true);
+  $('#tanfShortNo').prop('checked', true);
+  $('#tanfLongNo').prop('checked', true);
+  $('#vocRehabNo').prop('checked', true);
+  $('#exFelonNo').prop('checked', true);
+  $('#ssiNo').prop('checked', true);
+  $('#longUnEmpNo').prop('checked', true);
+  $('#empZoneNo').prop('checked', true);
+  $('#summerYouthNo').prop('checked', true);
+
+});
+
+$('#vocRehabYes').click(function() {
+
+  $('#vetGroupSnapNo').prop('checked', true);
+  $('#vetGroupShortUmpNo').prop('checked', true);
+  $('#vetGroupDisabledDisNo').prop('checked', true);
+  $('#vetGroupLongUmpNo').prop('checked', true);
+  $('#vetGroupDisLongUmpNo').prop('checked', true);
+  $('#tanfShortNo').prop('checked', true);
+  $('#tanfLongNo').prop('checked', true);
+  $('#snapNo').prop('checked', true);
+  $('#exFelonNo').prop('checked', true);
+  $('#ssiNo').prop('checked', true);
+  $('#longUnEmpNo').prop('checked', true);
+  $('#empZoneNo').prop('checked', true);
+  $('#summerYouthNo').prop('checked', true);
+
+});
+
+$('#exFelonYes').click(function() {
+
+  $('#vetGroupSnapNo').prop('checked', true);
+  $('#vetGroupShortUmpNo').prop('checked', true);
+  $('#vetGroupDisabledDisNo').prop('checked', true);
+  $('#vetGroupLongUmpNo').prop('checked', true);
+  $('#vetGroupDisLongUmpNo').prop('checked', true);
+  $('#tanfShortNo').prop('checked', true);
+  $('#tanfLongNo').prop('checked', true);
+  $('#snapNo').prop('checked', true);
+  $('#vocRehabNo').prop('checked', true);
+  $('#ssiNo').prop('checked', true);
+  $('#longUnEmpNo').prop('checked', true);
+  $('#empZoneNo').prop('checked', true);
+  $('#summerYouthNo').prop('checked', true);
+
+});
+
+$('#ssiYes').click(function() {
+
+  $('#vetGroupSnapNo').prop('checked', true);
+  $('#vetGroupShortUmpNo').prop('checked', true);
+  $('#vetGroupDisabledDisNo').prop('checked', true);
+  $('#vetGroupLongUmpNo').prop('checked', true);
+  $('#vetGroupDisLongUmpNo').prop('checked', true);
+  $('#tanfShortNo').prop('checked', true);
+  $('#tanfLongNo').prop('checked', true);
+  $('#snapNo').prop('checked', true);
+  $('#vocRehabNo').prop('checked', true);
+  $('#exFelonNo').prop('checked', true);
+  $('#longUnEmpNo').prop('checked', true);
+  $('#empZoneNo').prop('checked', true);
+  $('#summerYouthNo').prop('checked', true);
+
+});
+
+$('#longUnEmpYes').click(function() {
+
+  $('#vetGroupSnapNo').prop('checked', true);
+  $('#vetGroupShortUmpNo').prop('checked', true);
+  $('#vetGroupDisabledDisNo').prop('checked', true);
+  $('#vetGroupLongUmpNo').prop('checked', true);
+  $('#vetGroupDisLongUmpNo').prop('checked', true);
+  $('#tanfShortNo').prop('checked', true);
+  $('#tanfLongNo').prop('checked', true);
+  $('#snapNo').prop('checked', true);
+  $('#vocRehabNo').prop('checked', true);
+  $('#exFelonNo').prop('checked', true);
+  $('#ssiNo').prop('checked', true);
+  $('#empZoneNo').prop('checked', true);
+  $('#summerYouthNo').prop('checked', true);
+
+});
+
+$('#empZoneYes').click(function() {
+
+  $('#vetGroupSnapNo').prop('checked', true);
+  $('#vetGroupShortUmpNo').prop('checked', true);
+  $('#vetGroupDisabledDisNo').prop('checked', true);
+  $('#vetGroupLongUmpNo').prop('checked', true);
+  $('#vetGroupDisLongUmpNo').prop('checked', true);
+  $('#tanfShortNo').prop('checked', true);
+  $('#tanfLongNo').prop('checked', true);
+  $('#snapNo').prop('checked', true);
+  $('#vocRehabNo').prop('checked', true);
+  $('#exFelonNo').prop('checked', true);
+  $('#ssiNo').prop('checked', true);
+  $('#longUnEmpNo').prop('checked', true);
+  $('#summerYouthNo').prop('checked', true);
+
+});
+
+$('#summerYouthYes').click(function() {
+
+  $('#vetGroupSnapNo').prop('checked', true);
+  $('#vetGroupShortUmpNo').prop('checked', true);
+  $('#vetGroupDisabledDisNo').prop('checked', true);
+  $('#vetGroupLongUmpNo').prop('checked', true);
+  $('#vetGroupDisLongUmpNo').prop('checked', true);
+  $('#tanfShortNo').prop('checked', true);
+  $('#tanfLongNo').prop('checked', true);
+  $('#snapNo').prop('checked', true);
+  $('#vocRehabNo').prop('checked', true);
+  $('#exFelonNo').prop('checked', true);
+  $('#ssiNo').prop('checked', true);
+  $('#longUnEmpNo').prop('checked', true);
+  $('#empZoneNo').prop('checked', true);
+
+});
