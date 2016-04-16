@@ -737,7 +737,7 @@ $('input[name="isVet"]').click(function() {
     $('#empZone').hide();
     $('#summerYouth').hide();
     $('#quals').hide();
-    $('#empLength').hide();
+    $('#empLength').show();
 
   }else if ((isVetvalue === 'no') && (document.getElementById('nonProfitYes').checked)) {
 
@@ -804,7 +804,7 @@ $('input[name="nonProfit"]').click(function() {
     $('#empZone').hide();
     $('#summerYouth').hide();
     $('#quals').hide();
-    $('#empLength').hide();
+    $('#empLength').show();
 
   }else if ((nonProfitValue === 'no') && (document.getElementById('isVetNo').checked)) {
 
