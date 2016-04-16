@@ -11,3 +11,7 @@ is written more as a script than a true program, and is thoroughly commented.
 
 Before criticizing the code, please remember the purpose - it must be easy to read and understand
 by someone who is not a programmer.
+
+Update 04162016:
+
+Fixed a bug where the "length of employment" option was hidden even when it was required in order to get the correct WOTC value
